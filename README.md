@@ -1,2 +1,1 @@
-# SAD
-HondouEisuke is readyyyyyyyyyyyyyyyyyy
+This is a repo for the Java project
