@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class tryServlet extends HttpServlet {
     @Override
+    @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest req, HttpServletResponse resp){
         try {
             req.setCharacterEncoding("UTF-8");
@@ -26,7 +27,7 @@ public class tryServlet extends HttpServlet {
             PrintWriter writer = resp.getWriter();
             writer.print(post_key_value);
         }catch(Exception e){
-            return;
+
         }
     }
 }
