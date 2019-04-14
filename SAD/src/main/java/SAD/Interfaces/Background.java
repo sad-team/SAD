@@ -3,12 +3,17 @@ package SAD.Interfaces;
 import com.alibaba.fastjson.JSONObject;
 import org.javamoney.moneta.Money;
 
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
 import java.net.URL;
+import java.sql.Time;
+import java.sql.Date;
 
 /**
  * 该接口定义后端所有对外的接口
  * @author HangLi
  */
+
 public interface Background {
     /**
      * 登陆
@@ -145,4 +150,23 @@ public interface Background {
      * <p>null表示失败</p>
      */
     URL payRead(int resourceid);
+
+    /**
+     * 上传Paper
+     * @param filepart 使用request.getPart获取，注意html中的设置
+     * @param downloadprice 下载价格
+     * @param transferprice 转让价格
+     * @param title 标题
+     * @param brief 摘要
+     * @param from 出处
+     * @param author 作者
+     * @param ownerid 拥有者
+     * @param date 日期
+     * @param time 时间
+     * @return <p>是否上传成功</p>
+     * <p>0 上传成功</p>
+     * <p>1 上传出错</p>
+     * <p>2 查重未通过</p>
+     */
+    int uploadPaper(Part filepart, Money downloadprice, Money transferprice, String title, String brief, String from, String author, int ownerid, Date date, Time time);
 }
