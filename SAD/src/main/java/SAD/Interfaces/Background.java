@@ -145,4 +145,45 @@ public interface Background {
      * <p>null表示失败</p>
      */
     URL payRead(int resourceid);
+
+    /**
+     * 设置管理员
+     * @param userId 用户的账号
+     * @return <p>设置账号userId为管理员账号</p>
+     * <p>0为设置成功</p>
+     * <p>1为设置失败</p>
+     */
+    int setAdministrator(int userid);
+
+    /**
+     * 解除管理员
+     * @param userid 用户账号
+     * @return <p>解除管理员</p>
+     * <p>0为设置成功</p>
+     *  <p>1为设置失败</p>
+     */
+    int deleteAdministrator(int userid);
+
+    /**
+     * 评论
+     * @param commentto 被评论的资源Id
+     * @param comments 评论内容
+     * @return <p>评论资源</p>
+     * <p>0表示成功</p>
+     * <p>1表示失败</p>
+     */
+    int makeComments(int commentto, String comments);
+
+    /**
+     * 删除评论
+     * @param commentid 评论的id
+     * @return <p>删除评论</p>
+     * <p>0表示成功</p>
+     * <p>1表示失败</p>
+     */
+    int deleteComments(int commentid);
+
+
+
+    int reportResource(int resourceid, String why);
 }
