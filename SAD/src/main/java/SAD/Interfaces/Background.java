@@ -169,10 +169,10 @@ public interface Background {
      * <p>2 查重未通过</p>
      */
     int uploadPaper(Part filepart, Money downloadprice, Money transferprice, String title, String brief, String from, String author, int ownerid, Date date, Time time);
-
+    int uploadPatent()
     /**
      * 设置管理员
-     * @param userId 用户的账号
+     * @param userid 用户的账号
      * @return <p>设置账号userId为管理员账号</p>
      * <p>0为设置成功</p>
      * <p>1为设置失败</p>
