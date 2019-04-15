@@ -222,7 +222,11 @@ public interface Background {
      */
     int deleteComments(int commentid);
 
-
-
+    /**
+     *
+     * @param resourceid
+     * @param why
+     * @return
+     */
     int reportResource(int resourceid, String why);
 }
