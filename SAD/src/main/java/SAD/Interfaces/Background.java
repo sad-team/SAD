@@ -169,7 +169,22 @@ public interface Background {
      * <p>2 查重未通过</p>
      */
     int uploadPaper(Part filepart, Money downloadprice, Money transferprice, String title, String brief, String from, String author, int ownerid, Date date, Time time);
-    int uploadPatent()
+
+    /**
+     * 上传专利
+     * @param filepart 文件
+     * @param downloadprice 下载价格
+     * @param transferprice 转让价格
+     * @param title 标题
+     * @param type 类型
+     * @param applicationdate 申请日期
+     * @param authorizeddate 认证日期
+     * @return <p>是否上传成功</p>
+     * <p>0 上传成功</p>
+     * <p>1 上传出错</p>
+     * <p>2 查重未通过</p>
+     */
+    int uploadPatent(Part filepart, Money downloadprice, Money transferprice, String title, String type, Date applicationdate, Date authorizeddate);
     /**
      * 设置管理员
      * @param userid 用户的账号
