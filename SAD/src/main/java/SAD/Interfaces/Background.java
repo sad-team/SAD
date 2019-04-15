@@ -11,7 +11,7 @@ import java.sql.Date;
 
 /**
  * 该接口定义后端所有对外的接口
- * @author HangLi
+ * @author HangLi & BingxinZhuang
  */
 
 public interface Background {
