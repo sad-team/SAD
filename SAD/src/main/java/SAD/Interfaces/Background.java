@@ -133,6 +133,7 @@ public interface Background {
     
     /**
      * 充值
+     *
      * @param source 充值源，参见SAD.Definations.Definations.ChargeSources
      * @param money 充值金额，要求使用money类
      * @param needed 充值源所需要的认证数据，目前未知
@@ -144,6 +145,7 @@ public interface Background {
     
     /**
      * 付费阅览或以0元浏览免费和已付费资源
+     *
      * @param resourceid 需要浏览的资源id
      * @return <p>全文浏览URL</p>
      * <p>非null表示成功</p>
@@ -153,6 +155,7 @@ public interface Background {
     
     /**
      * 上传Paper
+     *
      * @param filepart 使用request.getPart获取，注意html中的设置
      * @param downloadprice 下载价格
      * @param transferprice 转让价格
@@ -172,6 +175,7 @@ public interface Background {
     
     /**
      * 上传专利
+     *
      * @param filepart 文件
      * @param downloadprice 下载价格
      * @param transferprice 转让价格
@@ -188,6 +192,7 @@ public interface Background {
     
     /**
      * 设置管理员
+     *
      * @param userid 用户的账号
      * @return <p>设置账号userId为管理员账号</p>
      * <p>0为设置成功</p>
@@ -197,6 +202,7 @@ public interface Background {
     
     /**
      * 解除管理员
+     *
      * @param userid 用户账号
      * @return <p>解除管理员</p>
      * <p>0为设置成功</p>
@@ -206,6 +212,7 @@ public interface Background {
     
     /**
      * 评论
+     *
      * @param commentto 被评论的资源Id
      * @param comments 评论内容
      * @return <p>评论资源</p>
@@ -216,6 +223,7 @@ public interface Background {
     
     /**
      * 删除评论
+     *
      * @param commentid 评论的id
      * @return <p>删除评论</p>
      * <p>0表示成功</p>
@@ -224,6 +232,7 @@ public interface Background {
     int deleteComments(int commentid);
     
     /**
+     *举报资源
      *
      * @param resourceid 举报资源id
      * @param reason 举报理由陈述
@@ -235,6 +244,7 @@ public interface Background {
     
     /**
      * 用户反馈
+     *
      * @param content 反馈内容
      * @return <p>是否成功</p>
      * <p>0表示成功</p>
@@ -244,6 +254,7 @@ public interface Background {
     
     /**
      * 发送消息
+     *
      * @param userid 消息接收者id
      * @param content 消息内容
      * @return <p>是否成功</p>
@@ -254,6 +265,7 @@ public interface Background {
     
     /**
      * 专家申请自己的门户系统
+     *
      * @return 门户主页URL
      */
     URL applyForHomepage();
