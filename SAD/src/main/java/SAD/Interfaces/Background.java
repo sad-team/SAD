@@ -221,12 +221,5 @@ public interface Background {
      * <p>1表示失败</p>
      */
     int deleteComments(int commentid);
-
-    /**
-     *
-     * @param resourceid
-     * @param why
-     * @return
-     */
     int reportResource(int resourceid, String why);
 }
