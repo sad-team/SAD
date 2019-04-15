@@ -27,7 +27,7 @@ public interface Background {
      * <p>3 密码错误</p>
      */
     int loginIn(String username, String passwd);
-
+    
     /**
      * 试图找回密码，重置为临时密码并发送到邮件
      *
@@ -40,7 +40,7 @@ public interface Background {
      * <p>3 邮箱错误</p>
      */
     int findPasswd(String username, String email);
-
+    
     /**
      * 修改密码
      *
@@ -55,7 +55,7 @@ public interface Background {
      * <p>4 新密码两次输入不匹配</p>
      */
     int changePasswd(String oldpasswd, String newpasswd, String newpasswd2);
-
+    
     /**
      * 普通用户注册
      *
@@ -73,8 +73,8 @@ public interface Background {
      * <p>4 两次密码输入不匹配</p>
      * <p>5 用户邮箱不合法</p>
      */
-    int normalSign(String username, String identification, String cellphonenumber, String passwd, String passwd2, String email);
-
+    int userSignUp(String username, String identification, String cellphonenumber, String passwd, String passwd2, String email);
+    
     /**
      * 科技专家注册
      *
@@ -95,8 +95,8 @@ public interface Background {
      * <p>4 两次密码输入不匹配</p>
      * <p>5 用户邮箱不合法</p>
      */
-    int expertSign(String username, String identification, String cellphonenumber, String passwd, String passwd2, String email, String englishname, String academicid, String technicalfield);
-
+    int expertSignUp(String username, String identification, String cellphonenumber, String passwd, String passwd2, String email, String englishname, String academicid, String technicalfield);
+    
     /**
      * 修改用户信息，具体参数待定（应该不会比这个多）
      *
@@ -117,8 +117,8 @@ public interface Background {
      * <p>4 两次密码输入不匹配</p>
      * <p>5 用户邮箱不合法</p>
      */
-    int newUserInfo(String username, String identification, String cellphonenumber, String passwd, String passwd2, String email, String englishname, String academicid, String technicalfield);
-
+    int updateUserInfo(String username, String identification, String cellphonenumber, String passwd, String passwd2, String email, String englishname, String academicid, String technicalfield);
+    
     /**
      * 普通用户升级为专家
      *
@@ -129,8 +129,8 @@ public interface Background {
      * <p>0 成功</p>
      * <p>1 不知怎么就失败了</p>
      */
-    int becomeExpert(String englishname, String academicid, String technicalfield);
-
+    int upgradeToExpert(String englishname, String academicid, String technicalfield);
+    
     /**
      * 充值
      * @param source 充值源，参见SAD.Definations.Definations.ChargeSources
@@ -141,7 +141,7 @@ public interface Background {
      * <p>数据源认证失败</p>
      */
     int reCharge(SAD.Definations.Definations.ChargeSources source, Money money, JSONObject needed);
-
+    
     /**
      * 付费阅览或以0元浏览免费和已付费资源
      * @param resourceid 需要浏览的资源id
@@ -149,8 +149,8 @@ public interface Background {
      * <p>非null表示成功</p>
      * <p>null表示失败</p>
      */
-    URL payRead(int resourceid);
-
+    URL preview(int resourceid);
+    
     /**
      * 上传Paper
      * @param filepart 使用request.getPart获取，注意html中的设置
@@ -169,7 +169,7 @@ public interface Background {
      * <p>2 查重未通过</p>
      */
     int uploadPaper(Part filepart, Money downloadprice, Money transferprice, String title, String brief, String from, String author, int ownerid, Date date, Time time);
-
+    
     /**
      * 上传专利
      * @param filepart 文件
@@ -185,6 +185,7 @@ public interface Background {
      * <p>2 查重未通过</p>
      */
     int uploadPatent(Part filepart, Money downloadprice, Money transferprice, String title, String type, Date applicationdate, Date authorizeddate);
+    
     /**
      * 设置管理员
      * @param userid 用户的账号
@@ -193,7 +194,7 @@ public interface Background {
      * <p>1为设置失败</p>
      */
     int setAdministrator(int userid);
-
+    
     /**
      * 解除管理员
      * @param userid 用户账号
@@ -202,7 +203,7 @@ public interface Background {
      *  <p>1为设置失败</p>
      */
     int deleteAdministrator(int userid);
-
+    
     /**
      * 评论
      * @param commentto 被评论的资源Id
@@ -212,7 +213,7 @@ public interface Background {
      * <p>1表示失败</p>
      */
     int makeComments(int commentto, String comments);
-
+    
     /**
      * 删除评论
      * @param commentid 评论的id
@@ -221,5 +222,39 @@ public interface Background {
      * <p>1表示失败</p>
      */
     int deleteComments(int commentid);
-    int reportResource(int resourceid, String why);
+    
+    /**
+     *
+     * @param resourceid 举报资源id
+     * @param reason 举报理由陈述
+     * @return <p>是否成功</p>
+     * <p>0表示成功</p>
+     * <p>1表示失败</p>
+     */
+    int reportResource(int resourceid, String reason);
+    
+    /**
+     * 用户反馈
+     * @param content 反馈内容
+     * @return <p>是否成功</p>
+     * <p>0表示成功</p>
+     * <p>1表示失败</p>
+     */
+    int feedback(String content);
+    
+    /**
+     * 发送消息
+     * @param userid 消息接收者id
+     * @param content 消息内容
+     * @return <p>是否成功</p>
+     * <p>0表示成功</p>
+     * <p>1表示失败</p>
+     */
+    int sendMessage(int userid, String content);
+    
+    /**
+     * 专家申请自己的门户系统
+     * @return 门户主页URL
+     */
+    URL applyForHomepage();
 }
