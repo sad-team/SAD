@@ -8,6 +8,8 @@ import javax.servlet.http.Part;
 import java.net.URL;
 import java.sql.Time;
 import java.sql.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 该接口定义后端所有对外的接口
@@ -189,7 +191,85 @@ public interface Background {
      * <p>2 查重未通过</p>
      */
     int uploadPatent(Part filepart, Money downloadprice, Money transferprice, String title, String type, Date applicationdate, Date authorizeddate);
-    
+
+    /**
+     * 上传项目
+     *
+     * @param filepart 文件
+     * @param downloadprice 下载价格
+     * @param transferprice 转让价格
+     * @param title 标题
+     * @param expertid 专家id
+     * @param approvingdepartment 批准部门
+     * @param funds 资金
+     * @param startdate 开始日期
+     * @param enddate 结束日期
+     * @return <p>是否上传成功</p>
+     * <p>0 上传成功</p>
+     * <p>1 上传出错</p>
+     * <p>2 查重未通过</p>
+     */
+    int uploadProject(Part filepart, Money downloadprice, Money transferprice, String title, int expertid, String approvingdepartment, Money funds, Date startdate, Date enddate);
+
+    /**
+     * 删除资源
+     *
+     * @param resourceid 资源id
+     * @return <p>是否成功</p>
+     * <p>0 成功</p>
+     * <p>1 失败</p>
+     */
+    int deleteResource(int resourceid);
+
+    /**
+     * 转让资源
+     *
+     * @param resourceid 资源id
+     * @param touserid 转让到用户id
+     * @return <p>是否成功</p>
+     * <p>0 成功</p>
+     * <p>1 失败</p>
+     */
+    int transResource(int resourceid, int touserid);
+
+    /**
+     * 查询资源
+     *
+     * @param fileds 要查询的字段——值键值对
+     * @return <p>所有的满足条件的资源id列表</p>
+     * <p>错误返回null</p>
+     */
+    List<Integer> findResource(Map<String,String> fileds);
+
+    /**
+     * 资源预览，用于未付费的付费资源，对于已付费的资源和免费资源，可预览100%
+     *
+     * @param resourceid 资源id
+     * @return <p>资源预览的URL</p>
+     * <p>失败返回null</p>
+     */
+    URL preRead(int resourceid);
+
+    /**
+     * 发起对用户的关注
+     *
+     * @param userid 欲关注的用户id
+     * @return <p>是否成功发送</p>
+     * <p>0 成功</p>
+     * <p>1 已经关注该用户</p>
+     */
+    int followUser(int userid);
+
+    /**
+     * 取消对用户的关注，分两种情况：已经关注的取消关注，已经发起关注请求的取消请求
+     *
+     * @param userid 被关注的用户id
+     * @return <p>是否取消成功</p>
+     * <p>0 成功</p>
+     * <p>1 还未成功关注或成功发起关注请求</p>
+     */
+    int removeFollow(int userid);
+
     /**
      * 设置管理员
      *
