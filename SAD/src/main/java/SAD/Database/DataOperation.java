@@ -25,4 +25,7 @@ public final class DataOperation {
     public static int selectUserRole(int userid){
         return template.queryForInt("select selectUserRole(?)",new Object[]{userid});
     }
+    public static int newPasswd(int userid, String oldpasswd, String newpasswd){
+        return template.queryForInt("select newPasswd(?,?,?)",new Object[]{userid,oldpasswd,newpasswd});
+    }
 }

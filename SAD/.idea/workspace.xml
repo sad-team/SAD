@@ -12,8 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="88a2743d-2403-4652-8217-191c2cc1e879" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Definations/Definations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SAD/Definations/Definations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAD.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Test/DatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SAD/Test/DatabaseTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,7 +55,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Try/tryServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
+            <state relative-caret-position="756">
               <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -66,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Test/DatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+            <state relative-caret-position="365">
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Interfaces/Background.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            <state relative-caret-position="170">
+              <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+            <state relative-caret-position="504">
+              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -286,14 +287,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555729454227" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555749326282" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/dirstructure/classes" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -322,7 +323,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.DatabaseTest.newPasswdTest">
+    <configuration name="DatabaseTest.newPasswdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SAD.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SAD.Test" />
+      <option name="MAIN_CLASS_NAME" value="SAD.Test.DatabaseTest" />
+      <option name="METHOD_NAME" value="newPasswdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DatabaseTest.selectUserRoleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAD" />
       <extension name="coverage">
@@ -341,6 +358,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DatabaseTest.newPasswdTest" />
         <item itemvalue="JUnit.DatabaseTest.selectUserRoleTest" />
       </list>
     </recent_temporary>
@@ -373,16 +391,11 @@
       <workItem from="1555420958481" duration="1601000" />
       <workItem from="1555679581487" duration="1746000" />
       <workItem from="1555725409243" duration="3878000" />
+      <workItem from="1555748241124" duration="1007000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DatabaseTest_selectUserRoleTest - 2019.04.20 at 10h 50m 51s.xml">
-      <configuration name="DatabaseTest.selectUserRoleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseTest_selectUserRoleTest - 2019.04.20 at 10h 51m 52s.xml">
-      <configuration name="DatabaseTest.selectUserRoleTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DatabaseTest_selectUserRoleTest - 2019.04.20 at 10h 52m 09s.xml">
       <configuration name="DatabaseTest.selectUserRoleTest" configurationId="JUnit" />
     </history-entry>
@@ -407,15 +420,21 @@
     <history-entry file="DatabaseTest_selectUserRoleTest - 2019.04.20 at 11h 04m 07s.xml">
       <configuration name="DatabaseTest.selectUserRoleTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DatabaseTest_selectUserRoleTest - 2019.04.20 at 16h 18m 18s.xml">
+      <configuration name="DatabaseTest.selectUserRoleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DatabaseTest_newPasswdTest - 2019.04.20 at 16h 35m 21s.xml">
+      <configuration name="DatabaseTest.newPasswdTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21976000" />
+    <option name="totallyTimeSpent" value="22983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.141258" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.14285715" />
       <window_info id="Structure" order="1" sideWeight="0.5010846" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -469,10 +488,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Interfaces/Background.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Try/tryServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -506,10 +525,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Try/tryServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Interfaces/Background.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="170">
+          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -518,8 +537,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+        <state relative-caret-position="504">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -528,8 +547,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Test/DatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        <state relative-caret-position="365">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
