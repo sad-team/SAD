@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">资讯</a></li>
+                    <li><a href="#">社区</a></li>
+                    <li><a href="#">动态</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            我<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">个人信息</a></li>
+                            <li><a href="#">历史订单</a></li>
+                            <li><a href="#">我的积分</a></li>
+                            <li><a href="#">我的关注</a></li>
+                            <li><a href="#">我的资源</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">充值</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">消息<b class="caret"></b></a></li>
+                </ul>
+
+                <ul class="nav navbar-form navbar-right">
+                    <li>
+                        <!-- 按钮触发模态框 -->
+                        <button class="btn btn-primary btn-block" data-target="#signIn" data-toggle="modal"
+                                id="siginInButton">
+                            登录
+                        </button>
+                    </li>
+                </ul>
+                <ul class="nav navbar-form navbar-right">
+                    <li>
+                        <!-- 按钮触发模态框 -->
+                        <button class="btn btn-default btn-block" data-target="#signUp" data-toggle="modal"
+                                id="signUpButton">
+                            注册
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--注册对话框 -->
+    <div aria-hidden="true" aria-labelledby="signUpLabel" class="modal fade" id="signUp" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" class="close" data-dismiss="modal"
+                            type="button">×
+                    </button>
+                    <h4 class="modal-title">
+                        SAD
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="signUpName">用户名</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="signUpName" placeholder="请输入用户名"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="signUpPasswd">设置密码</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="signUpPasswd" placeholder="密码为6-15个字符"
+                                       type="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="signUpEmail">您的邮箱</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="signUpEmail" placeholder="输入正确的邮箱地址"
+                                       type="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-inline" id="identfyingCode">
+
+                            <span> <label class="col-sm-2 control-label" style="text-align: end">验证码</label> </span>
+                            <div class="col-sm-10">
+                                <input class="col-sm-4 form-control" placeholder="请输入图形验证码" type="text"/>
+                                <canvas class="col-sm-4" height="45 " id="canvas" width="120"></canvas>
+                                <a href="#" id="changeImg">看不清，换一张</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> 我已阅读并同意隐私条款
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary" type="submit">注册</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal"
+                            type="button">关闭
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- 登录对话框 -->
+    <div aria-hidden="true" aria-labelledby="signInLabel" class="modal fade" id="signIn" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" class="close" data-dismiss="modal"
+                            type="button">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        SAD
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="signInName">用户名</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="signInName" placeholder="请输入用户名"
+                                       type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="signInPasswd">密码</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="signInPasswd" placeholder="请输入密码"
+                                       type="password">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-inline" id="identfyingCode2">
+
+                            <span> <label class="col-sm-2 control-label" style="text-align: end">验证码</label> </span>
+                            <div class="col-sm-10">
+                                <input class="col-sm-4 form-control" placeholder="请输入图形验证码" type="text"/>
+                                <canvas class="col-sm-4" height="45 " id="canvas2" width="120"></canvas>
+                                <a href="#" id="changeImg2">看不清，换一张</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> 记住密码
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <form action="src/main/java/SAD/Try/tryServlet.java" method="post" id="signInForm">
+                                <button class="btn btn-primary" type="submit">登录</button>
+                                </form>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal"
+                            type="button">关闭
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+</div>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>科技专家资源共享平台</h1>
+        <h2>欢迎您</h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>论文</h3>
+            <p><a href="search.html">搜索</a></p>
+        </div>
+        <div class="col-sm-4">
+            <h3>专利</h3>
+            <p><a href="search.html">搜索</a></p>
+        </div>
+        <div class="col-sm-4">
+            <h3>项目</h3>
+            <p><a href="search.html">搜索</a></p>
+        </div>
+    </div>
+    <h2>资讯</h2>
+    <p>了解最新的学术动态</p>
+    <img alt="Cinque Terre" class="img-responsive img-circle" height="236" src="web/images/bookstore.jpg" width="304">
+</div>
+
+<script>
+
+    $(function () {
+        $("#siginInButton.btn").click(function () {
+            drawPic("canvas2")
+
+        });
+    });
+    $(function () {
+        $("#signUpButton.btn").click(function () {
+            drawPic("canvas")
+        });
+    });
+
+    /**生成一个随机数**/
+    function randomNum(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    /**生成一个随机色**/
+    function randomColor(min, max) {
+        var r = randomNum(min, max);
+        var g = randomNum(min, max);
+        var b = randomNum(min, max);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+
+    drawPic("canvas");
+    drawPic("canvas2");
+    document.getElementById("changeImg").onclick = function (e) {
+        e.preventDefault();
+        drawPic("canvas");
+    }
+    document.getElementById("changeImg2").onclick = function (e) {
+        e.preventDefault();
+        drawPic("canvas2");
+    }
+
+    /**绘制验证码图片**/
+    function drawPic(canvasID) {
+        var canvas = document.getElementById(canvasID);
+        var width = canvas.width;
+        var height = canvas.height;
+        var ctx = canvas.getContext('2d');
+        ctx.textBaseline = 'bottom';
+
+        /**绘制背景色**/
+        ctx.fillStyle = randomColor(180, 240); //颜色若太深可能导致看不清
+        ctx.fillRect(0, 0, width, height);
+        /**绘制文字**/
+        var str = 'ABCEFGHJKLMNPQRSTWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (var i = 0; i < 4; i++) {
+            var txt = str[randomNum(0, str.length)];
+            ctx.fillStyle = randomColor(50, 160);  //随机生成字体颜色
+            ctx.font = randomNum(15, 40) + 'px SimHei'; //随机生成字体大小
+            var x = 10 + i * 25;
+            var y = randomNum(25, 45);
+            var deg = randomNum(-45, 45);
+            //修改坐标原点和旋转角度
+            ctx.translate(x, y);
+            ctx.rotate(deg * Math.PI / 180);
+            ctx.fillText(txt, 0, 0);
+            //恢复坐标原点和旋转角度
+            ctx.rotate(-deg * Math.PI / 180);
+            ctx.translate(-x, -y);
+        }
+        /**绘制干扰线**/
+        for (var i = 0; i < 8; i++) {
+            ctx.strokeStyle = randomColor(40, 180);
+            ctx.beginPath();
+            ctx.moveTo(randomNum(0, width), randomNum(0, height));
+            ctx.lineTo(randomNum(0, width), randomNum(0, height));
+            ctx.stroke();
+        }
+        /**绘制干扰点**/
+        for (var i = 0; i < 100; i++) {
+            ctx.fillStyle = randomColor(0, 255);
+            ctx.beginPath();
+            ctx.arc(randomNum(0, width), randomNum(0, height), 1, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+    }
+</script>
+
+</body>
+</html>
