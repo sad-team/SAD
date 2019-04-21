@@ -3,15 +3,15 @@ package SAD.Database;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
-public final class DataOperation {
-    private static JdbcTemplate template;
-    static{
-        ApplicationContext context;
-        context=new ClassPathXmlApplicationContext("spring_config.xml");
-        template=(JdbcTemplate) context.getBean("jdbctemplate");
+public class DataOperation {
+    private JdbcTemplate template;
+    public void setTemplate(JdbcTemplate template){
+        this.template=template;
     }
-
     /**
      *获取用户角色
      *
@@ -22,10 +22,28 @@ public final class DataOperation {
      * <p>1 专家</p>
      * <p>2 管理员</p>
      */
-    public static int selectUserRole(int userid){
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public int selectUserRole(int userid){
         return template.queryForInt("select selectUserRole(?)",new Object[]{userid});
     }
-    public static int newPasswd(int userid, String oldpasswd, String newpasswd){
+
+    /**
+     * 修改密码
+     *
+     * @param userid 用户id
+     * @param oldpasswd 旧密码
+     * @param newpasswd 新密码
+     * @return <p>是否修改成功</p>
+     * <p>0 成功</p>
+     * <p>-1 密码错误</p>
+     * <p>-2 用户不存在</p>
+     */
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public int newPasswd(int userid, String oldpasswd, String newpasswd){
         return template.queryForInt("select newPasswd(?,?,?)",new Object[]{userid,oldpasswd,newpasswd});
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public int newUser(String username, String identification, String cellphone, String passwd, String email){
+        return template.queryForInt("select newUser(?,?,?,?,?)",new Object[]{username,identification,cellphone,passwd,email});
     }
 }
