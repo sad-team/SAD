@@ -17,9 +17,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/dirstructure/webxml" relative="/WEB-INF" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-        </sourceRoots>
       </configuration>
     </facet>
   </component>
