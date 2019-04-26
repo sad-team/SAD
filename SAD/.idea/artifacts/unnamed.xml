@@ -24,11 +24,11 @@
           <element id="library" level="project" name="Maven: org.javamoney.moneta:moneta-core:1.3" />
         </element>
         <element id="dir-copy" path="$PROJECT_DIR$/dirstructure/webxml" />
-        <element id="dir-copy" path="$PROJECT_DIR$/dirstructure/htmls" />
       </element>
       <element id="directory" name="image">
         <element id="dir-copy" path="$PROJECT_DIR$/dirstructure/image" />
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/dirstructure/htmls" />
     </root>
   </artifact>
 </component>
