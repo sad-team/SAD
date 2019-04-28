@@ -26,9 +26,9 @@ public class DatabaseTest {
     }
     @Test
     public void newUserTest(){
-        System.out.println(dataoperator.newUser("first","1111111111","0000000000","dsjajdhhfkjhaf","sss@sss"));
-        System.out.println(dataoperator.newUser("dd","34154523543","314","dsjajdhhfkjhaf","sss@sss"));
-        System.out.println(dataoperator.newUser("second","111","434234144","dsjajdhhfkjhaf","sss@sss"));
-        System.out.println(dataoperator.newUser("third","sdadsadw","0000000000","dsjajdhhfkjhaf","sss@sss"));
+        System.out.println(dataoperator.newUser("ZYY","1111311r1yy11","69687209000","dsjajdhhfkjhaf","6s@sss"));
+        System.out.println(dataoperator.newUser("BYY","3415r46yy623543","37714","dsjajdhhfkjhaf","s7s@sss"));
+        System.out.println(dataoperator.newUser("XYY","11r66yy1","43423477144","dsjajdhhfkjhaf","s0s@sss"));
+        System.out.println(dataoperator.newUser("DYY","sdryy","00000178200","dsjajdhhfkjhaf","sss@sss"));
     }
 }

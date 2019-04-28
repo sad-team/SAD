@@ -14,26 +14,26 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#">资讯</a></li>
-                    <li><a href="#">社区</a></li>
-                    <li><a href="#">动态</a></li>
+                    <li><a href="../jsps/news.jsp">资讯</a></li>
+                    <li><a href="../jsps/community.jsp">社区</a></li>
+                    <li><a href="../jsps/dynamic.jsp">动态</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             我<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">个人信息</a></li>
-                            <li><a href="#">历史订单</a></li>
-                            <li><a href="#">我的积分</a></li>
-                            <li><a href="#">我的关注</a></li>
-                            <li><a href="#">我的资源</a></li>
+                            <li><a href="../jsps/userInfo.jsp">个人信息</a></li>
+                            <li><a href="../jsps/orderHistory.jsp">历史订单</a></li>
+                            <li><a href="../jsps/myPoints.jsp">我的积分</a></li>
+                            <li><a href="../jsps/myFollows.jsp">我的关注</a></li>
+                            <li><a href="../jsps/myResource.jsp">我的资源</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">充值</a></li>
+                    <li><a href="../jsps/recharge.jsp">充值</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">消息<b class="caret"></b></a></li>
+                    <li><a href="../jsps/myMessages.jsp">消息<b class="caret"></b></a></li>
                 </ul>
 
                 <ul class="nav navbar-form navbar-right">
@@ -70,26 +70,42 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" action="SignUp" method="post">
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="signUpName">用户名</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="signUpName" placeholder="请输入用户名"
-                                       type="text">
+                                       type="text" name="signUpName">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="signUpPasswd">设置密码</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="signUpPasswd" placeholder="密码为6-15个字符"
-                                       type="password">
+                                       type="password" name="signUpPasswd">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="signUpEmail">您的邮箱</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="signUpEmail" placeholder="输入正确的邮箱地址"
-                                       type="email">
+                                       type="email" name="signUpEmail">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="cellphoneNumber">您的手机号</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="cellphoneNumber" placeholder="输入您的手机号码"
+                                       type="tel" name="cellphoneNumber">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="identification">您的身份证号码</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="identification" placeholder="输入您的身份证号码"
+                                       type="number" name="identification">
                             </div>
                         </div>
 
@@ -140,12 +156,12 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" action="Login" method="post">
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="signInName">用户名</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="signInName" placeholder="请输入用户名"
-                                       type="text">
+                                       type="text" name="signInName">
                             </div>
                         </div>
 
@@ -153,7 +169,7 @@
                             <label class="col-sm-2 control-label" for="signInPasswd">密码</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="signInPasswd" placeholder="请输入密码"
-                                       type="password">
+                                       type="password" name="signInPasswd">
                             </div>
                         </div>
 
@@ -179,9 +195,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <form action="src/main/java/SAD/Try/tryServlet.java" method="post" id="signInForm">
                                 <button class="btn btn-primary" type="submit">登录</button>
-                                </form>
                             </div>
                         </div>
                     </form>
@@ -219,7 +233,7 @@
     </div>
     <h2>资讯</h2>
     <p>了解最新的学术动态</p>
-    <img alt="Cinque Terre" class="img-responsive img-circle" height="236" src="web/images/bookstore.jpg" width="304">
+    <img alt="Cinque Terre" class="img-responsive img-thumbnail" height="236" src="../images/bookstore.jpg" width="304">
 </div>
 
 <script>
