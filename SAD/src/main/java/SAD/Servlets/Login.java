@@ -10,10 +10,10 @@ public class Login extends HttpServlet {
     @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest req, HttpServletResponse resp){
         HttpSession session=req.getSession();
-        String username=req.getParameter("username");
-        String passwd=req.getParameter("passwd");
+        String username=(String)req.getParameter("signInName");
+        String passwd=(String)req.getParameter("signInPasswd");
         try {
-            resp.getWriter().write(username + "   " + passwd);
+            resp.getWriter().write(username + "   " + passwd + "12345678");
         }catch(Exception e){
 
         }
