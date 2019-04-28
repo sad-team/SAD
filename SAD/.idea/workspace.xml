@@ -11,59 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88a2743d-2403-4652-8217-191c2cc1e879" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/unnamed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/unnamed.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SAD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAD.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dirstructure/classes/SAD/Definations/Definations$ChargeSources.class" beforeDir="false" afterPath="$PROJECT_DIR$/dirstructure/classes/SAD/Definations/Definations$ChargeSources.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dirstructure/classes/SAD/Definations/Definations.class" beforeDir="false" afterPath="$PROJECT_DIR$/dirstructure/classes/SAD/Definations/Definations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dirstructure/classes/SAD/Interfaces/Background.class" beforeDir="false" afterPath="$PROJECT_DIR$/dirstructure/classes/SAD/Interfaces/Background.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dirstructure/webxml/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dirstructure/webxml/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/unnamed/try.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/unnamed/try.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/unnamed/unnamed.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/AcademicInstitution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Administrator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Appeal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Expert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Follow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Homepage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Keyword.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Notice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Paper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Patent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Project.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Report.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Suggestion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/Try.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Data/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SAD/Database/DataOperation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SAD/Definations/Definations$ChargeSources.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SAD/Definations/Definations.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SAD/Interfaces/Background.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SAD/Servlets/Upload.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SAD/Test/DatabaseTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SAD/Try/tryServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/AcademicInstitution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Administrator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Appeal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Expert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Follow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Homepage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Keyword.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Notice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Paper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Patent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Project.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Report.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Suggestion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/Try.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring_config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/SAD.kotlin_module" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -92,21 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dirstructure/classes/SAD/Data/Administrator.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dirstructure/classes/SAD/Definations/Definations.class">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="288">
+              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,32 +66,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Servlets/Login.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dirstructure/htmls/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/spring_config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -178,10 +100,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dirstructure/webxml/web.xml">
+        <entry file="file://$PROJECT_DIR$/src/resources/spring_config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="19" selection-end-column="41" />
+            <state relative-caret-position="396">
+              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -251,7 +173,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="645" />
     <option name="y" value="112" />
     <option name="width" value="974" />
@@ -265,6 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -272,42 +195,6 @@
             <path>
               <item name="SAD" type="b2602c69:ProjectViewProjectNode" />
               <item name="SAD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAD" type="462c0819:PsiDirectoryNode" />
-              <item name="dirstructure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAD" type="462c0819:PsiDirectoryNode" />
-              <item name="dirstructure" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAD" type="462c0819:PsiDirectoryNode" />
-              <item name="dirstructure" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="SAD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAD" type="462c0819:PsiDirectoryNode" />
-              <item name="dirstructure" type="462c0819:PsiDirectoryNode" />
-              <item name="htmls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAD" type="462c0819:PsiDirectoryNode" />
-              <item name="dirstructure" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SAD" type="462c0819:PsiDirectoryNode" />
-              <item name="dirstructure" type="462c0819:PsiDirectoryNode" />
-              <item name="webxml" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SAD" type="b2602c69:ProjectViewProjectNode" />
@@ -399,7 +286,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -407,7 +293,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556106804160" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556463241657" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/dirstructure/classes" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -531,6 +417,7 @@
       <workItem from="1556100915791" duration="4722000" />
       <workItem from="1556106544709" duration="258000" />
       <workItem from="1556107255777" duration="926000" />
+      <workItem from="1556462959781" duration="280000" />
     </task>
     <servers />
   </component>
@@ -567,13 +454,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34319000" />
+    <option name="totallyTimeSpent" value="34599000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.2185501" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.22068231" />
       <window_info id="Structure" order="1" sideWeight="0.5010846" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -689,19 +576,6 @@
     <entry file="file://$PROJECT_DIR$/dirstructure/classes/SAD/Data/Administrator.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dirstructure/classes/SAD/Definations/Definations.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Servlets/Upload.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -709,13 +583,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/spring_config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -736,12 +603,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dirstructure/classes/spring_config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dirstructure/webxml/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
           <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="19" selection-end-column="41" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/spring_config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dirstructure/classes/SAD/Definations/Definations.class">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/dirstructure/htmls/login.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -753,7 +637,17 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Servlets/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SAD/Database/DataOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -814,7 +708,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>SAD</last-edited>
+          <last-edited>Spring|SAD</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
