@@ -31,4 +31,9 @@ public class DatabaseTest {
         System.out.println(dataoperator.newUser("XYY","11r66yy1","43423477144","dsjajdhhfkjhaf","s0s@sss"));
         System.out.println(dataoperator.newUser("DYY","sdryy","00000178200","dsjajdhhfkjhaf","sss@sss"));
     }
+
+    @Test
+    public void loginTest(){
+        System.out.println(dataoperator.login("dd","3223"));
+    }
 }

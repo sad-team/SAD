@@ -25,7 +25,7 @@
 <body>
 
 <div id="Layer1" style="position:fixed; left:0px; bottom:0px; width:100%; height:100%">
-    <img src="../images/news.jpg" width="100%" height="100%"/>
+    <img src="images/news.jpg" width="100%" height="100%"/>
 </div>
 
 <div id="Layer2" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 540px">
@@ -51,7 +51,7 @@
     </div>
 
     <div style="margin-top: 30px; text-align: center">
-        <a href="../htmls/index.html" class="btn btn-default">返回</a>
+        <a href="index.html" class="btn btn-default">返回</a>
     </div>
 </div>
 

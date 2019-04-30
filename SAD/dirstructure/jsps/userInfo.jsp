@@ -57,7 +57,7 @@
                     </form>
 
                     <div class="modal-footer" style="margin-top: 30px; text-align: center">
-                        <a href="../htmls/index.html" class="btn btn-default">返回</a>
+                        <a href="index.html" class="btn btn-default">返回</a>
                     </div>
 
 </div>

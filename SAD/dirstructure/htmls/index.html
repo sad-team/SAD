@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,201 +15,36 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="../jsps/news.jsp">资讯</a></li>
-                    <li><a href="../jsps/community.jsp">社区</a></li>
-                    <li><a href="../jsps/dynamic.jsp">动态</a></li>
+                    <li><a href="news.jsp">资讯</a></li>
+                    <li><a href="community.jsp">社区</a></li>
+                    <li><a href="dynamic.jsp">动态</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             我<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="../jsps/userInfo.jsp">个人信息</a></li>
-                            <li><a href="../jsps/orderHistory.jsp">历史订单</a></li>
-                            <li><a href="../jsps/myPoints.jsp">我的积分</a></li>
-                            <li><a href="../jsps/myFollows.jsp">我的关注</a></li>
-                            <li><a href="../jsps/myResource.jsp">我的资源</a></li>
+                            <li><a href="userInfo.jsp">个人信息</a></li>
+                            <li><a href="orderHistory.jsp">历史订单</a></li>
+                            <li><a href="myPoints.jsp">我的积分</a></li>
+                            <li><a href="myFollows.jsp">我的关注</a></li>
+                            <li><a href="myResource.jsp">我的资源</a></li>
                         </ul>
                     </li>
-                    <li><a href="../jsps/recharge.jsp">充值</a></li>
+                    <li><a href="recharge.jsp">充值</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../jsps/myMessages.jsp">消息<b class="caret"></b></a></li>
+                    <li><a href="myMessages.jsp">消息<b class="caret"></b></a></li>
                 </ul>
 
                 <ul class="nav navbar-form navbar-right">
                     <li>
-                        <!-- 按钮触发模态框 -->
-                        <button class="btn btn-primary btn-block" data-target="#signIn" data-toggle="modal"
-                                id="siginInButton">
-                            登录
-                        </button>
-                    </li>
-                </ul>
-                <ul class="nav navbar-form navbar-right">
-                    <li>
-                        <!-- 按钮触发模态框 -->
-                        <button class="btn btn-default btn-block" data-target="#signUp" data-toggle="modal"
-                                id="signUpButton">
-                            注册
-                        </button>
+                        <a href="login.jsp" class="btn btn-default btn-block">登录/注册</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!--注册对话框 -->
-    <div aria-hidden="true" aria-labelledby="signUpLabel" class="modal fade" id="signUp" role="dialog" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button aria-hidden="true" class="close" data-dismiss="modal"
-                            type="button">×
-                    </button>
-                    <h4 class="modal-title">
-                        SAD
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" role="form" action="SignUp" method="post">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="signUpName">用户名</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="signUpName" placeholder="请输入用户名"
-                                       type="text" name="signUpName">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="signUpPasswd">设置密码</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="signUpPasswd" placeholder="密码为6-15个字符"
-                                       type="password" name="signUpPasswd">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="signUpEmail">您的邮箱</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="signUpEmail" placeholder="输入正确的邮箱地址"
-                                       type="email" name="signUpEmail">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="cellphoneNumber">您的手机号</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="cellphoneNumber" placeholder="输入您的手机号码"
-                                       type="tel" name="cellphoneNumber">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="identification">您的身份证号码</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="identification" placeholder="输入您的身份证号码"
-                                       type="number" name="identification">
-                            </div>
-                        </div>
-
-                        <div class="form-group form-inline" id="identfyingCode">
-
-                            <span> <label class="col-sm-2 control-label" style="text-align: end">验证码</label> </span>
-                            <div class="col-sm-10">
-                                <input class="col-sm-4 form-control" placeholder="请输入图形验证码" type="text"/>
-                                <canvas class="col-sm-4" height="45 " id="canvas" width="120"></canvas>
-                                <a href="#" id="changeImg">看不清，换一张</a>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> 我已阅读并同意隐私条款
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-primary" type="submit">注册</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal"
-                            type="button">关闭
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <!-- 登录对话框 -->
-    <div aria-hidden="true" aria-labelledby="signInLabel" class="modal fade" id="signIn" role="dialog" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button aria-hidden="true" class="close" data-dismiss="modal"
-                            type="button">×
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">
-                        SAD
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" role="form" action="Login" method="post">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="signInName">用户名</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="signInName" placeholder="请输入用户名"
-                                       type="text" name="signInName">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="signInPasswd">密码</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="signInPasswd" placeholder="请输入密码"
-                                       type="password" name="signInPasswd">
-                            </div>
-                        </div>
-
-                        <div class="form-group form-inline" id="identfyingCode2">
-
-                            <span> <label class="col-sm-2 control-label" style="text-align: end">验证码</label> </span>
-                            <div class="col-sm-10">
-                                <input class="col-sm-4 form-control" placeholder="请输入图形验证码" type="text"/>
-                                <canvas class="col-sm-4" height="45 " id="canvas2" width="120"></canvas>
-                                <a href="#" id="changeImg2">看不清，换一张</a>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> 记住密码
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-primary" type="submit">登录</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal"
-                            type="button">关闭
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
 </div>
 
@@ -233,7 +69,7 @@
     </div>
     <h2>资讯</h2>
     <p>了解最新的学术动态</p>
-    <img alt="Cinque Terre" class="img-responsive img-thumbnail" height="236" src="../images/bookstore.jpg" width="304">
+    <img alt="Cinque Terre" class="img-responsive img-thumbnail" height="236" src="images/bookstore.jpg" width="304">
 </div>
 
 <script>
