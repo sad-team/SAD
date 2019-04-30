@@ -34,7 +34,7 @@
 </head>
 <body>
 <div id="Layer1" style="position:fixed; left:0px; bottom:0px; width:100%; height:100%">
-    <img src="../images/rechargeBg.jpg" width="100%" height="100%"/>
+    <img src="images/rechargeBg.jpg" width="100%" height="100%"/>
 </div>
 <div id="Layer2">
 <div class="container" style="position:fixed; left:0px; bottom:0px; width:100%; height:100%">
@@ -111,7 +111,7 @@
     </div>
 
     <div class="modal-footer" style="margin-top: 30px; text-align: center">
-        <a href="../htmls/index.html" class="btn btn-default">返回</a>
+        <a href="index.html" class="btn btn-default">返回</a>
     </div>
 </div>
 </div>

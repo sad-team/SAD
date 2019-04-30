@@ -23,9 +23,6 @@ public class SignUp extends HttpServlet {
         DataOperation dataoperator;
         ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
         dataoperator=(DataOperation) context.getBean("dataoperator");
-
-        DatabaseTest dt=new DatabaseTest();
-        dt.newUserTest();
         try {
             response.getWriter().write(signUpName);
             response.getWriter().write(signUpPasswd);

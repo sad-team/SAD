@@ -43,7 +43,7 @@
 <body>
 <div id="Layer1" style="position:fixed; left:0px; bottom:0px; width:100%; height:100%">
 
-    <img src="../images/wall.jpg" width="100%" height="100%"/>
+    <img src="images/wall.jpg" width="100%" height="100%"/>
 </div>
 <div id="Layer2" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 20%">
     <p class="searchTitle">科技专家资源共享平台</p>
@@ -99,15 +99,10 @@
     </div>
 
     <div class="modal-footer" style="position: fixed; bottom: 30px; width: 100%; text-align: center">
-        <a href="../htmls/index.html" class="btn btn-default">返回</a>
+        <a href="index.html" class="btn btn-default">返回</a>
     </div>
 </div>
 
 </body>
-<!-- JavaScript 放置在文档最后面可以使页面加载速度更快 -->
-<!-- 可选: 包含 jQuery 库 -->
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<!-- 可选: 合并了 Bootstrap JavaScript 插件 -->
-<script src="https://apps.bdimg.com/libs/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-</body>
+
 </html>

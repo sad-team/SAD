@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public class DataOperation {
     private JdbcTemplate template;
     public void setTemplate(JdbcTemplate template){
@@ -62,4 +64,19 @@ public class DataOperation {
     public int newUser(String username, String identification, String cellphone, String passwd, String email){
         return template.queryForInt("select newUser(?,?,?,?,?)",new Object[]{username,identification,cellphone,passwd,email});
     }
+
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public boolean login(String username, String passwd){
+        String sqlStr = "SELECT id " + "FROM user" + " WHERE name = \"" + username + "\" AND password = \"" + passwd + "\"";
+
+        int size = template.queryForList(sqlStr).size();
+
+       if (size != 0)
+        return true;
+       else
+           return false;
+
+    }
+
+
 }
