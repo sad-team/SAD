@@ -19,6 +19,8 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session=req.getSession();
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         String username = (String)req.getParameter("signInName");
         String passwd = (String)req.getParameter("signInPasswd"); DataOperation dataoperator;
         ApplicationContext context = new ClassPathXmlApplicationContext("spring_config.xml");

@@ -3,6 +3,7 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+
     <servlet>
         <servlet-name>tryServlet</servlet-name>
         <servlet-class>SAD.Try.tryServlet</servlet-class>
@@ -11,6 +12,7 @@
         <servlet-name>tryServlet</servlet-name>
         <url-pattern>/tryServlet</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>SAD.Servlets.Login</servlet-class>
@@ -19,6 +21,7 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>SignUp</servlet-name>
         <servlet-class>SAD.Servlets.SignUp</servlet-class>
@@ -27,4 +30,59 @@
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/SignUp</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyPoint</servlet-name>
+        <servlet-class>SAD.Servlets.MyPoint</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyPoint</servlet-name>
+        <url-pattern>/MyPoint</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeInfo</servlet-name>
+        <servlet-class>SAD.Servlets.ChangeInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeInfo</servlet-name>
+        <url-pattern>/ChangeInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyResource</servlet-name>
+        <servlet-class>SAD.Servlets.MyResource</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyResource</servlet-name>
+        <url-pattern>/MyResource</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OrderHistory</servlet-name>
+        <servlet-class>SAD.Servlets.OrderHistory</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderHistory</servlet-name>
+        <url-pattern>/OrderHistory</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>SAD.Servlets.Search</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>QueryUserInfo</servlet-name>
+        <servlet-class>SAD.Servlets.QueryUserInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryUserInfo</servlet-name>
+        <url-pattern>/QueryUserInfo</url-pattern>
+    </servlet-mapping>
+
 </web-app>

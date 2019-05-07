@@ -1,9 +1,17 @@
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%
+    String userName = (request.getParameter("userName") == null)
+            ? "" : request.getParameter("userName");
+    String phoneNumber = (request.getParameter("phoneNumber") == null)
+            ? "" : request.getParameter("phoneNumber");
+    String email = (request.getParameter("email") == null)
+            ? "" : request.getParameter("email");
+%>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Title</title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -23,28 +31,28 @@
 <div id="Layer1" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 20%">
     <p class="userInfoTitle">个人信息</p>
 
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" action="ChangeInfo" method="post">
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="name">用户名</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="name" placeholder="当前用户名"
-                                       type="text">
+                                <input class="form-control" id="name" placeholder="<%=userName%>"
+                                       type="text" name="userName">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="tel">手机号</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="tel" placeholder=" 当前手机号"
-                                       type="tel">
+                                <input class="form-control" id="tel" placeholder="<%=phoneNumber%>"
+                                       type="tel" name="phoneNumber">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="email">邮箱</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="email" placeholder=" 当前邮箱"
-                                       type="email">
+                                <input class="form-control" id="email" placeholder="<%=email%>"
+                                       type="email" name="email">
                             </div>
                         </div>
 

@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<%
+    String myPoints = (request.getParameter("userPoint") == null)
+            ? "" : request.getParameter("userPoint");
+%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -33,6 +37,7 @@
     <div class="container" style="text-align: center">
         <div class="row" id="row1" style="height: 180px">
             <div class="col-sm-4 border col-sm-offset-4 bg-info " style="height: 100%"> 积分余额 </div>
+            <p><%=myPoints%></p>
         </div>
     </div>
 
