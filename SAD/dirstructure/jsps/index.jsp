@@ -29,9 +29,29 @@
                             我<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="userInfo.jsp">个人信息</a></li>
+                          <!--  <li><a href="userInfo.jsp">个人信息</a></li> -->
+                            <li>
+                                <form action="QueryUserInfo" method="post">
+                                    <label class="col-sm-4 control-label hidden" for="name"></label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control hidden" id="name"
+                                               type="text" name="userName" value="<%=name%>">
+                                    </div>
+
+                                    <button class="btn-primary" type="submit">个人信息</button>
+                                </form>
+                            </li>
                             <li><a href="orderHistory.jsp">历史订单</a></li>
-                            <li><a href="myPoints.jsp">我的积分</a></li>
+                            <li>
+                                <form action="MyPoint" method="post">
+                                    <label class="col-sm-4 control-label hidden" for="name2"></label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control hidden" id="name2"
+                                               type="text" name="userName" value="<%=name%>">
+                                    </div>
+                                    <button class="btn-primary" type="submit">我的积分</button>
+                                </form>
+                            </li>
                             <li><a href="myFollows.jsp">我的关注</a></li>
                             <li><a href="myResource.jsp">我的资源</a></li>
                         </ul>
