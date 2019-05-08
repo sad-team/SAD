@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://eisuke.top:3306/remoteTry"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://eisuke.top:3306/remoteTry?useUnicode=true&amp;characterEncoding=UTF8"></property>
         <property name="user" value="sad"></property>
         <property name="password" value="ThisIsAPasswd"></property>
     </bean>
