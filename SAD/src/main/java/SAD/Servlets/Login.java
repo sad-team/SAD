@@ -18,7 +18,7 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        HttpSession session=req.getSession();
+        /*HttpSession session=req.getSession();
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String username = (String)req.getParameter("signInName");
@@ -46,6 +46,6 @@ public class Login extends HttpServlet {
                 //resp.getWriter().write("Login error!");
         } catch(Exception e){
            // resp.sendRedirect(req.getContextPath() + "/htmls/index.html");
-        }
+        }*/
     }
 }
