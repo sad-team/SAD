@@ -13,6 +13,16 @@ public class DatabaseTest {
     }
 
     @Test
+    public void selectUserRoleTest(){
+        for(int i=0;i<100;i++) {
+            System.out.println(dataoperator.selectUserRole(i)+"    ");
+        }
+    }
+    @Test
+    public void newPasswdTest(){
+        System.out.println(dataoperator.newPasswd(1,"323","332"));
+    }
+    @Test
     public void searchResourceTest(){
         System.out.println(dataoperator.searchResource("人工","ALL"));
     }
