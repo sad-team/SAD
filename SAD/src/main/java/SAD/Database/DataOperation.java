@@ -41,7 +41,16 @@ public class DataOperation {
             return -1;
         }
     }
-
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public int userAuthority(int userid, String passwd){
+        if(!ifUserExist(userid)){
+            return -1;
+        }else if(!selectUserAuthentication(userid,passwd)){
+            return -2;
+        }else{
+            return 0;
+        }
+    }
     /**
      * 修改密码
      *
@@ -57,7 +66,7 @@ public class DataOperation {
     public int newPasswd(int userid, String oldpasswd, String newpasswd){
         if(!ifUserExist(userid)){
             return -2;
-        }else if(!userAuthentication(userid,oldpasswd)){
+        }else if(!selectUserAuthentication(userid,oldpasswd)){
             return -1;
         }else{
             updateUserPasswd(userid,newpasswd);
@@ -188,32 +197,25 @@ public class DataOperation {
             return selectUserResource(userid);
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private boolean ifUserExist(int userid){
         return 1==template.queryForInt("select exists(select * from `user` where `user`.`id`=?)",new Object[]{userid});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private boolean ifUserExist(String username){
         return 1==template.queryForInt("select exists(select * from `user` where `user`.`name`=?)",new Object[]{username});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private boolean ifExpertExist(int expertid){
         return 1==template.queryForInt("select exists(select * from `expert` where `expert`.`userId`=?)",new Object[]{expertid});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private boolean ifAdminExist(int adminid){
         return 1==template.queryForInt("select exists(select * from `administrator` where `administrator`.`userId`=?)",new Object[]{adminid});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private boolean ifPhoneExist(String phone){
         return 1==template.queryForInt("select exists(select * from `user` where `user`.`cellphoneNumber`=?)",new Object[]{phone});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private boolean ifIdentificationExist(String identification){
         return 1==template.queryForInt("select exists(select * from `user` where `user`.`identification`=?)",new Object[]{identification});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
-    private boolean userAuthentication(int userid,String passwd){
+    private boolean selectUserAuthentication(int userid,String passwd){
         try {
             return 1 == template.queryForInt("select exists(select * from `user` where `user`.`id`=? and `user`.`password`=?)", new Object[]{userid, passwdSHA(passwd)});
         }catch(Exception e){
@@ -221,7 +223,6 @@ public class DataOperation {
             return false;
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private void updateUserPasswd(int userid, String passwd){
         try {
             template.update("update `user` set `user`.`password`=? where `user`.`id`=?", new Object[]{passwdSHA(passwd),userid});
@@ -230,19 +231,15 @@ public class DataOperation {
             return;
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private void insertUser(String name,String identification,String cellphone,String passwd,String email){
         template.update("insert into `user` (`name`,`identification`,`cellphoneNumber`,`password`,`points`,`email`) values(?,?,?,?,0,?)",new Object[]{name,identification,cellphone,passwdSHA(passwd),email});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private void updateEmail(int userid, String email){
         template.update("update `user` set `user`.`email`=? where `user`.`id`=?",new Object[]{email,userid});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private void updatePhone(int userid, String phone){
         template.update("update `user` set `user`.`cellphoneNumber`=? where `user`.`id`=?",new Object[]{phone,userid});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private String passwdSHA(String passwd) {
         try {
             byte[] result;
@@ -265,25 +262,20 @@ public class DataOperation {
             return null;
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private boolean isEmail(String email){
         Pattern pattern = Pattern.compile("[a-zA-Z_]{1,}[0-9]{0,}@(([a-zA-z0-9]-*){1,}\\.){1,3}[a-zA-z\\-]{1,}");
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private int selectPoint(int userid){
         return template.queryForInt("select points from `user` where `user`.`id`=?",new Object[]{userid});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private int selectUserId(String username){
         return template.queryForInt("select id from `user` where `user`.`name`=?",new Object[]{username});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private List<Map<String,Object>> selectUserInfo(int userid){
         return template.queryForList("select `name`, `cellphoneNumber`, `email` from `user` where `user`.id=?",new Object[]{userid});
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     private List<Map<String,Object>> selectUserResource(int userid){
         return template.queryForList("select title as resourceName, url as resourceUrl from `resource` where `resource`.ownerId=?",new Object[]{userid});
     }
