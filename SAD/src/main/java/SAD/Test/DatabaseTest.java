@@ -4,11 +4,12 @@ import SAD.Database.DataOperation;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class DatabaseTest {
     private static DataOperation dataoperator;
     static{
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
+        ApplicationContext context=new FileSystemXmlApplicationContext("src/resources/spring_config.xml");
         dataoperator=(DataOperation) context.getBean("dataoperator");
     }
 
@@ -25,5 +26,9 @@ public class DatabaseTest {
     @Test
     public void searchResourceTest(){
         System.out.println(dataoperator.searchResource("人工","ALL"));
+    }
+    @Test
+    public void getUserOrderTest(){
+        System.out.println(dataoperator.getUserOrder(1));
     }
 }
