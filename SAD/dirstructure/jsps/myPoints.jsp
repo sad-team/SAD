@@ -2,6 +2,8 @@
 <%
     String myPoints = (request.getParameter("userPoint") == null)
             ? "" : request.getParameter("userPoint");
+    String userName = (request.getParameter("userName") == null)
+            ? "" : request.getParameter("userName");
 %>
 <html>
 <head>
@@ -36,13 +38,17 @@
     <p class="pointsTitle">我的积分</p>
     <div class="container" style="text-align: center">
         <div class="row" id="row1" style="height: 180px">
-            <div class="col-sm-4 border col-sm-offset-4 bg-info " style="height: 100%"> 积分余额 </div>
-            <p><%=myPoints%></p>
+            <div class="col-sm-4 border col-sm-offset-4 bg-info " style="height: 100%"> 积分余额 <br><br><%=myPoints%></div>
         </div>
+
+
     </div>
 
     <div style="margin-top: 30px; text-align: center">
-        <a href="index.html" class="btn btn-default">返回</a>
+        <form action="Back" method="post">
+            <input type="hidden" name="userName" value="<%=userName%>">
+            <button class="btn-default" type="submit">返回</button>
+        </form>
     </div>
 </div>
 

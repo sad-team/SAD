@@ -3,6 +3,7 @@ import SAD.Database.DataOperation;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,12 @@ public class MyPoint extends HttpServlet{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String userName = (String)req.getParameter("userName");
-        resp.getWriter().write(userName);
+
+        DataOperation dataoperator;
+        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
+        dataoperator=(DataOperation) context.getBean("dataoperator");
+        int id = dataoperator.getUserId(userName);
+        int userPoint = dataoperator.getPoint(id);
+        req.getRequestDispatcher("/myPoints.jsp?userPoint="+userPoint).forward(req, resp);
     }
 }
