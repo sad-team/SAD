@@ -8,6 +8,8 @@
         <property name="user" value="sad"></property>
         <property name="password" value="ThisIsAPasswd"></property>
         <property name="testConnectionOnCheckout" value="true"></property>
+        <property name="idleConnectionTestPeriod" value="30"></property>
+        <property name="initialPoolSize" value="100"></property>
     </bean>
     <bean id="jdbctemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="datasource"></property>
