@@ -1,7 +1,6 @@
 package SAD.Servlets;
 
 import SAD.Database.DataOperation;
-import SAD.Test.DatabaseTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -26,7 +25,7 @@ public class SignUp extends HttpServlet {
         String identification = request.getParameter("identification");
         String cellphoneNumber = request.getParameter("cellphoneNumber");
         DataOperation dataoperator;
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
+        ApplicationContext context=new ClassPathXmlApplicationContext("dirstructure/classes/spring_config.xml");
         dataoperator=(DataOperation) context.getBean("dataoperator");
         try {
             response.getWriter().write(signUpName);

@@ -9,7 +9,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 public class DatabaseTest {
     private static DataOperation dataoperator;
     static{
-        ApplicationContext context=new FileSystemXmlApplicationContext("src/resources/spring_config.xml");
+        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
         dataoperator=(DataOperation) context.getBean("dataoperator");
     }
 
