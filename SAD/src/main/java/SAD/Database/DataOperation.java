@@ -102,6 +102,14 @@ public class DataOperation {
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public List<Map<String,Object>> getUserOrder(int userid){
+        if(!ifUserExist(userid)){
+            return null;
+        }else{
+            return selectUserOrder(userid);
+        }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int changeEmail(int userid, String email){
         if(!ifUserExist(userid)){
             return -1;
@@ -278,5 +286,8 @@ public class DataOperation {
     }
     private List<Map<String,Object>> selectUserResource(int userid){
         return template.queryForList("select title as resourceName, url as resourceUrl from `resource` where `resource`.ownerId=?",new Object[]{userid});
+    }
+    private List<Map<String,Object>> selectUserOrder(int userid){
+        return template.queryForList("select customerId as `to`, sellerId as `from`, state as state, title as resourceName, `time` as orderDate from `order` inner join resource on resource.id=`order`.resourceId where `sellerId`=? or `customerId`=?",new Object[]{userid,userid});
     }
 }
