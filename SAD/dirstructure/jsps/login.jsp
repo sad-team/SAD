@@ -123,6 +123,12 @@
                     </form>
                 </div>
 
+                <div class="row" style="text-align: center; width: 100%" >
+                    <label class="loginStatus label-default" style="text-align: center; width: 30%">
+
+                    </label>
+                </div>
+
                 <div class="tab-pane fade" id="signUp">
                     <form class="form-horizontal" role="form" action="SignUp" method="post">
                         <div class="form-group">
@@ -207,7 +213,7 @@
 
 <script>
     $(function () {
-        $('#myTab li:eq(1) a').tab('show');
+        $('#myTab li:eq(0) a').tab('show');
     });
 </script>
 
