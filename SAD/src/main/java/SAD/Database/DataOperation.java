@@ -4,6 +4,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.StringContent;
 import java.security.MessageDigest;
 import java.util.List;
 import java.util.Map;
@@ -204,6 +205,62 @@ public class DataOperation {
         }else{
             return selectUserResource(userid);
         }
+    }
+    public int followUser(int userid, int followid){
+        if(!ifUserExist(userid)) return -1;
+        else if (!ifUserExist(followid)) return -2;
+        else if(ifFollow(userid,followid)) return -3;
+        else{
+            makeFollow(userid,followid);
+            return 0;
+        }
+    }
+    public List<Map<String,Object>> getFollowedUser(int userid){
+        if(!ifUserExist(userid)) return null;
+        else{
+            return selectFollowedUser(userid);
+        }
+    }
+    public int unFollowUser(int userid, int followid){
+        if(!ifUserExist(userid)) return -1;
+        else if (!ifUserExist(followid)) return -2;
+        else if(!ifFollow(userid,followid)) return -3;
+        else{
+            unmakeFollow(userid,followid);
+            return 0;
+        }
+    }
+    public int sendMessage(int from, int to, String content,String time){
+        if(!ifUserExist(from)) return -1;
+        else if (!ifUserExist(to)) return -2;
+        else{
+            insertMessage(from,to,content,time);
+            return 0;
+        }
+    }
+    public List<Map<String,Object>> getMessage(int receiverid){
+        if(!ifUserExist(receiverid)) return null;
+        else{
+            return selectMessage(receiverid);
+        }
+    }
+    private List<Map<String,Object>> selectMessage(int receiverid){
+        return template.queryForList("select * from `message` where `message`.`receiverId`=?",new Object[]{receiverid});
+    }
+    private void insertMessage(int fromuserid,int touserid,String content, String time){
+        template.update("insert into `message`(`senderId`,`receiverId`,`content`,`sendTime`) values(?,?,?,?)", new Object[]{fromuserid,touserid,content,time});
+    }
+    private List<Map<String,Object>>selectFollowedUser(int userid){
+        return template.queryForList("select `follow`.`followedId` from `follow` where `follow`.`userid`=?",new Object[]{userid});
+    }
+    private boolean ifFollow(int userid,int followid){
+        return 1==template.queryForInt("select exists (select * from `follow` where `follow`.`userid`=? and `follow`.`followedId`=?)",new Object[]{userid,followid});
+    }
+    private void makeFollow(int userid, int followid){
+        template.update("insert into `follow`(`userid`,`followedId`) values(?,?)",new Object[]{userid,followid});
+    }
+    private void unmakeFollow(int userid,int followid){
+        template.update("delete from `follow` where userid=? and followedid=?", new Object[]{userid,followid});
     }
     private boolean ifUserExist(int userid){
         return 1==template.queryForInt("select exists(select * from `user` where `user`.`id`=?)",new Object[]{userid});
