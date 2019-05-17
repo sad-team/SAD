@@ -254,7 +254,7 @@ public class DataOperation {
         return template.queryForList("select `follow`.`followedId` from `follow` where `follow`.`userid`=?",new Object[]{userid});
     }
     private boolean ifFollow(int userid,int followid){
-        return 1==template.queryForInt("select exists (select * from `follow` where `follow`.`userid`=? and `follow`.`followedId`=?)",new Object[]{userid,followid});
+        return 1==template.queryForObject("select exists (select * from `follow` where `follow`.`userid`=? and `follow`.`followedId`=?)",new Object[]{userid,followid},Integer.class);
     }
     private void makeFollow(int userid, int followid){
         template.update("insert into `follow`(`userid`,`followedId`) values(?,?)",new Object[]{userid,followid});
@@ -263,26 +263,26 @@ public class DataOperation {
         template.update("delete from `follow` where userid=? and followedid=?", new Object[]{userid,followid});
     }
     private boolean ifUserExist(int userid){
-        return 1==template.queryForInt("select exists(select * from `user` where `user`.`id`=?)",new Object[]{userid});
+        return 1==template.queryForObject("select exists(select * from `user` where `user`.`id`=?)",new Object[]{userid},Integer.class);
     }
     private boolean ifUserExist(String username){
-        return 1==template.queryForInt("select exists(select * from `user` where `user`.`name`=?)",new Object[]{username});
+        return 1==template.queryForObject("select exists(select * from `user` where `user`.`name`=?)",new Object[]{username},Integer.class);
     }
     private boolean ifExpertExist(int expertid){
-        return 1==template.queryForInt("select exists(select * from `expert` where `expert`.`userId`=?)",new Object[]{expertid});
+        return 1==template.queryForObject("select exists(select * from `expert` where `expert`.`userId`=?)",new Object[]{expertid},Integer.class);
     }
     private boolean ifAdminExist(int adminid){
-        return 1==template.queryForInt("select exists(select * from `administrator` where `administrator`.`userId`=?)",new Object[]{adminid});
+        return 1==template.queryForObject("select exists(select * from `administrator` where `administrator`.`userId`=?)",new Object[]{adminid}, Integer.class);
     }
     private boolean ifPhoneExist(String phone){
-        return 1==template.queryForInt("select exists(select * from `user` where `user`.`cellphoneNumber`=?)",new Object[]{phone});
+        return 1==template.queryForObject("select exists(select * from `user` where `user`.`cellphoneNumber`=?)",new Object[]{phone}, Integer.class);
     }
     private boolean ifIdentificationExist(String identification){
-        return 1==template.queryForInt("select exists(select * from `user` where `user`.`identification`=?)",new Object[]{identification});
+        return 1==template.queryForObject("select exists(select * from `user` where `user`.`identification`=?)",new Object[]{identification}, Integer.class);
     }
     private boolean selectUserAuthentication(int userid,String passwd){
         try {
-            return 1 == template.queryForInt("select exists(select * from `user` where `user`.`id`=? and `user`.`password`=?)", new Object[]{userid, passwdSHA(passwd)});
+            return 1 == template.queryForObject("select exists(select * from `user` where `user`.`id`=? and `user`.`password`=?)", new Object[]{userid, passwdSHA(passwd)}, Integer.class);
         }catch(Exception e){
             e.printStackTrace();
             return false;
@@ -333,10 +333,10 @@ public class DataOperation {
         return matcher.matches();
     }
     private int selectPoint(int userid){
-        return template.queryForInt("select points from `user` where `user`.`id`=?",new Object[]{userid});
+        return template.queryForObject("select points from `user` where `user`.`id`=?",new Object[]{userid}, Integer.class);
     }
     private int selectUserId(String username){
-        return template.queryForInt("select id from `user` where `user`.`name`=?",new Object[]{username});
+        return template.queryForObject("select id from `user` where `user`.`name`=?",new Object[]{username}, Integer.class);
     }
     private List<Map<String,Object>> selectUserInfo(int userid){
         return template.queryForList("select `name`, `cellphoneNumber`, `email` from `user` where `user`.id=?",new Object[]{userid});

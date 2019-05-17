@@ -1,19 +1,4 @@
-<%@ page import="java.util.Map" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.alibaba.fastjson.JSONArray" %>
-<%@ page import="com.alibaba.fastjson.JSONObject" %>
-
-<%@ page contentType="text/html; charset=utf-8" %>
-<%
-    String      resourceJson = (request.getParameter("resource") == null)
-            ? "" : request.getParameter("resource");
-    JSONArray resourceList = JSONArray.parseArray(resourceJson);
-    int size = resourceList.size();
-    String userName = (request.getParameter("userName") == null)
-            ? "" : request.getParameter("userName");
-%>
-
-
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -35,11 +20,6 @@
         {
             border: 1px solid #000;
         }
-        .table-hover>tbody>tr:hover {
-
-            background-color: powderblue;
-
-        }
     </style>
 </head>
 <body>
@@ -50,40 +30,41 @@
 
 <div id="Layer2" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 540px">
     <p class="searchTitle">已购资源</p>
-    <div class="container" id="Layer3" style="width: 100%; height: 480px;overflow-y: auto">
-        <table class="table table-hover" id="resourceTable" >
+    <div class="container" id="Layer3" style="width: 100%; height: 50%">
+        <table class="table table-hover">
             <caption class="searchSubtitle tableBg"></caption>
             <thead class="titleBg">
             <tr>
                 <th>资源名称</th>
                 <th>资源种类</th>
+                <th>购买时间</th>
             </tr>
             </thead>
             <tbody class="resultBg">
-         <% for (int i = 0; i < size; i++)
-            {%>
             <tr>
-                <td align="center"><b><%=((Map<String,Object>)resourceList.get(i)).get("resourceName")%></b></td>
-                <td align="center"><%=((Map<String,Object>)resourceList.get(i)).get("resourceUrl")%></td>
+                <td>Tanmay</td>
+                <td>Bangalore</td>
+                <td>2019-3-9</td>
             </tr>
-            <%}
-         %>
+            <tr>
+                <td>Sachin</td>
+                <td>Mumbai</td>
+                <td>2019-3-10</td>
+            </tr>
+            <tr>
+                <td>Uma</td>
+                <td>Pune</td>
+                <td>2019-3-11</td>
+            </tr>
             </tbody>
         </table>
-
     </div>
 
     <div style="margin-top: 30px; text-align: center">
-        <form action="Back" method="post">
-            <input type="hidden" name="userName" value="<%=userName%>">
-            <button class="btn-default" type="submit">返回</button>
-        </form>
+        <a href="index.html" class="btn btn-default">返回</a>
     </div>
 </div>
 
-<script>
-
-</script>
 
 
 <!-- JavaScript 放置在文档最后面可以使页面加载速度更快 -->
@@ -93,4 +74,3 @@
 <script src="https://apps.bdimg.com/libs/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
