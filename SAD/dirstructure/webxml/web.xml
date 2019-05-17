@@ -85,31 +85,4 @@
         <url-pattern>/QueryUserInfo</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>Back</servlet-name>
-        <servlet-class>SAD.Servlets.Back</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Back</servlet-name>
-        <url-pattern>/Back</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Recharge</servlet-name>
-        <servlet-class>SAD.Servlets.Recharge</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Recharge</servlet-name>
-        <url-pattern>/Recharge</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>TurnToSearch</servlet-name>
-        <servlet-class>SAD.Servlets.TurnToSearch</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>TurnToSearch</servlet-name>
-        <url-pattern>/TurnToSearch</url-pattern>
-    </servlet-mapping>
-
 </web-app>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .searchTitle
+        {
+            font:42px arial,sans-serif;
+            color: snow;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div id="Layer1" style="position:fixed; left:0px; bottom:0px; width:100%; height:100%">
+
+    <img src="images/wall.jpg" style="width: 100%; height: 100%"/>
+</div>
+
+<div id="Layer2" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 20%">
+    <p class="searchTitle">科技专家资源共享平台</p>
+<div class="container" style="text-align: center">
+        <form class="form-inline" role="form">
+            <div class="form-group" style="width: 61.8%;">
+                <select class="form-control" style="width: 20%">
+                    <option>全部</option>
+                    <option>论文</option>
+                    <option>专利</option>
+                    <option>项目</option>
+                    <option>作者</option>
+                </select>
+
+                <label class="sr-only" for="name">关键词</label>
+                <input type="text" class="form-control" id="name"
+                       placeholder="请输入关键词" style="width: 79%">
+            </div>
+                <a href="searchResults.jsp" class="btn btn-default">搜索</a>
+        </form>
+</div>
+</div>
+
+</body>
+</html>
