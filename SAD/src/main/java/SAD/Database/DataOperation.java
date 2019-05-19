@@ -206,7 +206,6 @@ public class DataOperation {
             return selectUserResource(userid);
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int followUser(int userid, int followid){
         if(!ifUserExist(userid)) return -1;
         else if (!ifUserExist(followid)) return -2;
@@ -216,14 +215,12 @@ public class DataOperation {
             return 0;
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getFollowedUser(int userid){
         if(!ifUserExist(userid)) return null;
         else{
             return selectFollowedUser(userid);
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int unFollowUser(int userid, int followid){
         if(!ifUserExist(userid)) return -1;
         else if (!ifUserExist(followid)) return -2;
@@ -233,7 +230,6 @@ public class DataOperation {
             return 0;
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int sendMessage(int from, int to, String content,String time){
         if(!ifUserExist(from)) return -1;
         else if (!ifUserExist(to)) return -2;
@@ -242,23 +238,10 @@ public class DataOperation {
             return 0;
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getMessage(int receiverid){
         if(!ifUserExist(receiverid)) return null;
         else{
             return selectMessage(receiverid);
-        }
-    }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
-    public int followState(int userid,int expertid){
-        if(!ifUserExist(userid)){
-            return -1;
-        }else if(!ifUserExist(expertid)){
-            return -2;
-        }else if(ifFollow(userid,expertid)){
-            return 1;
-        }else {
-            return 0;
         }
     }
     private List<Map<String,Object>> selectMessage(int receiverid){
