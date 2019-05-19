@@ -85,4 +85,76 @@
         <url-pattern>/QueryUserInfo</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Back</servlet-name>
+        <servlet-class>SAD.Servlets.Back</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Back</servlet-name>
+        <url-pattern>/Back</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Recharge</servlet-name>
+        <servlet-class>SAD.Servlets.Recharge</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Recharge</servlet-name>
+        <url-pattern>/Recharge</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TurnToSearch</servlet-name>
+        <servlet-class>SAD.Servlets.TurnToSearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TurnToSearch</servlet-name>
+        <url-pattern>/TurnToSearch</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyHome</servlet-name>
+        <servlet-class>SAD.Servlets.MyHome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyHome</servlet-name>
+        <url-pattern>/MyHome</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchScholar</servlet-name>
+        <servlet-class>SAD.Servlets.SearchScholar</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchScholar</servlet-name>
+        <url-pattern>/SearchScholar</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TurnTo</servlet-name>
+        <servlet-class>SAD.Servlets.TurnTo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TurnTo</servlet-name>
+        <url-pattern>/TurnTo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Follow</servlet-name>
+        <servlet-class>SAD.Servlets.Follow</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Follow</servlet-name>
+        <url-pattern>/Follow</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TurnToExpertHome</servlet-name>
+        <servlet-class>SAD.Servlets.TurnToExpertHome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TurnToExpertHome</servlet-name>
+        <url-pattern>/TurnToExpertHome</url-pattern>
+    </servlet-mapping>
+
 </web-app>
