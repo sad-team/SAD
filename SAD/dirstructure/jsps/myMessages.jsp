@@ -1,4 +1,8 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
+<%
+    String userName = (request.getParameter("userName") == null)
+            ? "" : request.getParameter("userName");
+%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -61,7 +65,10 @@
     </div>
 
     <div style="margin-top: 30px; text-align: center">
-        <a href="index.html" class="btn btn-default">返回</a>
+        <form action="Back" method="post">
+            <input type="hidden" name="userName" value="<%=userName%>">
+            <button class="btn-default" type="submit">返回</button>
+        </form>
     </div>
 </div>
 
