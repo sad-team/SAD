@@ -23,11 +23,15 @@ public class Back extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
 
         String userName = (String)req.getParameter("userName");
+        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
+        DataOperation dataoperator = (DataOperation) context.getBean("dataoperator");
+        int id = dataoperator.getUserId(userName);
+        int role = dataoperator.selectUserRole(id);
 
 
         try {
 
-            req.getRequestDispatcher("/index.jsp?name="+userName).forward(req, resp);
+            req.getRequestDispatcher("/index.jsp?name="+userName+"&role="+role).forward(req, resp);
 
 
         } catch(Exception e){

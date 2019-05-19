@@ -1,66 +1,96 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        p.searchTitle
-        {
-            font:42px arial,sans-serif;
-            color: snow;
-            text-align: center;
-        }
+    <title>Ednews</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="BHost template project">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 
-        .border
-        {
-            border: 1px solid #000;
-        }
-    </style>
 </head>
 <body>
 
-<div id="Layer1" style="position:fixed; left:0px; bottom:0px; width:100%; height:100%">
-    <img src="images/news.jpg" width="100%" height="100%"/>
+
+
+
+
+
+<!-- Header -->
+<div class="super_container">
+    <header class="header trans_400" style="width: 100%">
+        <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
+            <div class="logo"><a href="#"><span>S</span>AD</a></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-2">
+                        <nav class="main_nav">
+                            <ul class="d-flex flex-row align-items-center justify-content-start">
+                                <li><a href="index.jsp">首页</a></li>
+                                <li><a href="searchScholar.jsp" >专家</a></li>
+                                <li><a href="news.jsp">资讯</a></li>
+                                <li><a href="community.jsp">社区</a></li>
+                                <li><a href="dynamic.jsp">动态</a></li>
+                                <li><a href="#">消息</a></li>
+                                <li><a href="recharge.jsp">充值</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">我<b class="caret"></b></a>
+                                    <ul class="dropdown-menu" style="background-color: rgba(18,5,52,0.69)">
+                                        <li><a href="userInfo.jsp">个人信息</a></li>
+                                        <li><a href="orderHistory.jsp">历史订单</a></li>
+                                        <li><a href="myPoints.jsp">我的积分</a></li>
+                                        <li><a href="myFollows.jsp">我的关注</a></li>
+                                        <li><a href="myResource.jsp">我的资源</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="header_right d-flex flex-row align-items-center justify-content-start">
+
+                <div class="phone d-flex flex-row align-items-center justify-content-start">
+                    <i class="fa " aria-hidden="true"></i>
+                    <div>
+                        <a href="login.jsp" style="color: yellow">登录/注册</a>
+                    </div>
+                </div>
+
+                <!-- Hamburger -->
+                <!--<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>-->
+            </div>
+        </div>
+    </header>
+
+<!-- END OF MAIN SLIDER -->
 </div>
 
-<div id="Layer2" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 540px">
-    <p class="searchTitle">科研资讯</p>
-    <div class="container" style="text-align: center">
-        <div class="row bg-info border" id="row1" style="height: 180px">
-             <div class="col-sm-4 border" style="height: 100%"> news1 </div>
-             <div class="col-sm-4 border" style="height: 100%"> news2 </div>
-             <div class="col-sm-4 border" style="height: 100%"> news3 </div>
-        </div>
-
-        <div class="row bg-primary border" id="row2" style="height: 180px">
-             <div class="col-sm-4 border" style="height: 100%"> news4 </div>
-             <div class="col-sm-4 border" style="height: 100%"> news5 </div>
-             <div class="col-sm-4 border" style="height: 100%"> news6 </div>
-        </div>
-
-        <div class="row bg-success border" id="row3" style="height: 180px">
-             <div class="col-sm-4 border" style="height: 100%"> news7 </div>
-             <div class="col-sm-4 border" style="height: 100%"> news8 </div>
-             <div class="col-sm-4 border" style="height: 100%"> news9 </div>
-        </div>
-    </div>
-
-    <div style="margin-top: 30px; text-align: center">
-        <a href="index.html" class="btn btn-default">返回</a>
-    </div>
-</div>
 
 
+<!-- SCIPTS -->
 
-<!-- JavaScript 放置在文档最后面可以使页面加载速度更快 -->
-<!-- 可选: 包含 jQuery 库 -->
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<!-- 可选: 合并了 Bootstrap JavaScript 插件 -->
-<script src="https://apps.bdimg.com/libs/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script src="plugin-frameworks/tether.min.js"></script>
+
+<script src="common/scripts.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap-4.1.2/popper.js"></script>
+<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/progressbar/progressbar.min.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/custom.js"></script>
 </body>
 </html>

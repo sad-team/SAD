@@ -14,20 +14,21 @@ import java.io.IOException;
 public class Recharge extends HttpServlet {
     @Override
     @SuppressWarnings("unchecked")
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session=req.getSession();
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html;charset=utf-8");
+        HttpSession session=request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
 
-        String userName = (String)req.getParameter("userName");
+        String userName = (String)request.getParameter("userName");
+
 
 
         try {
 
-            req.getRequestDispatcher("/recharge.jsp?name="+userName).forward(req, resp);
+            request.getRequestDispatcher("/recharge.jsp?name="+userName).forward(request, response);
 
 
         } catch(Exception e){
