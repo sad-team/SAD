@@ -4,15 +4,15 @@ import SAD.Database.DataOperation;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DatabaseTest {
-    private static DataOperation dataoperator;
+    public static DataOperation dataoperator;
     static{
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        dataoperator=(DataOperation) context.getBean("dataoperator");
+        dataoperator=DataOperation.getOperator();
     }
 
     @Test

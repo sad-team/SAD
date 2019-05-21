@@ -17,27 +17,23 @@ import java.util.List;
 import java.util.Map;
 
 public class MyMessage extends HttpServlet{
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session=req.getSession();
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html;charset=utf-8");
+        HttpSession session=request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
 
-        String userName = (String)req.getParameter("userName");
-
-        DataOperation dataoperator;
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        dataoperator=(DataOperation) context.getBean("dataoperator");
-        int id = dataoperator.getUserId(userName);
+        DataOperation dataoperator = DataOperation.getOperator();
+        int id = Integer.parseInt((String)session.getAttribute("id"));
 
         List<Map<String,Object>> messages = dataoperator.getMessage(id);
         JSONArray array= JSONArray.parseArray(JSON.toJSONString(messages));
         String tmp = array.toJSONString();
-        resp.getWriter().write(messages.toString());
+
         try {
 
-            req.getRequestDispatcher("/myMessage.jsp?messages=" + tmp + "&userName="+userName).forward(req, resp);
+            request.getRequestDispatcher("/myMessage.jsp?messages=" + tmp).forward(request, response);
         }catch(Exception e){
 
         }

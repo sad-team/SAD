@@ -17,10 +17,6 @@
 <body>
 
 
-
-
-
-
 <!-- Header -->
 <div class="super_container">
     <header class="header trans_400" style="width: 100%">

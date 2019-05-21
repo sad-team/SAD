@@ -2,7 +2,6 @@
     <%@ page import="java.util.Map" %>
     <%@ page contentType="text/html; charset=utf-8" %>
     <%
-        String userName = (request.getParameter("userName") == null) ? "" : request.getParameter("userName");
         String resourceJson = (request.getParameter("resource") == null)
                 ? "" : request.getParameter("resource");
 
@@ -12,10 +11,8 @@
             resourceList = JSONArray.parseArray(resourceJson);
             size = resourceList.size();
         }
-        String role = (request.getParameter("role") == null) ? "0" : request.getParameter("role");
-
-        String testStr = "test.txt";
-
+        String userName = (session.getAttribute("userName") == null) ? "" : (String)session.getAttribute("userName");
+        int role = (session.getAttribute("role") == null) ? 0 : (int)session.getAttribute("role");
     %>
 
     <html>
@@ -35,8 +32,6 @@
     </head>
     <body>
 
-
-
 <div class="super_container">
 
     <header class="header trans_400">
@@ -47,33 +42,33 @@
                     <div class="col-lg-10 offset-lg-2">
                         <nav class="main_nav">
                             <ul class="d-flex flex-row align-items-center justify-content-start">
-                                <li><a href="#" onclick="turnTo('Back','<%=userName%>')">首页</a></li>
-                                <li><a href="#" onclick="turnTo('SearchScholar','<%=userName%>')">专家</a></li>
+                                <li><a href="index.jsp">首页</a></li>
+                                <li><a href="searchScholar.jsp">专家</a></li>
                                 <li><a href="news.jsp">资讯</a></li>
                                 <li><a href="community.jsp">社区</a></li>
                                 <li><a href="dynamic.jsp">动态</a></li>
                                 <li><a href="myMessages.jsp">消息</a></li>
-                                <li><a href="#" onclick="turnTo('Recharge','<%=userName%>')">充值</a></li>
+                                <li><a href="recharge.jsp">充值</a></li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">我<b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu" style="background-color: rgba(18,5,52,0.69)">
-                                        <li><a href="#" onclick="turnTo('QueryUserInfo','<%=userName%>')">个人信息</a></li>
+                                        <li><a href="#" onclick="turnTo('QueryUserInfo')">个人信息</a></li>
 
-                                        <li><a href="#" onclick="turnTo('OrderHistory','<%=userName%>')">历史订单</a></li>
+                                        <li><a href="#" onclick="turnTo('OrderHistory')">历史订单</a></li>
 
-                                        <li><a href="#" onclick="turnTo('MyPoint','<%=userName%>')">我的积分</a></li>
+                                        <li><a href="#" onclick="turnTo('MyPoint')">我的积分</a></li>
 
                                         <li ><a href="myFollows.jsp">我的关注</a></li>
 
-                                        <li><a href="#" onclick="turnTo('MyResource','<%=userName%>')">我的资源</a></li>
+                                        <li><a href="#" onclick="turnTo('MyResource')">我的资源</a></li>
                                     </ul>
                                 </li>
 
                                 <%
-                                    if (role.equals("1")){
+                                    if (role == 1){
                                         out.println("<li>\n" +
-                                                "<button class=\"btn-primary\" onclick=\"turnTo('MyHome','"+userName+ "')\">我的门户</button>\n" +
+                                                "<button class=\"btn-primary\" onclick=\"turnTo('MyHome')\">我的门户</button>\n" +
                                                 "</li>");
                                     }
                                 %>
@@ -89,7 +84,7 @@
                     <div>
                         <ul>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: yellow"> <%=userName%> <b class="caret"></b></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: yellow"><%=userName%><b class="caret"></b></a>
 
                                 <ul class="dropdown-menu">
                                     <li> <a href="index.html" class="btn btn-default">注销</a></li>
@@ -119,7 +114,6 @@
                                 <div class="domain_search_background"></div>
                                <form class="domain_search_form" id="domain_search_form" method="post" action="Search">
                                    <label for="searchWord"></label><input type="text" class="domain_search_input" placeholder="请输入搜索内容" required="required" name="searchWord" id="searchWord">
-                                   <input type="hidden" name="userName" value="<%=userName%>">
                                    <input type="hidden" name="searchType" value="1" id="searchType">
                                     <div class="domain_search_dropdown d-flex flex-row align-items-center justify-content-center">
                                        <div id="selectedType" class="domain_search_selected">全部</div>
@@ -213,17 +207,10 @@
         }
 
 
-        function turnTo(target,userName) {
+        function turnTo(target) {
             var form = document.createElement("form");
-            form.action = target.toString();
+            form.action = target;
             form.method = "post";
-
-            var input = document.createElement("input");
-            input.type = "hidden";
-            input.name = "userName";
-            input.value = userName;
-            form.appendChild(input)
-
             document.body.appendChild(form);
             form.submit();
             document.body.removeChild(form);

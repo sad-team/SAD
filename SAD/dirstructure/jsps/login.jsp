@@ -71,8 +71,7 @@
                         </label>
                     </div>
 
-
-                    <form class="form-horizontal" role="form" action="Login" method="post">
+                    <form id="loginForm" class="form-horizontal" role="form" action="Login" method="post">
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="name">用户名</label>
                             <div class="col-sm-6">
@@ -91,28 +90,19 @@
                         </div>
 
                         <div class="form-group form-inline" id="identfyingCode">
-
                             <span> <label class="col-sm-4 control-label" style="text-align: end">验证码</label> </span>
                             <div class="col-sm-8">
-                                <input class="col-sm-3 form-control" placeholder="请输入图形验证码" type="text"/>
+                                <label>
+                                    <input id="checkCode"  class="col-sm-3 form-control" placeholder="请输入图形验证码" type="text"/>
+                                </label>
                                 <canvas class="col-sm-3" height="45 " id="canvas" width="120"></canvas>
                                 <a class="col-sm-2" href="#" id="changeImg">看不清<br>换一张</a>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> 记住密码
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group form-inline" style="text-align: center;">
                             <div class="col-sm-2 col-xs-offset-4">
-                                <button class="btn btn-primary" type="submit">登录</button>
+                                <button class="btn btn-primary" onclick="check()">登录</button>
                             </div>
 
                             <div class="col-sm-2">
@@ -173,7 +163,9 @@
 
                             <span> <label class="col-sm-4 control-label" style="text-align: end">验证码</label> </span>
                             <div class="col-sm-8">
-                                <input class="col-sm-3 form-control" placeholder="请输入图形验证码" type="text"/>
+                                <label>
+                                    <input id="checkCode2" class="col-sm-3 form-control" placeholder="请输入图形验证码" type="text"/>
+                                </label>
                                 <canvas class="col-sm-3" height="45 " id="canvas2" width="120"></canvas>
                                 <a class="col-sm-2" href="#" id="changeImg2">看不清<br>换一张</a>
                             </div>
@@ -190,7 +182,7 @@
                         </div>
                         <div class="form-group form-inline" style="text-align: center;">
                             <div class="col-sm-2 col-xs-offset-4">
-                                <button class="btn btn-primary" type="submit">注册</button>
+                                <button class="btn btn-primary" onclick="check2()">注册</button>
                             </div>
 
                             <div class="col-sm-2">
@@ -255,6 +247,8 @@
         drawPic("canvas2");
     }
 
+    var code1 = "";
+    var code2 = "";
     /**绘制验证码图片**/
     function drawPic(canvasID) {
         var canvas = document.getElementById(canvasID);
@@ -283,6 +277,13 @@
             ctx.rotate(-deg * Math.PI / 180);
             ctx.translate(-x, -y);
         }
+        if(canvasID === "canvas") {
+            code1 = ctx.text;
+        } else {
+            code2 = ctx.text;
+        }
+
+
         /**绘制干扰线**/
         for (var i = 0; i < 8; i++) {
             ctx.strokeStyle = randomColor(40, 180);
@@ -298,6 +299,20 @@
             ctx.arc(randomNum(0, width), randomNum(0, height), 1, 0, 2 * Math.PI);
             ctx.fill();
         }
+    }
+
+    function check() {
+        var inputCode = document.getElementById("checkCode").text;
+        if(code1!==inputCode){
+            document.getElementById("checkCode").style.color = "red";
+        } else {
+           var form = document.getElementById("loginForm");
+           form.submit();
+        }
+    }
+
+    function check2() {
+        document.getElementById("checkCode2");
     }
 </script>
 

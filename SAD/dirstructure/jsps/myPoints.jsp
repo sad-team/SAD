@@ -2,8 +2,7 @@
 <%
     String myPoints = (request.getParameter("userPoint") == null)
             ? "" : request.getParameter("userPoint");
-    String userName = (request.getParameter("userName") == null)
-            ? "" : request.getParameter("userName");
+    String userName = (session.getAttribute("userName") == null) ? "" : (String)session.getAttribute("userName");
 %>
 <html>
 <head>
@@ -45,10 +44,7 @@
     </div>
 
     <div style="margin-top: 30px; text-align: center">
-        <form action="Back" method="post">
-            <input type="hidden" name="userName" value="<%=userName%>">
-            <button class="btn-default" type="submit">返回</button>
-        </form>
+        <a href="index.jsp">返回</a>
     </div>
 </div>
 

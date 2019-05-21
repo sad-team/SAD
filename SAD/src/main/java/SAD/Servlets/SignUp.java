@@ -22,21 +22,16 @@ public class SignUp extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
+
         String signUpName=request.getParameter("signUpName");
         String signUpPasswd=request.getParameter("signUpPasswd");
         String signUpEmail = request.getParameter("signUpEmail");
         String identification = request.getParameter("identification");
         String cellphoneNumber = request.getParameter("cellphoneNumber");
-        DataOperation dataoperator;
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        dataoperator=(DataOperation) context.getBean("dataoperator");
-        try {
-            response.getWriter().write(signUpName+"<br>");
-            response.getWriter().write(signUpPasswd+"<br>");
-            response.getWriter().write(signUpEmail+"<br>");
-            response.getWriter().write(identification+"<br>");
-            response.getWriter().write(cellphoneNumber+"<br>");
 
+        DataOperation dataoperator = DataOperation.getOperator();
+
+        try {
            int res = dataoperator.newUser(signUpName,identification,cellphoneNumber,signUpPasswd,signUpEmail);
            switch (res){
                case -1:
@@ -54,7 +49,6 @@ public class SignUp extends HttpServlet {
                    break;
                    default:
                        break;
-
            }
         }catch(Exception e){
 

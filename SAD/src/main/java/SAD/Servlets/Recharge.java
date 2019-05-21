@@ -22,17 +22,10 @@ public class Recharge extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
 
-        String userName = (String)request.getParameter("userName");
-
-
-
         try {
-
-            request.getRequestDispatcher("/recharge.jsp?name="+userName).forward(request, response);
-
-
+            request.getRequestDispatcher("/recharge.jsp").forward(request, response);
         } catch(Exception e){
-            // resp.sendRedirect(req.getContextPath() + "/htmls/index.html");
+            // response.sendRedirect(request.getContextPath() + "/htmls/index.html");
         }
     }
 }

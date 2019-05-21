@@ -18,17 +18,17 @@ import java.io.*;
 public class TurnToExpertHome extends HttpServlet {
     @Override
     @SuppressWarnings("unchecked")
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html;charset=utf-8");
+        HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
 
-        String userName = (String) req.getParameter("userName");
-        String expertName = req.getParameter("expertName");
+        String expertName = request.getParameter("expertName");
 
+        DataOperation dataoperator = DataOperation.getOperator();
 
         String pact = "../../expertInfo.json";
         String curDir = this.getClass().getClassLoader().getResource("").getPath();
@@ -36,12 +36,9 @@ public class TurnToExpertHome extends HttpServlet {
         StringBuffer strbuffer = new StringBuffer();
         File myFile = new File(pactFile);
         if (!myFile.exists()) {
-            resp.getWriter().write("Can't Find " + pactFile);
-            System.err.println("Can't Find " + pactFile);
+            response.getWriter().write("Can't Find " + pactFile);
         }
         try {
-            resp.getWriter().write("trying");
-            resp.getWriter().println("curdir:"+curDir);
             FileInputStream fis = new FileInputStream(pactFile);
             InputStreamReader inputStreamReader = new InputStreamReader(fis, "UTF-8");
             BufferedReader in = new BufferedReader(inputStreamReader);
@@ -51,20 +48,15 @@ public class TurnToExpertHome extends HttpServlet {
                 strbuffer.append(str);  //new String(str,"UTF-8")
             }
             in.close();
-            resp.getWriter().write(strbuffer.toString());
+
             JSONObject jstr = JSONObject.parseObject(strbuffer.toString());
-            resp.getWriter().write("jstr:"+jstr);
-            // 获取前端传来的expertName为key,返回value
-            JSONObject value1 = jstr.getJSONObject("谭火彬");
-            JSONObject value2 = jstr.getJSONObject("林广艳");
-            JSONObject value3 = jstr.getJSONObject("杜孝平");
-            resp.getWriter().write("value1"+value1);
-            resp.getWriter().write("value2"+value2);
-            resp.getWriter().write("value3"+value3);
+
+           JSONObject detail = jstr.getJSONObject(expertName);
+            request.getRequestDispatcher("/expertHome.jsp?&expertName="+expertName+"&detail="+detail.toJSONString()).forward(request, response);
 
         } catch (IOException e) {
             e.getStackTrace();
-            resp.getWriter().write("can't find!");
+            response.getWriter().write("can't find!");
         }
 
 
@@ -75,7 +67,7 @@ public class TurnToExpertHome extends HttpServlet {
 
         String pactFile = "/Users/mac/Downloads/apache-tomcat-9.0.17/webapps/SAD/src/main/java/SAD/Servlets/expertInfo.json";
         StringBuffer strbuffer = new StringBuffer();
-        File myFile = new File(pactFile);//"D:"+File.separatorChar+"DStores.json"
+        File myFile = new File(pactFile);
         if (!myFile.exists()) {
             System.err.println("Can't Find " + pactFile);
         }

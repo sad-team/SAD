@@ -17,29 +17,22 @@ import java.util.List;
 import java.util.Map;
 
 public class MyResource extends HttpServlet{
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session=req.getSession();
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html;charset=utf-8");
+        HttpSession session=request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
 
-        String userName = (String)req.getParameter("userName");
+        DataOperation dataoperator = DataOperation.getOperator();
+        int id = Integer.parseInt((String)session.getAttribute("id"));
 
-        DataOperation dataoperator;
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        dataoperator=(DataOperation) context.getBean("dataoperator");
-        int id = dataoperator.getUserId(userName);
-        //resp.getWriter().write("name:"+userName);
-        //resp.getWriter().write("id:"+id);
-        //resp.getWriter().println();
         List<Map<String,Object>> resource = dataoperator.showUserResource(id);
         JSONArray array= JSONArray.parseArray(JSON.toJSONString(resource));
         String tmp = array.toJSONString();
-        resp.getWriter().write(resource.toString());
-        try {
 
-            req.getRequestDispatcher("/myResource.jsp?resource=" + tmp + "&userName="+userName).forward(req, resp);
+        try {
+            request.getRequestDispatcher("/myResource.jsp?resource=" + tmp).forward(request, response);
         }catch(Exception e){
 
         }
