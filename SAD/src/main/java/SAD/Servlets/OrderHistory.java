@@ -1,4 +1,5 @@
 package SAD.Servlets;
+import SAD.ContextGetter;
 import SAD.Database.DataOperation;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -17,24 +18,20 @@ import java.util.List;
 import java.util.Map;
 
 public class OrderHistory extends HttpServlet{
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session=req.getSession();
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        String userName = (String)req.getParameter("userName");
-        resp.getWriter().write(userName);
+        HttpSession session=request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        DataOperation dataoperator;
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        dataoperator=(DataOperation) context.getBean("dataoperator");
-        int id = dataoperator.getUserId(userName);
+        DataOperation dataoperator = DataOperation.getOperator();
+        int id = Integer.parseInt((String)session.getAttribute("id"));
+
         List<Map<String,Object>> historyOrders = dataoperator.getUserOrder(id);
         JSONArray orderArray= JSONArray.parseArray(JSON.toJSONString(historyOrders));
         String orderStr = orderArray.toJSONString();
         try {
-
-            req.getRequestDispatcher("/orderHistory.jsp?orders=" + orderStr + "&userName="+userName).forward(req, resp);
+            request.getRequestDispatcher("/orderHistory.jsp?orders=" + orderStr).forward(request, response);
         }catch(Exception e){
 
         }

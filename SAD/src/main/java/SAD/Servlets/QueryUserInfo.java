@@ -17,20 +17,20 @@ import java.util.Map;
 
 public class QueryUserInfo extends HttpServlet{
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        String userName = (String) req.getParameter("userName");
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        DataOperation dataoperator = (DataOperation) context.getBean("dataoperator");
-        int id = dataoperator.getUserId(userName);
+        HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        DataOperation dataoperator = DataOperation.getOperator();
+        int id = Integer.parseInt((String)session.getAttribute("id"));
+
         List<Map<String,Object>> info = dataoperator.getUserInfo(id);
         String phoneNumber = info.get(0).get("cellphoneNumber").toString();
         String email = info.get(0).get("email").toString();
 
-        req.getRequestDispatcher("/userInfo.jsp?userName=" + userName + "&phoneNumber="+phoneNumber+"&email="+email).forward(req, resp);
+        request.getRequestDispatcher("/userInfo.jsp?phoneNumber="+phoneNumber+"&email="+email).forward(request, response);
 
 
 

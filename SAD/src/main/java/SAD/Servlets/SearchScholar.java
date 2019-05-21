@@ -24,48 +24,28 @@ public class SearchScholar extends HttpServlet{
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-
-
-        String userName = (request.getParameter("userName") == null)
-                ? "" : request.getParameter("userName");
-
         String searchWord = (request.getParameter("searchWord") == null)
                 ? "" : request.getParameter("searchWord");
 
-
-        response.getWriter().println(userName);
-
-        response.getWriter().println(searchWord);
-        response.getWriter().println(searchWord.length());
-
-        DataOperation dataoperator;
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        dataoperator=(DataOperation) context.getBean("dataoperator");
-        int id = dataoperator.getUserId(userName);
-        int role = dataoperator.selectUserRole(id);
-
-
+        DataOperation dataoperator = DataOperation.getOperator();
+        int scholarId = dataoperator.getUserId(searchWord);
 
         try {
-            request.getRequestDispatcher("/searchScholar.jsp?userName="+userName+"&role="+role).forward(request, response);
-            // resp.getWriter().println("tmp:");
-            // resp.getWriter().write(tmp);
-            // resp.getWriter().write("size");
-            // resp.getWriter().write(array.size());
-            //List<Map<String,Object>> result = dataoperator.searchResource(searchWord);
-            //response.getWriter().write(result.toString());
-            // List<Map<String,Object>> resource = dataoperator.showUserResource(id);
-            // response.getWriter().write(resource.toString());
-            //response.getWriter().write("hello");
-            //JSONArray array= JSONArray.parseArray(JSON.toJSONString(result));
-           // String tmp = array.toJSONString();
-           // request.getRequestDispatcher("/searchResults.jsp?userName="+userName+"&resource="+tmp).forward(request, response);
-            //     request.getRequestDispatcher("/myResource.jsp?resource=" + tmp + "&userName="+userName).forward(request, response);
+            if (scholarId == -1) {
+                response.getWriter().write("专家不存在");
+            } else {
+                int expertRole = dataoperator.selectUserRole(scholarId);
+                if (expertRole != 1) {
+                    response.getWriter().write("专家不存在");
+                } else {
+                    List<Map<String,Object>> info = dataoperator.getUserInfo(scholarId);
+                    String email = info.get(0).get("email").toString();
+                    request.getRequestDispatcher("/searchScholar.jsp?expertName="+searchWord+"&scholarId="+scholarId+"&email="+email).forward(request, response);
+                }
+            }
         }catch(Exception e){
 
         }
-
-
 
     }
 
@@ -78,7 +58,5 @@ public class SearchScholar extends HttpServlet{
         String searchType="ALL";
         List<Map<String,Object>> result = dataoperator.searchResource(searchWord,searchType);
         System.out.println(result.toString());
-
-
     }
 }

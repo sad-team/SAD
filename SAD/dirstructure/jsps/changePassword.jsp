@@ -58,7 +58,7 @@
 
 
     <div class="modal-footer">
-        <a href="index.html" class="btn btn-default">返回</a>
+        <a href="index.jsp" class="btn btn-default">返回</a>
     </div>
 </div>
 <!-- JavaScript 放置在文档最后面可以使页面加载速度更快 -->

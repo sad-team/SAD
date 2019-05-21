@@ -1,4 +1,6 @@
 package SAD.Database;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,6 +17,14 @@ public class DataOperation {
     private JdbcTemplate template;
     public void setTemplate(JdbcTemplate template){
         this.template=template;
+    }
+    private static DataOperation operator=null;
+    static public DataOperation getOperator(){
+        if(operator==null){
+            ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
+            operator=(DataOperation) context.getBean("dataoperator");
+        }
+        return operator;
     }
     /**
      *获取用户角色

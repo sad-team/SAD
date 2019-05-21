@@ -1,26 +1,19 @@
 <%@ page import="com.alibaba.fastjson.JSONArray" %>
 <%@ page contentType="text/html; charset=utf-8" %>
 <%
-    String userName = (request.getParameter("userName") == null) ? "" : request.getParameter("userName");
-    String resourceJson = (request.getParameter("resource") == null)
-            ? "" : request.getParameter("resource");
-
-    int size = 0;
-    JSONArray resourceList = new JSONArray();
-    if (!resourceJson.equals("")) {
-        resourceList = JSONArray.parseArray(resourceJson);
-        size = resourceList.size();
-    }
-    String role = (request.getParameter("role") == null) ? "0" : request.getParameter("role");
-
+    String expertName = (request.getParameter("expertName") == null) ? "" : request.getParameter("expertName");
+    String scholarId = (request.getParameter("scholarId") == null) ? "" : request.getParameter("scholarId");
+    String expertEmail = (request.getParameter("email") == null) ? "" : request.getParameter("email");
+    int role = (session.getAttribute("role") == null) ? 0 : (int)session.getAttribute("role");
+    String userName = (session.getAttribute("userName") == null) ? "" : (String)session.getAttribute("userName");
 %>
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <title>BHost</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta name="description" content="BHost template project">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
     <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -30,10 +23,7 @@
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 </head>
 <body>
-
 <div class="super_container">
-
-    <!-- Header -->
 
     <header class="header trans_400">
         <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
@@ -43,36 +33,37 @@
                     <div class="col-lg-10 offset-lg-2">
                         <nav class="main_nav">
                             <ul class="d-flex flex-row align-items-center justify-content-start">
-                                <li><a href="#" onclick="turnTo('Back','<%=userName%>')">首页</a></li>
-                                <li><a href="#" onclick="turnTo('SearchScholar','<%=userName%>')">专家</a></li>
+                                <li><a href="index.jsp">首页</a></li>
+                                <li><a href="searchScholar.jsp">专家</a></li>
                                 <li><a href="news.jsp">资讯</a></li>
                                 <li><a href="community.jsp">社区</a></li>
                                 <li><a href="dynamic.jsp">动态</a></li>
                                 <li><a href="myMessages.jsp">消息</a></li>
-                                <li><a href="#" onclick="turnTo('Recharge','<%=userName%>')">充值</a></li>
+                                <li><a href="recharge.jsp">充值</a></li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">我<b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu" style="background-color: rgba(18,5,52,0.69)">
-                                        <li><a href="#" onclick="turnTo('QueryUserInfo','<%=userName%>')">个人信息</a></li>
+                                        <li><a href="#" onclick="turnTo('QueryUserInfo')">个人信息</a></li>
 
-                                        <li><a href="#" onclick="turnTo('OrderHistory','<%=userName%>')">历史订单</a></li>
+                                        <li><a href="#" onclick="turnTo('OrderHistory')">历史订单</a></li>
 
-                                        <li><a href="#" onclick="turnTo('MyPoint','<%=userName%>')">我的积分</a></li>
+                                        <li><a href="#" onclick="turnTo('MyPoint')">我的积分</a></li>
 
                                         <li ><a href="myFollows.jsp">我的关注</a></li>
 
-                                        <li><a href="#" onclick="turnTo('MyResource','<%=userName%>')">我的资源</a></li>
+                                        <li><a href="#" onclick="turnTo('MyResource')">我的资源</a></li>
                                     </ul>
                                 </li>
 
                                 <%
-                                    if (role.equals("1")){
+                                    if (role == 1){
                                         out.println("<li>\n" +
-                                                "<button class=\"btn-primary\" onclick=\"turnTo('MyHome','"+userName+ "')\">我的门户</button>\n" +
+                                                "<button class=\"btn-primary\" onclick=\"turnTo('MyHome')\">我的门户</button>\n" +
                                                 "</li>");
                                     }
                                 %>
+
                             </ul>
                         </nav>
                     </div>
@@ -85,7 +76,7 @@
                     <div>
                         <ul>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: yellow"><%=userName%> <b class="caret"></b></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: yellow"><%=userName%><b class="caret"></b></a>
 
                                 <ul class="dropdown-menu">
                                     <li> <a href="index.html" class="btn btn-default">注销</a></li>
@@ -104,7 +95,6 @@
 
 
     <!-- Home -->
-
     <div class="home">
         <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/index.jpg" data-speed="0.8"></div>
         <div class="home_container">
@@ -118,7 +108,6 @@
                                 <div class="domain_search_background"></div>
                                 <form class="domain_search_form" id="domain_search_form" method="post" action="SearchScholar">
                                     <label for="searchWord"></label><input type="text" class="domain_search_input" placeholder="请输入搜索内容" required="required" name="searchWord" id="searchWord">
-                                    <input type="hidden" name="userName" value="<%=userName%>">
                                     <button class="domain_search_button" type="submit">搜索</button>
                                 </form>
                             </div>
@@ -129,24 +118,61 @@
         </div>
     </div>
 
+    <div class="home">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/index.jpg" data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="container">
+                <table class="table table-hover table-dark">
+                    <caption style="background-color: #020b1f;color: lemonchiffon">检索结果</caption>
+                    <thead  style="width: 100%">
+                    <tr style="color: lightgoldenrodyellow">
+                        <th scope="col">#</th>
+                        <th scope="col" style="text-align: center">专家姓名</th>
+                        <th scope="col" style="text-align: center">学术ID</th>
+                        <th scope="col" style="text-align: center">电子邮箱</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <!-- 点击后跳转到专家主页-->
+                    <tr>
+                        <td align="center" onclick="turnToHome('<%=expertName%>')"><b><%=expertName%></b></td>
+                        <td align="center"><%=scholarId%></td>
+                        <td align="center"><%=expertEmail%></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script>
+    function turnTo(target) {
+        var form = document.createElement("form");
+        form.action = target;
+        form.method = "post";
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+    }
 
-function turnTo(target,userName) {
-var form = document.createElement("form");
-form.action = target.toString();
-form.method = "post";
-var input = document.createElement("input");
-input.type = "hidden";
-input.name = "userName";
-input.value = userName;
-form.appendChild(input)
+    function turnToHome(expertName) {
+        var form = document.createElement("form");
+        form.action = "TurnToExpertHome"
+        form.method = "post";
 
-document.body.appendChild(form);
-form.submit();
-document.body.removeChild(form);
-}
+        var input2 = document.createElement("input2");
+        input2.type = "hidden";
+        input2.name = "expertName";
+        input2.value = expertName;
+        form.appendChild(input2);
+
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+    }
 
 </script>
 

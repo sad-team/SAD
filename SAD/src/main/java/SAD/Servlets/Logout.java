@@ -1,4 +1,5 @@
 package SAD.Servlets;
+
 import SAD.Database.DataOperation;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -14,21 +15,22 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class ChangeInfo extends HttpServlet{
+public class Logout extends HttpServlet {
+    @Override
+    @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         HttpSession session=request.getSession();
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
+        session.invalidate();
 
-        String phoneNumber = request.getParameter("phoneNumber");
-        String email = request.getParameter("email");
-
-        DataOperation dataoperator = DataOperation.getOperator();
-        int id = Integer.parseInt((String)session.getAttribute("id"));
-        dataoperator.changeEmail(id,email);
-        dataoperator.changeUserPhone(id,phoneNumber);
-        request.getRequestDispatcher("/index.jsp?").forward(request, response);
+        try {
+             request.getRequestDispatcher("/index.html").forward(request, response);
+        } catch(Exception e){
+            // response.sendRedirect(req.getContextPath() + "/htmls/index.html");
+        }
     }
 }

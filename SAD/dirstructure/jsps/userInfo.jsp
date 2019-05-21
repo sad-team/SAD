@@ -1,7 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%
-    String userName = (request.getParameter("userName") == null)
-            ? "" : request.getParameter("userName");
+    String userName = (session.getAttribute("userName") == null) ? "" : (String)session.getAttribute("userName");
     String phoneNumber = (request.getParameter("phoneNumber") == null)
             ? "" : request.getParameter("phoneNumber");
     String email = (request.getParameter("email") == null)
@@ -64,12 +63,9 @@
                         </div>
                     </form>
 
-                    <div class="modal-footer" style="margin-top: 30px; text-align: center">
-                        <form action="Back" method="post">
-                            <input type="hidden" name="userName" value="<%=userName%>">
-                            <button class="btn-default" type="submit">返回</button>
-                        </form>
-                    </div>
+    <div style="margin-top: 30px; text-align: center">
+        <a href="index.jsp">返回</a>
+    </div>
 
 </div>
 <!-- JavaScript 放置在文档最后面可以使页面加载速度更快 -->

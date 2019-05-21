@@ -1,9 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 
-<%
-    String userName = (request.getParameter("userName") == null)
-            ? "" : request.getParameter("userName");
-%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -115,11 +111,8 @@
         </button>
     </div>
 
-    <div class="modal-footer" style="margin-top: 30px; text-align: center">
-        <form action="Back" method="post">
-            <input type="hidden" name="userName" value="<%=userName%>">
-            <button class="btn-default" type="submit">返回</button>
-        </form>
+    <div style="margin-top: 30px; text-align: center">
+        <a href="index.jsp">返回</a>
     </div>
 </div>
 </div>

@@ -24,72 +24,36 @@ public class Search extends HttpServlet{
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-
-
-        String userName = (request.getParameter("userName") == null)
-                ? "" : request.getParameter("userName");
         String searchType = (request.getParameter("searchType") == null)
                 ? "" : request.getParameter("searchType");
         String searchWord = (request.getParameter("searchWord") == null)
                 ? "" : request.getParameter("searchWord");
 
         String type="ALL";
-     //   Object type = request.getParameter("searchType");
 
-      //  String searchType = request.getParameterValues("searchType")[0];
-//问题确定出在 type 上
-//问题在于接收的searchType和searchWord不正确
-       // String searchType = "ALL";
-     //   String searchWord = "try";
-if(searchType.equals("1")){
-    type="ALL";
-}else if(searchType.equals("2")){
-    type="PAPER";
-}else if(searchType.equals("3")){
-    type="PATENT";
-}else if(searchType.equals("4")){
-    type="PROJECT";
-}
+        //问题确定出在 type 上
+        //问题在于接收的searchType和searchWord不正确
 
-      //  resp.getWriter().write("hello!!!!!!");
+        if(searchType.equals("1")){
+            type="ALL";
+        }else if(searchType.equals("2")){
+            type="PAPER";
+        }else if(searchType.equals("3")){
+            type="PATENT";
+        }else if(searchType.equals("4")){
+            type="PROJECT";
+        }
 
-        DataOperation dataoperator;
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        dataoperator=(DataOperation) context.getBean("dataoperator");
-        int id = dataoperator.getUserId(userName);
-        int role = dataoperator.selectUserRole(id);
-       // int id = dataoperator.getUserId(userName);
-
-       // response.getWriter().println("id:"+id);
-
-        response.getWriter().println("BEFORE");
-    //    List<Map<String,Object>> result = dataoperator.searchResource(searchWord,searchType);
-     //   JSONArray array= JSONArray.parseArray(JSON.toJSONString(result));
-      //  String tmp = array.toJSONString();
-        response.getWriter().println("AFTER");
-
-
+        DataOperation dataoperator = DataOperation.getOperator();
 
         try {
-            //request.getRequestDispatcher("/searchResults.jsp?userName="+userName).forward(request, response);
-           // resp.getWriter().println("tmp:");
-           // resp.getWriter().write(tmp);
-           // resp.getWriter().write("size");
-           // resp.getWriter().write(array.size());
             List<Map<String,Object>> result = dataoperator.searchResource(searchWord,type);
-            response.getWriter().write(result.toString());
-           // List<Map<String,Object>> resource = dataoperator.showUserResource(id);
-           // response.getWriter().write(resource.toString());
-            response.getWriter().write("hello");
             JSONArray array= JSONArray.parseArray(JSON.toJSONString(result));
             String tmp = array.toJSONString();
-            request.getRequestDispatcher("/searchResults.jsp?userName="+userName+"&resource="+tmp+"&role="+role).forward(request, response);
-       //     request.getRequestDispatcher("/myResource.jsp?resource=" + tmp + "&userName="+userName).forward(request, response);
+            request.getRequestDispatcher("/searchResults.jsp?resource="+tmp).forward(request, response);
         }catch(Exception e){
 
         }
-
-
 
     }
 

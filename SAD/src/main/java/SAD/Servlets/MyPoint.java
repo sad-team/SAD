@@ -13,18 +13,15 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class MyPoint extends HttpServlet{
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session=req.getSession();
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        String userName = (String)req.getParameter("userName");
+        HttpSession session=request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        DataOperation dataoperator;
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-        dataoperator=(DataOperation) context.getBean("dataoperator");
-        int id = dataoperator.getUserId(userName);
+        DataOperation dataoperator = DataOperation.getOperator();
+        int id = Integer.parseInt((String)session.getAttribute("id"));
         int userPoint = dataoperator.getPoint(id);
-        req.getRequestDispatcher("/myPoints.jsp?userPoint="+userPoint).forward(req, resp);
+        request.getRequestDispatcher("/myPoints.jsp?userPoint="+userPoint).forward(request, response);
     }
 }

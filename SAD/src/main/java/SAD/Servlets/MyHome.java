@@ -14,24 +14,18 @@ import java.io.IOException;
 public class MyHome extends HttpServlet {
     @Override
     @SuppressWarnings("unchecked")
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session=req.getSession();
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html;charset=utf-8");
-
-        String userName = (String)req.getParameter("userName");
-resp.getWriter().write(userName);
+        HttpSession session=request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
 
         try {
-
-           // req.getRequestDispatcher("/news.jsp?name="+userName).forward(req, resp);
-
-
+           // request.getRequestDispatcher("/news.jsp?name="+userName).forward(request, response);
         } catch(Exception e){
-            // resp.sendRedirect(req.getContextPath() + "/htmls/index.html");
+            // response.sendRedirect(request.getContextPath() + "/htmls/index.html");
         }
     }
 }
