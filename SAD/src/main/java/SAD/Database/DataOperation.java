@@ -271,6 +271,27 @@ public class DataOperation {
             return 0;
         }
     }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public int sellPaper(int userid,int sellerid,int points){
+        if(!ifUserExist(userid)) return -1;
+        else if(!ifUserExist(sellerid)) return -2;
+        else if(points<0) return -3;
+        else if(selectMoney(userid)<points) return -4;
+        else{
+            addMoney(userid,-points);
+            addMoney(sellerid,points);
+            return 0;
+        }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public int chargeMoney(int userid,int points){
+        if(!ifUserExist(userid)) return -1;
+        else if(points<0) return -2;
+        else{
+            addMoney(userid,points);
+            return 0;
+        }
+    }
     private List<Map<String,Object>> selectMessage(int receiverid){
         return template.queryForList("select * from `message` where `message`.`receiverId`=?",new Object[]{receiverid});
     }
@@ -373,5 +394,11 @@ public class DataOperation {
     }
     private List<Map<String,Object>> selectUserOrder(int userid){
         return template.queryForList("select customerId as `to`, sellerId as `from`, state as state, title as resourceName, `time` as orderDate from `order` inner join resource on resource.id=`order`.resourceId where `sellerId`=? or `customerId`=?",new Object[]{userid,userid});
+    }
+    private void addMoney(int userid, int addpoints){
+        template.update("update `user` set `user`.`points`=`user`.`points`+? where `user`.`id`=?",new Object[]{userid,addpoints});
+    }
+    private int selectMoney(int userid){
+        return template.queryForObject("select `user`.`points` where `user`.`id`=?",new Object[]{userid},Integer.class);
     }
 }
