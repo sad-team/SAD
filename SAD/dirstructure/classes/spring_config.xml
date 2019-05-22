@@ -24,5 +24,8 @@
     <bean id="transactionmanager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="datasource"></property>
     </bean>
+    <bean id="sqlsessionfactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasource" />
+    </bean>
     <tx:annotation-driven transaction-manager="transactionmanager"/>
 </beans>
