@@ -1,5 +1,4 @@
 package SAD.Servlets;
-import SAD.ContextGetter;
 import SAD.Database.DataOperation;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;

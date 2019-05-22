@@ -1,4 +1,5 @@
 package SAD.Database;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -390,7 +391,7 @@ public class DataOperation {
         return template.queryForList("select `name`, `cellphoneNumber`, `email` from `user` where `user`.id=?",new Object[]{userid});
     }
     private List<Map<String,Object>> selectUserResource(int userid){
-        return template.queryForList("select title as resourceName, url as resourceUrl from `resource` where `resource`.ownerId=?",new Object[]{userid});
+        return template.queryForList("select id as id, title as resourceName, url as resourceUrl from `resource` where `resource`.ownerId=?",new Object[]{userid});
     }
     private List<Map<String,Object>> selectUserOrder(int userid){
         return template.queryForList("select customerId as `to`, sellerId as `from`, state as state, title as resourceName, `time` as orderDate from `order` inner join resource on resource.id=`order`.resourceId where `sellerId`=? or `customerId`=?",new Object[]{userid,userid});
