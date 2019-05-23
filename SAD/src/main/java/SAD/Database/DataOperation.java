@@ -23,7 +23,7 @@ public class DataOperation {
     static public DataOperation getOperator(){
         if(operator==null){
             ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
-            operator=(DataOperation) context.getBean("dataoperator");
+            operator=(DataOperation) context.getBean("dataOperator");
         }
         return operator;
     }
@@ -39,7 +39,7 @@ public class DataOperation {
      */
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int selectUserRole(int userid){
-        if (ifUserExist(userid)){
+        if (ifUserExistID(userid)){
             if(ifExpertExist(userid)){
                 return 1;
             }else{
@@ -55,9 +55,9 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int userAuthority(int userid, String passwd){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return -1;
-        }else if(!selectUserAuthentication(userid,passwd)){
+        }else if(!selectUserAuthentication(userid,passwdSHA(passwd))){
             return -2;
         }else{
             return 0;
@@ -76,12 +76,12 @@ public class DataOperation {
      */
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int newPasswd(int userid, String oldpasswd, String newpasswd){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return -2;
-        }else if(!selectUserAuthentication(userid,oldpasswd)){
+        }else if(!selectUserAuthentication(userid,passwdSHA(oldpasswd))){
             return -1;
         }else{
-            updateUserPasswd(userid,newpasswd);
+            updateUserPasswd(userid,passwdSHA(newpasswd));
             return 0;
         }
     }
@@ -102,7 +102,7 @@ public class DataOperation {
      */
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int newUser(String username, String identification, String cellphone, String passwd, String email){
-        if(ifUserExist(username)){
+        if(ifUserExistName(username)){
             return -1;
         }else if(ifPhoneExist(cellphone)){
             return -3;
@@ -115,7 +115,7 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getUserOrder(int userid){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return null;
         }else{
             return selectUserOrder(userid);
@@ -123,7 +123,7 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int changeEmail(int userid, String email){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return -1;
         }else if(!isEmail(email)){
             return -2;
@@ -134,7 +134,7 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int changeUserPhone(int userid, String newphone){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return -1;
         }else{
             updatePhone(userid,newphone);
@@ -143,7 +143,7 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int getPoint(int userid){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return -1;
         }else{
             return selectPoint(userid);
@@ -195,7 +195,7 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int getUserId(String username){
-        if(!ifUserExist(username)){
+        if(!ifUserExistName(username)){
             return -1;
         }else{
             return selectUserId(username);
@@ -203,7 +203,7 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getUserInfo(int userid){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return null;
         }else{
             return selectUserInfo(userid);
@@ -211,7 +211,7 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> showUserResource(int userid){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return null;
         }else{
             return selectUserResource(userid);
@@ -219,8 +219,8 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int followUser(int userid, int followid){
-        if(!ifUserExist(userid)) return -1;
-        else if (!ifUserExist(followid)) return -2;
+        if(!ifUserExistID(userid)) return -1;
+        else if (!ifUserExistID(followid)) return -2;
         else if(ifFollow(userid,followid)) return -3;
         else{
             makeFollow(userid,followid);
@@ -229,15 +229,15 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getFollowedUser(int userid){
-        if(!ifUserExist(userid)) return null;
+        if(!ifUserExistID(userid)) return null;
         else{
             return selectFollowedUser(userid);
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int unFollowUser(int userid, int followid){
-        if(!ifUserExist(userid)) return -1;
-        else if (!ifUserExist(followid)) return -2;
+        if(!ifUserExistID(userid)) return -1;
+        else if (!ifUserExistID(followid)) return -2;
         else if(!ifFollow(userid,followid)) return -3;
         else{
             unmakeFollow(userid,followid);
@@ -246,8 +246,8 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int sendMessage(int from, int to, String content,String time){
-        if(!ifUserExist(from)) return -1;
-        else if (!ifUserExist(to)) return -2;
+        if(!ifUserExistID(from)) return -1;
+        else if (!ifUserExistID(to)) return -2;
         else{
             insertMessage(from,to,content,time);
             return 0;
@@ -255,16 +255,16 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getMessage(int receiverid){
-        if(!ifUserExist(receiverid)) return null;
+        if(!ifUserExistID(receiverid)) return null;
         else{
             return selectMessage(receiverid);
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int followState(int userid,int expertid){
-        if(!ifUserExist(userid)){
+        if(!ifUserExistID(userid)){
             return -1;
-        }else if(!ifUserExist(expertid)){
+        }else if(!ifUserExistID(expertid)){
             return -2;
         }else if(ifFollow(userid,expertid)){
             return 1;
@@ -274,22 +274,22 @@ public class DataOperation {
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int sellPaper(int userid,int sellerid,int points){
-        if(!ifUserExist(userid)) return -1;
-        else if(!ifUserExist(sellerid)) return -2;
+        if(!ifUserExistID(userid)) return -1;
+        else if(!ifUserExistID(sellerid)) return -2;
         else if(points<0) return -3;
         else if(selectMoney(userid)<points) return -4;
         else{
-            addMoney(userid,-points);
-            addMoney(sellerid,points);
+            updateMoney(userid,-points);
+            updateMoney(sellerid,points);
             return 0;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int chargeMoney(int userid,int points){
-        if(!ifUserExist(userid)) return -1;
+        if(!ifUserExistID(userid)) return -1;
         else if(points<0) return -2;
         else{
-            addMoney(userid,points);
+            updateMoney(userid,points);
             return 0;
         }
     }
@@ -311,10 +311,10 @@ public class DataOperation {
     private void unmakeFollow(int userid,int followid){
         template.update("delete from `follow` where userid=? and followedid=?", new Object[]{userid,followid});
     }
-    private boolean ifUserExist(int userid){
+    private boolean ifUserExistID(int userid){
         return 1==template.queryForObject("select exists(select * from `user` where `user`.`id`=?)",new Object[]{userid},Integer.class);
     }
-    private boolean ifUserExist(String username){
+    private boolean ifUserExistName(String username){
         return 1==template.queryForObject("select exists(select * from `user` where `user`.`name`=?)",new Object[]{username},Integer.class);
     }
     private boolean ifExpertExist(int expertid){
@@ -330,20 +330,10 @@ public class DataOperation {
         return 1==template.queryForObject("select exists(select * from `user` where `user`.`identification`=?)",new Object[]{identification}, Integer.class);
     }
     private boolean selectUserAuthentication(int userid,String passwd){
-        try {
-            return 1 == template.queryForObject("select exists(select * from `user` where `user`.`id`=? and `user`.`password`=?)", new Object[]{userid, passwdSHA(passwd)}, Integer.class);
-        }catch(Exception e){
-            e.printStackTrace();
-            return false;
-        }
+        return 1 == template.queryForObject("select exists(select * from `user` where `user`.`id`=? and `user`.`password`=?)", new Object[]{userid, passwd}, Integer.class);
     }
     private void updateUserPasswd(int userid, String passwd){
-        try {
-            template.update("update `user` set `user`.`password`=? where `user`.`id`=?", new Object[]{passwdSHA(passwd),userid});
-        }catch(Exception e){
-            e.printStackTrace();
-            return;
-        }
+            template.update("update `user` set `user`.`password`=? where `user`.`id`=?", new Object[]{passwd,userid});
     }
     private void insertUser(String name,String identification,String cellphone,String passwd,String email){
         template.update("insert into `user` (`name`,`identification`,`cellphoneNumber`,`password`,`points`,`email`) values(?,?,?,?,0,?)",new Object[]{name,identification,cellphone,passwdSHA(passwd),email});
@@ -396,7 +386,7 @@ public class DataOperation {
     private List<Map<String,Object>> selectUserOrder(int userid){
         return template.queryForList("select customerId as `to`, sellerId as `from`, state as state, title as resourceName, `time` as orderDate from `order` inner join resource on resource.id=`order`.resourceId where `sellerId`=? or `customerId`=?",new Object[]{userid,userid});
     }
-    private void addMoney(int userid, int addpoints){
+    private void updateMoney(int userid, int addpoints){
         template.update("update `user` set `user`.`points`=`user`.`points`+? where `user`.`id`=?",new Object[]{userid,addpoints});
     }
     private int selectMoney(int userid){
