@@ -19,7 +19,7 @@
         <property name="dataSource" ref="dataSource"></property>
     </bean>
     <bean id="dataOperator" class="SAD.Database.DataOperation" scope="singleton">
-        <property name="template" ref="jdbcTemplate"></property>
+        <property name="daoMapper" ref="dao4mybatis"></property>
     </bean>
     <bean id="transactionmanager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
