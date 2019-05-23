@@ -2,6 +2,7 @@ package SAD.Servlets;
 
 import SAD.Database.DataOperation;
 import SAD.Test.DatabaseTest;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -35,24 +36,28 @@ public class SignUp extends HttpServlet {
            int res = dataoperator.newUser(signUpName,identification,cellphoneNumber,signUpPasswd,signUpEmail);
            switch (res){
                case -1:
-                   response.getWriter().write("用户名已存在");
+                   request.getRequestDispatcher("/login.jsp?status=The name has existed!").forward(request, response);
                    break;
                case -3:
-                   response.getWriter().write("手机号已注册过");
+                   request.getRequestDispatcher("/login.jsp?status=Cellphone number has been registered!").forward(request, response);
                    break;
                case -2:
-                   response.getWriter().write("身份证号码已注册过");
+                   request.getRequestDispatcher("/login.jsp?status=ID Number has been registered!").forward(request, response);
                    break;
                case 0:
-                   request.getRequestDispatcher("/login.jsp?status=login Error! username or password error!").forward(request, response);
+                   request.getRequestDispatcher("/login.jsp?status=Sign Up Success!").forward(request, response);
 
                    break;
+
                    default:
+                       response.getWriter().write("注册成功！");
                        break;
            }
         }catch(Exception e){
 
         }
     }
+
+
 }
 
