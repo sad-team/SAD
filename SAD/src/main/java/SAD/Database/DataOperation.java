@@ -110,7 +110,7 @@ public class DataOperation{
         }else if(daoMapper.ifIdentificationExist(identification)){
             return -2;
         }else{
-            daoMapper.insertUser(username,identification,cellphone,passwd,email);
+            daoMapper.insertUser(username,identification,cellphone,passwdSHA(passwd),email);
             return 0;
         }
     }
