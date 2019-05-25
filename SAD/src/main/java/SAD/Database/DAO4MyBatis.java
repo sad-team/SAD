@@ -33,4 +33,7 @@ public interface DAO4MyBatis {
     List<Map<String,Object>> selectUserOrder(@Param("userid") int userid);
     void updateMoney(@Param("userid") int userid, @Param("addpoints") int addpoints);
     int selectMoney(@Param("userid") int userid);
+    List<Map<String,Object>> selectPaper(@Param("selectword") String selectword);
+    List<Map<String,Object>> selectPatent(@Param("selectword") String selectword);
+    List<Map<String,Object>> selectProject(@Param("selectword") String selectword);
 }

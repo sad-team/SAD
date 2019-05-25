@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.naming.Context;
 import javax.swing.text.StringContent;
 import java.security.MessageDigest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -152,15 +153,13 @@ public class DataOperation{
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> searchResource(String searchword, String searchtype){
-        /*List<Map<String,Object>> result=null;
-        List temp;
+        List<Map<String,Object>> result=new ArrayList();
+        List<Map<String,Object>> temp;
         int state=-1;
         if(searchtype=="PAPER" || searchtype=="ALL"){
             state=0;
-            temp=template.queryForList("select 'PAPER' as `type`, title as resourceName, author as authorName, url as resourceUrl from `resource` inner join `paper` on `paper`.id=`resource`.id where author like concat('%',?,'%') or title like concat('%',?,'%')",new Object[]{searchword,searchword});
-            if(result==null){
-                result=temp;
-            }else{
+            temp=daoMapper.selectPaper(searchword);
+            if(temp!=null){
                 for(int i=0;i<temp.size();i++){
                     result.add((Map<String,Object>)temp.get(i));
                 }
@@ -168,10 +167,8 @@ public class DataOperation{
         }
         if(searchtype=="PATENT" || searchtype=="ALL"){
             state=0;
-            temp = template.queryForList("select 'PATENT' as `type`, title as resourceName, NULL as authorName, url as resourceUrl from `resource` inner join `patent` on `patent`.id=`resource`.id where title like concat('%',?,'%')",new Object[]{searchword});
-            if(result==null){
-                result=temp;
-            }else{
+            temp=daoMapper.selectPatent(searchword);
+            if(temp!=null){
                 for(int i=0;i<temp.size();i++){
                     result.add((Map<String,Object>)temp.get(i));
                 }
@@ -179,21 +176,18 @@ public class DataOperation{
         }
         if(searchtype=="PROJECT" || searchtype=="ALL"){
             state=0;
-            temp = template.queryForList("select 'PROJECT' as `type`, title as resourceName, NULL as authorName, url as resourceUrl from `resource` inner join `project` on `project`.id=`resource`.id where title like concat('%',?,'%')",new Object[]{searchword});
-            if(result==null){
-                result=temp;
-            }else{
+            temp=daoMapper.selectProject(searchword);
+            if(temp!=null){
                 for(int i=0;i<temp.size();i++){
                     result.add((Map<String,Object>)temp.get(i));
                 }
             }
         }
-        if(state==1){
+        if(state==-1){
             return null;
         }else{
             return result;
-        }*/
-        return null;
+        }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int getUserId(String username){
