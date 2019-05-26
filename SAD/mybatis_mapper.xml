@@ -66,13 +66,27 @@
     <select id="selectUserResource" resultType="java.util.HashMap">
         select id as id, title as resourceName, url as resourceUrl from `resource` where `resource`.ownerId=#{userid}
     </select>
+
+
     <select id="selectUserOrder" resultType="java.util.HashMap">
-        select customerId as `to`, sellerId as `from`, state as state, title as resourceName, `time` as orderDate from `order` inner join resource on resource.id=`order`.resourceId where `sellerId`=#{userid} or `customerId`=#{userid}
+        select customerId as `to`, resourceId as `resourceId`, state as state, title as resourceName, `time` as orderDate from `order` inner join resource on resource.id=`order`.resourceId where `customerId`=#{userid}
     </select>
+
+
     <update id="updateMoney">
         update `user` set `user`.`points`=`user`.`points`+#{addpoints} where `user`.`id`=#{userid}
     </update>
     <select id="selectMoney" resultType="int">
         select `user`.`points` where `user`.`id`=#{userid}
+    </select>
+
+    <select id="selectPaper" resultType="java.util.HashMap">
+        select 'PAPER' as `type`,`resource`.id as id, title as resourceName, author as authorName, url as resourceUrl from `resource` inner join `paper` on `paper`.id=`resource`.id where author like concat('%',#{selectword},'%') or title like concat('%',#{selectword},'%')
+    </select>
+    <select id="selectPatent" resultType="java.util.HashMap">
+        select 'PATENT' as `type`,`resource`.id as id, title as resourceName, NULL as authorName, url as resourceUrl from `resource` inner join `patent` on `patent`.id=`resource`.id where title like concat('%',#{selectword},'%')
+    </select>
+    <select id="selectProject" resultType="java.util.HashMap">
+        select 'PROJECT' as `type`,`resource`.id as id, title as resourceName, NULL as authorName, url as resourceUrl from `resource` inner join `project` on `project`.id=`resource`.id where title like concat('%',#{selectword},'%')
     </select>
 </mapper>
