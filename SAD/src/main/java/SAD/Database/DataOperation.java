@@ -269,14 +269,16 @@ public class DataOperation{
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
-    public int sellPaper(int userid,int sellerid,int points){
+    public int sellPaper(int userid,int resourceid,int points, String boughttime){
         if(!daoMapper.ifUserExistID(userid)) return -1;
-        else if(!daoMapper.ifUserExistID(sellerid)) return -2;
+        else if(!daoMapper.ifResourceExsit(resourceid)) return -2;
         else if(points<0) return -3;
         else if(daoMapper.selectMoney(userid)<points) return -4;
         else{
             daoMapper.updateMoney(userid,-points);
-            daoMapper.updateMoney(sellerid,points);
+            daoMapper.updateMoney(daoMapper.selectOwnerId(resourceid),points);
+            daoMapper.writeOrder(userid,resourceid,boughttime,1);
+            daoMapper.updateOwner(resourceid,userid);
             return 0;
         }
     }
@@ -288,6 +290,28 @@ public class DataOperation{
             daoMapper.updateMoney(userid,points);
             return 0;
         }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public List<Map<String,Object>> resourceDetail(int resourceid){
+        if(!daoMapper.ifResourceExsit(resourceid)) return null;
+        else{
+            return daoMapper.selectResourceDetails(resourceid);
+        }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public int makeComment(int resourceid,String content,String commenttime){
+        if(!daoMapper.ifResourceExsit(resourceid)) return -1;
+        else {
+            daoMapper.insertComment(resourceid,content,commenttime);
+            return 0;
+        }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public int ifHasBought(int userid, int resourceid){
+        if(!daoMapper.ifUserExistID(userid)) return -1;
+        else if(!daoMapper.ifResourceExsit(resourceid)) return -2;
+        else if(daoMapper.selectOwnerId(resourceid)==userid) return 1;
+        else if(daoMapper.selectOwnerId(resourceid)!=userid)return 0;
     }
     private String passwdSHA(String passwd) {
         try {

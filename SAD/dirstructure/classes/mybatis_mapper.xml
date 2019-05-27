@@ -77,7 +77,7 @@
         update `user` set `user`.`points`=`user`.`points`+#{addpoints} where `user`.`id`=#{userid}
     </update>
     <select id="selectMoney" resultType="int">
-        select `user`.`points` where `user`.`id`=#{userid}
+        select `user`.`points` from `user` where `user`.`id`=#{userid}
     </select>
 
     <select id="selectPaper" resultType="java.util.HashMap">
@@ -89,4 +89,16 @@
     <select id="selectProject" resultType="java.util.HashMap">
         select 'PROJECT' as `type`,`resource`.id as id, title as resourceName, NULL as authorName, url as resourceUrl from `resource` inner join `project` on `project`.id=`resource`.id where title like concat('%',#{selectword},'%')
     </select>
+    <insert id="writeOrder">
+        insert into `order`(`customerId`,`resourceId`,`time`,`state`) values(#{customerid},#{resourceid},#{time},#{state})
+    </insert>
+    <select id="ifResourceExsit" resultType="boolean">
+        select exists (select * from `resource` where id=#{resourceid})
+    </select>
+    <select id="selectOwnerId" resultType="int">
+        select `ownerId` from `resource` where id=#{resourceid}
+    </select>
+    <update id="updateOwner">
+        update `resource` set ownerId=#{newowner} where id=#{resourceid}
+    </update>
 </mapper>

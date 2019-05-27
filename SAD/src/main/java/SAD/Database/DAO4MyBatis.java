@@ -36,4 +36,10 @@ public interface DAO4MyBatis {
     List<Map<String,Object>> selectPaper(@Param("selectword") String selectword);
     List<Map<String,Object>> selectPatent(@Param("selectword") String selectword);
     List<Map<String,Object>> selectProject(@Param("selectword") String selectword);
+    void writeOrder(@Param("customerid")int customerid, @Param("resourceid")int resourceid,@Param("time") String time, @Param("state") int state);
+    boolean ifResourceExsit(@Param("resourceid") int resourceid);
+    int selectOwnerId(@Param("resourceid") int resourceid);
+    void updateOwner(@Param("resourceid") int resourceid, @Param("newowner") int newowner);
+    List<Map<String,Object>> selectResourceDetails(@Param("resourceid") int resourceid);
+    void insertComment(@Param("resourceid") int resourceid, @Param("content") String content, @Param("time")String time);
 }
