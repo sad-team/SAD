@@ -49,4 +49,13 @@ public class DatabaseTest {
     public void getMessageTest(){
         System.out.println(dataoperator.getMessage(7));
     }
+    @Test
+    public void sellPaperTest(){
+        System.out.println(dataoperator.sellPaper(1,2,10,(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date())));
+    }
+    @Test
+    public void resourceDetailTest(){
+        System.out.println(dataoperator.resourceDetail(2));
+        System.out.println(dataoperator.resourceDetail(1));
+    }
 }

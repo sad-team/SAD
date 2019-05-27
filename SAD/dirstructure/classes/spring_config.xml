@@ -8,7 +8,7 @@
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
         <property name="jdbcUrl" value="jdbc:mysql://eisuke.top:3306/remoteTry?useUnicode=true&amp;characterEncoding=UTF8"></property>
         <property name="user" value="sad"></property>
-        <property name="password" value="ThisIsAPasswd"></property>
+        <property name="password" value="********"></property>
         <property name="testConnectionOnCheckout" value="true"></property>
         <property name="idleConnectionTestPeriod" value="30"></property>
         <property name="initialPoolSize" value="100"></property>
