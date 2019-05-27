@@ -42,4 +42,5 @@ public interface DAO4MyBatis {
     void updateOwner(@Param("resourceid") int resourceid, @Param("newowner") int newowner);
     List<Map<String,Object>> selectResourceDetails(@Param("resourceid") int resourceid);
     void insertComment(@Param("resourceid") int resourceid, @Param("content") String content, @Param("time")String time);
+    boolean ifHasBought(@Param("resourceid") int resourceid, @Param("userid") int userid);
 }

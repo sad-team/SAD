@@ -107,4 +107,7 @@
     <insert id="insertComment">
         insert into `comment`(`content`,`time`,`resourceid`) values(#{content},#{time},#{resourceid})
     </insert>
+    <select id="ifHasBought" resultType="boolean">
+        select exists(select * from `order` where customerId=#{userid} and resourceId=#{resourceid})
+    </select>
 </mapper>

@@ -278,7 +278,7 @@ public class DataOperation{
             daoMapper.updateMoney(userid,-points);
             daoMapper.updateMoney(daoMapper.selectOwnerId(resourceid),points);
             daoMapper.writeOrder(userid,resourceid,boughttime,1);
-            daoMapper.updateOwner(resourceid,userid);
+            //daoMapper.updateOwner(resourceid,userid);
             return 0;
         }
     }
@@ -310,8 +310,8 @@ public class DataOperation{
     public int ifHasBought(int userid, int resourceid){
         if(!daoMapper.ifUserExistID(userid)) return -1;
         else if(!daoMapper.ifResourceExsit(resourceid)) return -2;
-        else if(daoMapper.selectOwnerId(resourceid)==userid) return 1;
-        else if(daoMapper.selectOwnerId(resourceid)!=userid)return 0;
+        else if(daoMapper.ifHasBought(resourceid,userid))return 1;
+        else if(!daoMapper.ifHasBought(resourceid,userid)) return 0;
         assert(false);
         return -3;
     }
