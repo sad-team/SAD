@@ -312,6 +312,8 @@ public class DataOperation{
         else if(!daoMapper.ifResourceExsit(resourceid)) return -2;
         else if(daoMapper.selectOwnerId(resourceid)==userid) return 1;
         else if(daoMapper.selectOwnerId(resourceid)!=userid)return 0;
+        assert(false);
+        return -3;
     }
     private String passwdSHA(String passwd) {
         try {
