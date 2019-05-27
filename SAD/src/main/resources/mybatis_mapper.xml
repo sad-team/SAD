@@ -3,7 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SAD.Database.DAO4MyBatis">
-    <select id="selectMessage" resultType="java.util.HashMap">
+    <cache eviction="LRU"
+           type="org.apache.ibatis.cache.impl.PerpetualCache"
+           flushInterval="86400000"
+           size="1048576"
+           readOnly="true"/>
+    <select id="selectMessage" resultType="java.util.HashMap" >
         select * from `message` where `message`.`receiverId`=#{receiverid}
     </select>
     <insert id="insertMessage">
