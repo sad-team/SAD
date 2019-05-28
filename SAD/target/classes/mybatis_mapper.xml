@@ -3,7 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SAD.Database.DAO4MyBatis">
-    <select id="selectMessage" resultType="java.util.HashMap">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" blocking="true">
+        <property name="maxEntriesLocalDisk" value='0'/>
+        <property name="maxEntriesLocalHeap" value="1048576"/>
+        <property name="memoryStoreEvictionPolicy" value="LRU"/>
+        <property name="updateCheck" value="false"/>
+    </cache>
+    <select id="selectMessage" resultType="java.util.HashMap" >
         select * from `message` where `message`.`receiverId`=#{receiverid}
     </select>
     <insert id="insertMessage">
@@ -77,7 +83,7 @@
         update `user` set `user`.`points`=`user`.`points`+#{addpoints} where `user`.`id`=#{userid}
     </update>
     <select id="selectMoney" resultType="int">
-        select `user`.`points` where `user`.`id`=#{userid}
+        select `user`.`points` from `user` where `user`.`id`=#{userid}
     </select>
 
     <select id="selectPaper" resultType="java.util.HashMap">
@@ -88,5 +94,32 @@
     </select>
     <select id="selectProject" resultType="java.util.HashMap">
         select 'PROJECT' as `type`,`resource`.id as id, title as resourceName, NULL as authorName, url as resourceUrl from `resource` inner join `project` on `project`.id=`resource`.id where title like concat('%',#{selectword},'%')
+    </select>
+    <insert id="writeOrder">
+        insert into `order`(`customerId`,`resourceId`,`time`,`state`) values(#{customerid},#{resourceid},#{time},#{state})
+    </insert>
+    <select id="ifResourceExsit" resultType="boolean">
+        select exists (select * from `resource` where id=#{resourceid})
+    </select>
+    <select id="selectOwnerId" resultType="int">
+        select `ownerId` from `resource` where id=#{resourceid}
+    </select>
+    <update id="updateOwner">
+        update `resource` set ownerId=#{newowner} where id=#{resourceid}
+    </update>
+    <select id="selectResourceDetails" resultType="java.util.HashMap">
+        select `downloadPrice`, `transferPrice`, `title`, `url`,`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime` from `resource` left join `paper` on `resource`.`id`=`paper`.`id` where `resource`.`id`=#{resourceid}
+    </select>
+    <insert id="insertComment">
+        insert into `comment`(`content`,`time`,`resourceid`) values(#{content},#{time},#{resourceid})
+    </insert>
+    <select id="ifHasBought" resultType="boolean">
+        select exists(select * from `order` where customerId=#{userid} and resourceId=#{resourceid})
+    </select>
+    <select id="selectTest" resultType="java.util.HashMap">
+        select * from tryTable
+    </select>
+    <select id="insertTest" resultType="java.util.HashMap">
+        insert into tryTable(id,x) values(#{id},#{x})
     </select>
 </mapper>
