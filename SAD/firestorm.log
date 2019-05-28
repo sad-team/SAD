@@ -1,0 +1,583 @@
+DEBUG main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@353d0772
+DEBUG main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 16 bean definitions from class path resource [spring_config.xml]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+INFO MLog-Init-Reporter com.mchange.v2.log.MLog - MLog clients using slf4j logging.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - Reading VM config for path list /com/mchange/v2/log/default-mchange-log.properties, /mchange-commons.properties, /c3p0.properties, hocon:/reference,/application,/c3p0,/, /mchange-log.properties, /
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+INFO main com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y98lp9urtgts|5a9d6f02,name=1hgen7la21y98lp9urtgts|5a9d6f02 registered.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y98lp9urtgts|5a9d6f02,name=1hgen7la21y98lp9urtgts|5a9d6f02 unregistered, in order to be reregistered after update.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y98lp9urtgts|5a9d6f02,name=1hgen7la21y98lp9urtgts|5a9d6f02 registered.
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataOperator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dao4mybatis'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlsessionFactory'
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis_config.xml]'
+WARN main net.sf.ehcache.config.ConfigurationFactory - No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/D:/server/maven/repository/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.jar!/ehcache-failsafe.xml
+DEBUG main net.sf.ehcache.config.ConfigurationFactory - Configuring ehcache from URL: jar:file:/D:/server/maven/repository/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.jar!/ehcache-failsafe.xml
+DEBUG main net.sf.ehcache.config.ConfigurationFactory - Configuring ehcache from InputStream
+DEBUG main net.sf.ehcache.config.BeanHandler - Ignoring ehcache attribute xmlns:xsi
+DEBUG main net.sf.ehcache.config.BeanHandler - Ignoring ehcache attribute xsi:noNamespaceSchemaLocation
+DEBUG main net.sf.ehcache.config.DiskStoreConfiguration - Disk Store Path: C:\Users\27164\AppData\Local\Temp\
+DEBUG main net.sf.ehcache.CacheManager - Creating new CacheManager with default config
+DEBUG main net.sf.ehcache.util.PropertyUtil - propertiesString is null.
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - No CacheManagerEventListenerFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.Cache - No BootstrapCacheLoaderFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.Cache - CacheWriter factory not configured. Skipping...
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - No CacheExceptionHandlerFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.store.MemoryStore - Initialized net.sf.ehcache.store.MemoryStore for SAD.Database.DAO4MyBatis
+DEBUG main net.sf.ehcache.DiskStorePathManager - Using diskstore path C:\Users\27164\AppData\Local\Temp
+DEBUG main net.sf.ehcache.DiskStorePathManager - Holding exclusive lock on C:\Users\27164\AppData\Local\Temp\.ehcache-diskstore.lock
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Failed to delete file %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Matching data file missing (or empty) for index file. Deleting index file C:\Users\27164\AppData\Local\Temp\%0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Failed to delete file %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.Cache - Initialised cache: SAD.Database.DAO4MyBatis
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - CacheDecoratorFactory not configured for defaultCache. Skipping for 'SAD.Database.DAO4MyBatis'.
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed mapper file: 'class path resource [mybatis_mapper.xml]'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionmanager'
+DEBUG main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@31da3d60
+DEBUG main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 16 bean definitions from class path resource [spring_config.xml]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y98lp9urtgts|1639f93a,name=1hgen7la21y98lp9urtgts|1639f93a registered.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y98lp9urtgts|1639f93a,name=1hgen7la21y98lp9urtgts|1639f93a unregistered, in order to be reregistered after update.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y98lp9urtgts|1639f93a,name=1hgen7la21y98lp9urtgts|1639f93a registered.
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataOperator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dao4mybatis'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlsessionFactory'
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis_config.xml]'
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed mapper file: 'class path resource [mybatis_mapper.xml]'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionmanager'
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+INFO main com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgen7la21y98lp9urtgts|1639f93a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.cj.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgen7la21y98lp9urtgts|1639f93a, idleConnectionTestPeriod -> 30, initialPoolSize -> 100, jdbcUrl -> jdbc:mysql://eisuke.top:3306/remoteTry?useUnicode=true&characterEncoding=UTF8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 1024, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {password=******, user=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> true, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool@1c5c616f config: [start -> 100; min -> 3; max -> 1024; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 30000; max_resource_age -> 0; max_idle_time -> 60000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 15000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false; force_synchronous_checkins -> false]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPoolManager - Created new pool for auth, username (masked): 'sa******'.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - acquire test -- pool size: 0; target_pool_size: 100; desired target? 1
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - awaitAvailable(): [unknown]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@686afeb5] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@686afeb5] on CHECKOUT has SUCCEEDED.
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@ca93621 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@6a48a7f3]] will not be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - ==>  Preparing: select * from tryTable 
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - ==> Parameters: 
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - <==      Total: 4
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.5
+DEBUG main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@353d0772
+DEBUG main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 16 bean definitions from class path resource [spring_config.xml]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+INFO MLog-Init-Reporter com.mchange.v2.log.MLog - MLog clients using slf4j logging.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - Reading VM config for path list /com/mchange/v2/log/default-mchange-log.properties, /mchange-commons.properties, /c3p0.properties, hocon:/reference,/application,/c3p0,/, /mchange-log.properties, /
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+INFO main com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9akay16ak2zk|189aa67a,name=1hgen7la21y9akay16ak2zk|189aa67a registered.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9akay16ak2zk|189aa67a,name=1hgen7la21y9akay16ak2zk|189aa67a unregistered, in order to be reregistered after update.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9akay16ak2zk|189aa67a,name=1hgen7la21y9akay16ak2zk|189aa67a registered.
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataOperator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dao4mybatis'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlsessionFactory'
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis_config.xml]'
+WARN main net.sf.ehcache.config.ConfigurationFactory - No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/D:/server/maven/repository/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.jar!/ehcache-failsafe.xml
+DEBUG main net.sf.ehcache.config.ConfigurationFactory - Configuring ehcache from URL: jar:file:/D:/server/maven/repository/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.jar!/ehcache-failsafe.xml
+DEBUG main net.sf.ehcache.config.ConfigurationFactory - Configuring ehcache from InputStream
+DEBUG main net.sf.ehcache.config.BeanHandler - Ignoring ehcache attribute xmlns:xsi
+DEBUG main net.sf.ehcache.config.BeanHandler - Ignoring ehcache attribute xsi:noNamespaceSchemaLocation
+DEBUG main net.sf.ehcache.config.DiskStoreConfiguration - Disk Store Path: C:\Users\27164\AppData\Local\Temp\
+DEBUG main net.sf.ehcache.CacheManager - Creating new CacheManager with default config
+DEBUG main net.sf.ehcache.util.PropertyUtil - propertiesString is null.
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - No CacheManagerEventListenerFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.Cache - No BootstrapCacheLoaderFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.Cache - CacheWriter factory not configured. Skipping...
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - No CacheExceptionHandlerFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.store.MemoryStore - Initialized net.sf.ehcache.store.MemoryStore for SAD.Database.DAO4MyBatis
+DEBUG main net.sf.ehcache.DiskStorePathManager - Using diskstore path C:\Users\27164\AppData\Local\Temp
+DEBUG main net.sf.ehcache.DiskStorePathManager - Holding exclusive lock on C:\Users\27164\AppData\Local\Temp\.ehcache-diskstore.lock
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Failed to delete file %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Matching data file missing (or empty) for index file. Deleting index file C:\Users\27164\AppData\Local\Temp\%0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Failed to delete file %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.Cache - Initialised cache: SAD.Database.DAO4MyBatis
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - CacheDecoratorFactory not configured for defaultCache. Skipping for 'SAD.Database.DAO4MyBatis'.
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed mapper file: 'class path resource [mybatis_mapper.xml]'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionmanager'
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Creating new transaction with name [SAD.Database.DataOperation.resourceDetail]: PROPAGATION_REQUIRED,ISOLATION_REPEATABLE_READ
+INFO main com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgen7la21y9akay16ak2zk|189aa67a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.cj.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgen7la21y9akay16ak2zk|189aa67a, idleConnectionTestPeriod -> 30, initialPoolSize -> 100, jdbcUrl -> jdbc:mysql://eisuke.top:3306/remoteTry?useUnicode=true&characterEncoding=UTF8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 1024, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {password=******, user=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> true, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool@69e05f61 config: [start -> 100; min -> 3; max -> 1024; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 30000; max_resource_age -> 0; max_idle_time -> 60000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 15000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false; force_synchronous_checkins -> false]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPoolManager - Created new pool for auth, username (masked): 'sa******'.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - acquire test -- pool size: 0; target_pool_size: 100; desired target? 1
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - awaitAvailable(): [unknown]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@4011f6c4] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@4011f6c4] on CHECKOUT has SUCCEEDED.
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Acquired Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@19058533 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@4315e9af]] for JDBC transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Changing isolation level of JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@19058533 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@4315e9af]] to 4
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Switching JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@19058533 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@4315e9af]] to manual commit
+DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG main org.mybatis.spring.SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d23faef]
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@19058533 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@4315e9af]] will be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==>  Preparing: select exists (select * from `resource` where id=?) 
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==> Parameters: 2(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d23faef]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d23faef] from current transaction
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==>  Preparing: select `downloadPrice`, `transferPrice`, `title`, `url`,`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime` from `resource` left join `paper` on `resource`.`id`=`paper`.`id` where `resource`.`id`=? 
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==> Parameters: 2(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d23faef]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d23faef]
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d23faef]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d23faef]
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Initiating transaction commit
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Committing JDBC transaction on Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@19058533 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@4315e9af]]
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Releasing JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@19058533 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@4315e9af]] after transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Creating new transaction with name [SAD.Database.DataOperation.resourceDetail]: PROPAGATION_REQUIRED,ISOLATION_REPEATABLE_READ
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@4a3e3da4] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@4a3e3da4] on CHECKOUT has SUCCEEDED.
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Acquired Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@6fd12c5 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@1de0a46c]] for JDBC transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Changing isolation level of JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@6fd12c5 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@1de0a46c]] to 4
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Switching JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@6fd12c5 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@1de0a46c]] to manual commit
+DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG main org.mybatis.spring.SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d1f1ff5]
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@6fd12c5 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@1de0a46c]] will be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==>  Preparing: select exists (select * from `resource` where id=?) 
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==> Parameters: 1(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d1f1ff5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d1f1ff5] from current transaction
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==>  Preparing: select `downloadPrice`, `transferPrice`, `title`, `url`,`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime` from `resource` left join `paper` on `resource`.`id`=`paper`.`id` where `resource`.`id`=? 
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==> Parameters: 1(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d1f1ff5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d1f1ff5]
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d1f1ff5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d1f1ff5]
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Initiating transaction commit
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Committing JDBC transaction on Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@6fd12c5 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@1de0a46c]]
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Releasing JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@6fd12c5 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@1de0a46c]] after transaction
+DEBUG main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@353d0772
+DEBUG main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 16 bean definitions from class path resource [spring_config.xml]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+INFO MLog-Init-Reporter com.mchange.v2.log.MLog - MLog clients using slf4j logging.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - Reading VM config for path list /com/mchange/v2/log/default-mchange-log.properties, /mchange-commons.properties, /c3p0.properties, hocon:/reference,/application,/c3p0,/, /mchange-log.properties, /
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+INFO main com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9c73w9kyfvs|5a9d6f02,name=1hgen7la21y9c73w9kyfvs|5a9d6f02 registered.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9c73w9kyfvs|5a9d6f02,name=1hgen7la21y9c73w9kyfvs|5a9d6f02 unregistered, in order to be reregistered after update.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9c73w9kyfvs|5a9d6f02,name=1hgen7la21y9c73w9kyfvs|5a9d6f02 registered.
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataOperator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dao4mybatis'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlsessionFactory'
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis_config.xml]'
+WARN main net.sf.ehcache.config.ConfigurationFactory - No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/D:/server/maven/repository/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.jar!/ehcache-failsafe.xml
+DEBUG main net.sf.ehcache.config.ConfigurationFactory - Configuring ehcache from URL: jar:file:/D:/server/maven/repository/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.jar!/ehcache-failsafe.xml
+DEBUG main net.sf.ehcache.config.ConfigurationFactory - Configuring ehcache from InputStream
+DEBUG main net.sf.ehcache.config.BeanHandler - Ignoring ehcache attribute xmlns:xsi
+DEBUG main net.sf.ehcache.config.BeanHandler - Ignoring ehcache attribute xsi:noNamespaceSchemaLocation
+DEBUG main net.sf.ehcache.config.DiskStoreConfiguration - Disk Store Path: C:\Users\27164\AppData\Local\Temp\
+DEBUG main net.sf.ehcache.CacheManager - Creating new CacheManager with default config
+DEBUG main net.sf.ehcache.util.PropertyUtil - propertiesString is null.
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - No CacheManagerEventListenerFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.Cache - No BootstrapCacheLoaderFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.Cache - CacheWriter factory not configured. Skipping...
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - No CacheExceptionHandlerFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.store.MemoryStore - Initialized net.sf.ehcache.store.MemoryStore for SAD.Database.DAO4MyBatis
+DEBUG main net.sf.ehcache.DiskStorePathManager - Using diskstore path C:\Users\27164\AppData\Local\Temp
+DEBUG main net.sf.ehcache.DiskStorePathManager - Holding exclusive lock on C:\Users\27164\AppData\Local\Temp\.ehcache-diskstore.lock
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Failed to delete file %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Matching data file missing (or empty) for index file. Deleting index file C:\Users\27164\AppData\Local\Temp\%0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Failed to delete file %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.Cache - Initialised cache: SAD.Database.DAO4MyBatis
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - CacheDecoratorFactory not configured for defaultCache. Skipping for 'SAD.Database.DAO4MyBatis'.
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed mapper file: 'class path resource [mybatis_mapper.xml]'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionmanager'
+DEBUG main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@31da3d60
+DEBUG main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 16 bean definitions from class path resource [spring_config.xml]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9c73w9kyfvs|1639f93a,name=1hgen7la21y9c73w9kyfvs|1639f93a registered.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9c73w9kyfvs|1639f93a,name=1hgen7la21y9c73w9kyfvs|1639f93a unregistered, in order to be reregistered after update.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9c73w9kyfvs|1639f93a,name=1hgen7la21y9c73w9kyfvs|1639f93a registered.
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataOperator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dao4mybatis'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlsessionFactory'
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis_config.xml]'
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed mapper file: 'class path resource [mybatis_mapper.xml]'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionmanager'
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+INFO main com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgen7la21y9c73w9kyfvs|1639f93a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.cj.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgen7la21y9c73w9kyfvs|1639f93a, idleConnectionTestPeriod -> 30, initialPoolSize -> 100, jdbcUrl -> jdbc:mysql://eisuke.top:3306/remoteTry?useUnicode=true&characterEncoding=UTF8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 1024, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {password=******, user=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> true, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool@1c5c616f config: [start -> 100; min -> 3; max -> 1024; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 30000; max_resource_age -> 0; max_idle_time -> 60000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 15000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false; force_synchronous_checkins -> false]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPoolManager - Created new pool for auth, username (masked): 'sa******'.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - acquire test -- pool size: 0; target_pool_size: 100; desired target? 1
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - awaitAvailable(): [unknown]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@6ca3a244] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@6ca3a244] on CHECKOUT has SUCCEEDED.
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@ca93621 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@6a48a7f3]] will not be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - ==>  Preparing: select * from tryTable 
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - ==> Parameters: 
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - <==      Total: 4
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.5
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Creating new transaction with name [SAD.Database.DataOperation.resourceDetail]: PROPAGATION_REQUIRED,ISOLATION_REPEATABLE_READ
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+INFO main com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgen7la21y9c73w9kyfvs|5a9d6f02, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.cj.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgen7la21y9c73w9kyfvs|5a9d6f02, idleConnectionTestPeriod -> 30, initialPoolSize -> 100, jdbcUrl -> jdbc:mysql://eisuke.top:3306/remoteTry?useUnicode=true&characterEncoding=UTF8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 1024, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {password=******, user=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> true, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool@4f5f6e45 config: [start -> 100; min -> 3; max -> 1024; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 30000; max_resource_age -> 0; max_idle_time -> 60000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 15000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false; force_synchronous_checkins -> false]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPoolManager - Created new pool for auth, username (masked): 'sa******'.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - acquire test -- pool size: 0; target_pool_size: 100; desired target? 1
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - awaitAvailable(): [unknown]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@1b3e04e0] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@1b3e04e0] on CHECKOUT has SUCCEEDED.
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Acquired Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] for JDBC transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Changing isolation level of JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] to 4
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Switching JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] to manual commit
+DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG main org.mybatis.spring.SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] will be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==>  Preparing: select exists (select * from `resource` where id=?) 
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==> Parameters: 2(Integer)
+DEBUG net.sf.ehcache.CacheManager@14faa38c net.sf.ehcache.util.UpdateChecker - Update check failed: 
+java.io.IOException: Server returned HTTP response code: 403 for URL: http://www.terracotta.org/kit/reflector?pageID=update.properties&kitID=ehcache.default&id=-1062702847&os-name=Windows+10&jvm-name=Java+HotSpot%28TM%29+64-Bit+Server+VM&jvm-version=11.0.2&platform=amd64&tc-version=2.6.11&tc-product=Ehcache+Core+2.6.11&source=Ehcache+Core&uptime-secs=1&patch=UNKNOWN
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1913)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1509)
+	at net.sf.ehcache.util.UpdateChecker.getUpdateProperties(UpdateChecker.java:108)
+	at net.sf.ehcache.util.UpdateChecker.doCheck(UpdateChecker.java:72)
+	at net.sf.ehcache.util.UpdateChecker.checkForUpdate(UpdateChecker.java:60)
+	at net.sf.ehcache.util.UpdateChecker.run(UpdateChecker.java:51)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5] from current transaction
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==>  Preparing: select `downloadPrice`, `transferPrice`, `title`, `url`,`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime` from `resource` left join `paper` on `resource`.`id`=`paper`.`id` where `resource`.`id`=? 
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==> Parameters: 2(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Initiating transaction commit
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Committing JDBC transaction on Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]]
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Releasing JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] after transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Creating new transaction with name [SAD.Database.DataOperation.resourceDetail]: PROPAGATION_REQUIRED,ISOLATION_REPEATABLE_READ
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@557aef9b] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@557aef9b] on CHECKOUT has SUCCEEDED.
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Acquired Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] for JDBC transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Changing isolation level of JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] to 4
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Switching JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] to manual commit
+DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG main org.mybatis.spring.SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] will be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==>  Preparing: select exists (select * from `resource` where id=?) 
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==> Parameters: 1(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d] from current transaction
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==>  Preparing: select `downloadPrice`, `transferPrice`, `title`, `url`,`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime` from `resource` left join `paper` on `resource`.`id`=`paper`.`id` where `resource`.`id`=? 
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==> Parameters: 1(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Initiating transaction commit
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Committing JDBC transaction on Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]]
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Releasing JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] after transaction
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.6666666666666666
+DEBUG main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@353d0772
+DEBUG main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 16 bean definitions from class path resource [spring_config.xml]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+INFO MLog-Init-Reporter com.mchange.v2.log.MLog - MLog clients using slf4j logging.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - Reading VM config for path list /com/mchange/v2/log/default-mchange-log.properties, /mchange-commons.properties, /c3p0.properties, hocon:/reference,/application,/c3p0,/, /mchange-log.properties, /
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG MLog-Init-Reporter com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+INFO main com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9fheta2b849|5a9d6f02,name=1hgen7la21y9fheta2b849|5a9d6f02 registered.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9fheta2b849|5a9d6f02,name=1hgen7la21y9fheta2b849|5a9d6f02 unregistered, in order to be reregistered after update.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9fheta2b849|5a9d6f02,name=1hgen7la21y9fheta2b849|5a9d6f02 registered.
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataOperator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dao4mybatis'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlsessionFactory'
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis_config.xml]'
+WARN main net.sf.ehcache.config.ConfigurationFactory - No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/D:/server/maven/repository/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.jar!/ehcache-failsafe.xml
+DEBUG main net.sf.ehcache.config.ConfigurationFactory - Configuring ehcache from URL: jar:file:/D:/server/maven/repository/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.jar!/ehcache-failsafe.xml
+DEBUG main net.sf.ehcache.config.ConfigurationFactory - Configuring ehcache from InputStream
+DEBUG main net.sf.ehcache.config.BeanHandler - Ignoring ehcache attribute xmlns:xsi
+DEBUG main net.sf.ehcache.config.BeanHandler - Ignoring ehcache attribute xsi:noNamespaceSchemaLocation
+DEBUG main net.sf.ehcache.config.DiskStoreConfiguration - Disk Store Path: C:\Users\27164\AppData\Local\Temp\
+DEBUG main net.sf.ehcache.CacheManager - Creating new CacheManager with default config
+DEBUG main net.sf.ehcache.util.PropertyUtil - propertiesString is null.
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - No CacheManagerEventListenerFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.Cache - No BootstrapCacheLoaderFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.Cache - CacheWriter factory not configured. Skipping...
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - No CacheExceptionHandlerFactory class specified. Skipping...
+DEBUG main net.sf.ehcache.store.MemoryStore - Initialized net.sf.ehcache.store.MemoryStore for SAD.Database.DAO4MyBatis
+DEBUG main net.sf.ehcache.DiskStorePathManager - Using diskstore path C:\Users\27164\AppData\Local\Temp
+DEBUG main net.sf.ehcache.DiskStorePathManager - Holding exclusive lock on C:\Users\27164\AppData\Local\Temp\.ehcache-diskstore.lock
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Failed to delete file %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Matching data file missing (or empty) for index file. Deleting index file C:\Users\27164\AppData\Local\Temp\%0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.store.disk.DiskStorageFactory - Failed to delete file %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.index
+DEBUG main net.sf.ehcache.Cache - Initialised cache: SAD.Database.DAO4MyBatis
+DEBUG main net.sf.ehcache.config.ConfigurationHelper - CacheDecoratorFactory not configured for defaultCache. Skipping for 'SAD.Database.DAO4MyBatis'.
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed mapper file: 'class path resource [mybatis_mapper.xml]'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionmanager'
+DEBUG main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@31da3d60
+DEBUG main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 16 bean definitions from class path resource [spring_config.xml]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9fheta2b849|1639f93a,name=1hgen7la21y9fheta2b849|1639f93a registered.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9fheta2b849|1639f93a,name=1hgen7la21y9fheta2b849|1639f93a unregistered, in order to be reregistered after update.
+DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hgen7la21y9fheta2b849|1639f93a,name=1hgen7la21y9fheta2b849|1639f93a registered.
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataOperator'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dao4mybatis'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlsessionFactory'
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis_config.xml]'
+DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed mapper file: 'class path resource [mybatis_mapper.xml]'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionmanager'
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+INFO main com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgen7la21y9fheta2b849|1639f93a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.cj.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgen7la21y9fheta2b849|1639f93a, idleConnectionTestPeriod -> 30, initialPoolSize -> 100, jdbcUrl -> jdbc:mysql://eisuke.top:3306/remoteTry?useUnicode=true&characterEncoding=UTF8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 1024, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {password=******, user=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> true, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+DEBUG main com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool@1c5c616f config: [start -> 100; min -> 3; max -> 1024; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 30000; max_resource_age -> 0; max_idle_time -> 60000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 15000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false; force_synchronous_checkins -> false]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPoolManager - Created new pool for auth, username (masked): 'sa******'.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - acquire test -- pool size: 0; target_pool_size: 100; desired target? 1
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - awaitAvailable(): [unknown]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@651d9e9f] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@651d9e9f] on CHECKOUT has SUCCEEDED.
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@ca93621 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@6a48a7f3]] will not be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - ==>  Preparing: select * from tryTable 
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - ==> Parameters: 
+DEBUG main SAD.Database.DAO4MyBatis.selectTest - <==      Total: 4
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.5
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Creating new transaction with name [SAD.Database.DataOperation.resourceDetail]: PROPAGATION_REQUIRED,ISOLATION_REPEATABLE_READ
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+INFO main com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgen7la21y9fheta2b849|5a9d6f02, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.cj.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgen7la21y9fheta2b849|5a9d6f02, idleConnectionTestPeriod -> 30, initialPoolSize -> 100, jdbcUrl -> jdbc:mysql://eisuke.top:3306/remoteTry?useUnicode=true&characterEncoding=UTF8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 1024, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {password=******, user=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> true, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool@4f5f6e45 config: [start -> 100; min -> 3; max -> 1024; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 30000; max_resource_age -> 0; max_idle_time -> 60000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 15000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false; force_synchronous_checkins -> false]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPoolManager - Created new pool for auth, username (masked): 'sa******'.
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - acquire test -- pool size: 0; target_pool_size: 100; desired target? 1
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - awaitAvailable(): [unknown]
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@47ccd472] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@47ccd472] on CHECKOUT has SUCCEEDED.
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Acquired Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] for JDBC transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Changing isolation level of JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] to 4
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Switching JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] to manual commit
+DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG main org.mybatis.spring.SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] will be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==>  Preparing: select exists (select * from `resource` where id=?) 
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==> Parameters: 2(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5] from current transaction
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==>  Preparing: select `downloadPrice`, `transferPrice`, `title`, `url`,`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime` from `resource` left join `paper` on `resource`.`id`=`paper`.`id` where `resource`.`id`=? 
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==> Parameters: 2(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a7ad6e5]
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Initiating transaction commit
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Committing JDBC transaction on Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]]
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Releasing JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@608bc8f8 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@5412bfea]] after transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Creating new transaction with name [SAD.Database.DataOperation.resourceDetail]: PROPAGATION_REQUIRED,ISOLATION_REPEATABLE_READ
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Testing PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@1919063e] on CHECKOUT.
+DEBUG main com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool - Test of PooledConnection [com.mchange.v2.c3p0.impl.NewPooledConnection@1919063e] on CHECKOUT has SUCCEEDED.
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Acquired Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] for JDBC transaction
+DEBUG main org.springframework.jdbc.datasource.DataSourceUtils - Changing isolation level of JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] to 4
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Switching JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] to manual commit
+DEBUG net.sf.ehcache.CacheManager@14faa38c net.sf.ehcache.util.UpdateChecker - Update check failed: 
+java.io.IOException: Server returned HTTP response code: 403 for URL: http://www.terracotta.org/kit/reflector?pageID=update.properties&kitID=ehcache.default&id=-1062702847&os-name=Windows+10&jvm-name=Java+HotSpot%28TM%29+64-Bit+Server+VM&jvm-version=11.0.2&platform=amd64&tc-version=2.6.11&tc-product=Ehcache+Core+2.6.11&source=Ehcache+Core&uptime-secs=1&patch=UNKNOWN
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1913)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1509)
+	at net.sf.ehcache.util.UpdateChecker.getUpdateProperties(UpdateChecker.java:108)
+	at net.sf.ehcache.util.UpdateChecker.doCheck(UpdateChecker.java:72)
+	at net.sf.ehcache.util.UpdateChecker.checkForUpdate(UpdateChecker.java:60)
+	at net.sf.ehcache.util.UpdateChecker.run(UpdateChecker.java:51)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG main org.mybatis.spring.SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] will be managed by Spring
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==>  Preparing: select exists (select * from `resource` where id=?) 
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - ==> Parameters: 1(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.ifResourceExsit - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d] from current transaction
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.0
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==>  Preparing: select `downloadPrice`, `transferPrice`, `title`, `url`,`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime` from `resource` left join `paper` on `resource`.`id`=`paper`.`id` where `resource`.`id`=? 
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - ==> Parameters: 1(Integer)
+DEBUG main SAD.Database.DAO4MyBatis.selectResourceDetails - <==      Total: 1
+DEBUG main org.mybatis.spring.SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main net.sf.ehcache.store.disk.Segment - put added 0 on heap
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main org.mybatis.spring.SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1000d54d]
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Initiating transaction commit
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Committing JDBC transaction on Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]]
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault removed 0 from heap
+DEBUG %0053%0041%0044%002e%0044atabase%002e%0044%0041%004f4%004dy%0042atis.data net.sf.ehcache.store.disk.Segment - fault added 0 on disk
+DEBUG main org.springframework.jdbc.datasource.DataSourceTransactionManager - Releasing JDBC Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@3f702946 [wrapping: com.mysql.cj.jdbc.ConnectionImpl@42b6d0cc]] after transaction
+DEBUG main SAD.Database.DAO4MyBatis - Cache Hit Ratio [SAD.Database.DAO4MyBatis]: 0.6666666666666666

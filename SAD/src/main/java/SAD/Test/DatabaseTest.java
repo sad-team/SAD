@@ -2,15 +2,18 @@ package SAD.Test;
 
 import SAD.Database.DAO4MyBatis;
 import SAD.Database.DataOperation;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class DatabaseTest {
     public static DataOperation dataoperator;
@@ -60,5 +63,22 @@ public class DatabaseTest {
     public void resourceDetailTest(){
         System.out.println(dataoperator.resourceDetail(2));
         System.out.println(dataoperator.resourceDetail(1));
+    }
+    @Test
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public void testRead(){
+        SqlSessionFactory sessionFactory=(SqlSessionFactory) new ClassPathXmlApplicationContext("spring_config.xml").getBean("sqlsessionFactory");
+        SqlSession session1=sessionFactory.openSession();
+        SqlSession session2=sessionFactory.openSession();
+        DAO4MyBatis mapper1=session1.getMapper(DAO4MyBatis.class);
+        DAO4MyBatis mapper2=session2.getMapper(DAO4MyBatis.class);
+        List a=mapper1.selectTest();
+        session1.close();
+        List b=mapper2.selectTest();
+        System.out.println(dataoperator.resourceDetail(2));
+        System.out.println(dataoperator.resourceDetail(1));
+        List c=mapper2.selectTest();
+        System.out.println(a==b);
+        session2.close();
     }
 }
