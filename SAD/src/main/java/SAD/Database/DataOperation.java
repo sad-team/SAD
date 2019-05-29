@@ -56,6 +56,11 @@ public class DataOperation{
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public List<Map<String,Object>> getComment(int resourceid){
+        if(!daoMapper.ifResourceExsit(resourceid)) return null;
+        return daoMapper.getComment(resourceid);
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int userAuthority(int userid, String passwd){
         if(!daoMapper.ifUserExistID(userid)){
             return -1;

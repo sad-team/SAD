@@ -65,6 +65,10 @@ public class DatabaseTest {
         System.out.println(dataoperator.resourceDetail(1));
     }
     @Test
+    public void getCommentTest(){
+        System.out.println(dataoperator.getComment(1));
+    }
+    @Test
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public void testRead(){
         SqlSessionFactory sessionFactory=(SqlSessionFactory) new ClassPathXmlApplicationContext("spring_config.xml").getBean("sqlsessionFactory");
