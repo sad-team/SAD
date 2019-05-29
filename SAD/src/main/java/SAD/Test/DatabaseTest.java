@@ -85,4 +85,12 @@ public class DatabaseTest {
         System.out.println(a==b);
         session2.close();
     }
+    @Test
+    public void uploadResourceTest(){
+        System.out.println(dataoperator.uploadResource(12,122,"aaaa","http",1));
+    }
+    @Test
+    public void initPaperTest(){
+        System.out.println(dataoperator.initPaper(1083,"dddd",1,"sdad","2018"));
+    }
 }

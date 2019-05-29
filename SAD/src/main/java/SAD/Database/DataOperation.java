@@ -70,6 +70,21 @@ public class DataOperation{
             return 0;
         }
     }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public int uploadResource(int downloadprice, int transferprice, String title, String url, int ownerid){
+        if(downloadprice<0) return -1;
+        if(transferprice<0) return -2;
+        if(!daoMapper.ifUserExistID(ownerid)) return -3;
+        daoMapper.insertResource(downloadprice,transferprice,title,url,ownerid);
+        return 0;
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public int initPaper(int id,String brief,int from, String author, String issuedtime){
+        if(!daoMapper.ifResourceExsit(id)) return -1;
+        if(!daoMapper.ifUserExistID(from)) return -2;
+        daoMapper.insertPaper(id,brief,from,author,issuedtime);
+        return 0;
+    }
     /**
      * 修改密码
      *

@@ -114,6 +114,12 @@
     <select id="getComment" resultType="java.util.HashMap">
         select `content`, `time` from `comment` where `resourceId`=#{resourceid}
     </select>
+    <insert id="insertResource">
+        insert into `resource`(`downloadPrice`,`transferPrice`,`title`,`url`,`ownerId`,`purchaseQuantity`) values(#{downloadprice},#{transferprice},#{title},#{url},#{ownerid},-1)
+    </insert>
+    <insert id="insertPaper">
+        insert into `paper`(`id`,`brief`,`from`,`author`,`issuedTime`) values(#{id},#{brief},#{from},#{author},#{issuedtime})
+    </insert>
     <select id="selectTest" resultType="java.util.HashMap">
         select * from tryTable
     </select>
