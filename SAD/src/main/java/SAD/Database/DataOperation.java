@@ -11,6 +11,7 @@ import javax.naming.Context;
 import javax.swing.text.StringContent;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -75,13 +76,29 @@ public class DataOperation{
         if(downloadprice<0) return -1;
         if(transferprice<0) return -2;
         if(!daoMapper.ifUserExistID(ownerid)) return -3;
-        daoMapper.insertResource(downloadprice,transferprice,title,url,ownerid);
+        Map<String,Integer> map=new HashMap<String, Integer>();
+        map.put("id",1);
+        daoMapper.insertResource(map,downloadprice,transferprice,title,url,ownerid);
+        return map.get("id");
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public int transferResource(int oldowner, int newowner, int resourceid, int point,String time){
+        if(!daoMapper.ifUserExistID(oldowner)) return -1;
+        if(!daoMapper.ifUserExistID(newowner)) return -2;
+        if(!daoMapper.ifResourceExsit(resourceid)) return -3;
+        if(point<0) return -4;
+        if(daoMapper.selectMoney(newowner)<point) return -5;
+        if((Integer) (daoMapper.selectResourceDetails(resourceid).get(0).get("ownerId"))!=oldowner) return -6;
+        if((Integer)(daoMapper.selectResourceDetails(resourceid).get(0).get("transferPrice"))!=point) return -7;
+        daoMapper.writeOrder(newowner,resourceid,time,1);
+        daoMapper.updateOwner(resourceid,newowner);
+        daoMapper.updateMoney(oldowner,point);
+        daoMapper.updateMoney(newowner,-point);
         return 0;
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
-    public int initPaper(int id,String brief,int from, String author, String issuedtime){
+    public int initPaper(int id,String brief,String from, String author, String issuedtime){
         if(!daoMapper.ifResourceExsit(id)) return -1;
-        if(!daoMapper.ifUserExistID(from)) return -2;
         daoMapper.insertPaper(id,brief,from,author,issuedtime);
         return 0;
     }

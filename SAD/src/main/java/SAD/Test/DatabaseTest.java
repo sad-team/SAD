@@ -90,7 +90,11 @@ public class DatabaseTest {
         System.out.println(dataoperator.uploadResource(12,122,"aaaa","http",1));
     }
     @Test
+    public void transferResourceTest(){
+        System.out.println(dataoperator.transferResource(1,6,1091,122,"1111-11-11 11:11:11"));
+    }
+    @Test
     public void initPaperTest(){
-        System.out.println(dataoperator.initPaper(1083,"dddd",1,"sdad","2018"));
+        System.out.println(dataoperator.initPaper(1083,"dddd","dsajs","sdad","2018"));
     }
 }

@@ -44,8 +44,8 @@ public interface DAO4MyBatis {
     List<Map<String,Object>> getComment(@Param("resourceid")int resourceid);
     void insertComment(@Param("resourceid") int resourceid, @Param("content") String content, @Param("time")String time);
     boolean ifHasBought(@Param("resourceid") int resourceid, @Param("userid") int userid);
-    void insertResource(@Param("downloadprice") int downloadprice, @Param("transferprice") int transferprice, @Param("title") String title, @Param("url")String url, @Param("ownerid") int ownerid);
-    void insertPaper(@Param("id") int id, @Param("brief") String brief, @Param("from") int from, @Param("author") String author, @Param("issuedtime") String issuedtime);
+    int insertResource(@Param("id")Object id,@Param("downloadprice") int downloadprice, @Param("transferprice") int transferprice, @Param("title") String title, @Param("url")String url, @Param("ownerid") int ownerid);
+    void insertPaper(@Param("id") int id, @Param("brief") String brief, @Param("from") String from, @Param("author") String author, @Param("issuedtime") String issuedtime);
     List<Map<String,Object>> selectTest();
     void insertTest(@Param("id") int id,@Param("x") int x);
 }

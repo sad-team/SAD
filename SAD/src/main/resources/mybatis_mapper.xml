@@ -114,7 +114,7 @@
     <select id="getComment" resultType="java.util.HashMap">
         select `content`, `time` from `comment` where `resourceId`=#{resourceid}
     </select>
-    <insert id="insertResource">
+    <insert id="insertResource" useGeneratedKeys="true" keyProperty="id.id">
         insert into `resource`(`downloadPrice`,`transferPrice`,`title`,`url`,`ownerId`,`purchaseQuantity`) values(#{downloadprice},#{transferprice},#{title},#{url},#{ownerid},-1)
     </insert>
     <insert id="insertPaper">
