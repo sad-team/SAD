@@ -132,6 +132,12 @@
             <artifactId>solr-solrj</artifactId>
             <version>8.1.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.12</version>
+        </dependency>
 
     </dependencies>
 </project>

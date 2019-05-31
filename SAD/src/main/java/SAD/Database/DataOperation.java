@@ -4,17 +4,14 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
-import org.junit.Test;
+import org.apache.solr.common.SolrDocument;
+import org.apache.solr.common.SolrDocumentList;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import sun.jvm.hotspot.utilities.soql.SOQLException;
 
-import javax.naming.Context;
-import javax.swing.text.StringContent;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -28,7 +25,8 @@ public class DataOperation{
     private SAD.Database.DAO4MyBatis daoMapper;
     private static DataOperation dataOperator;
     private static ApplicationContext context;
-    private DataOperation(){}
+    private final int onePage=1024;
+    //private DataOperation(){}
     public void setDaoMapper(SAD.Database.DAO4MyBatis daomapper){
         this.daoMapper=daomapper;
     }
@@ -55,7 +53,7 @@ public class DataOperation{
     public int selectUserRole(int userid){
         try {
             if (ifUserExistID(userid)) {
-                if (daoMapper.ifExpertExist(userid)) {
+                if (ifExpertExist(userid)) {
                     return 1;
                 } else {
                     if (daoMapper.ifAdminExist(userid)) {
@@ -75,8 +73,14 @@ public class DataOperation{
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getComment(int resourceid){
-        if(!daoMapper.ifResourceExsit(resourceid)) return null;
-        return daoMapper.getComment(resourceid);
+        try {
+            if (!ifResourceExsit(resourceid)) return null;
+            return selectComment(resourceid);
+        }catch(IOException e){
+            return null;
+        }catch(SolrServerException e){
+            return null;
+        }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int userAuthority(int userid, String passwd){
@@ -115,11 +119,11 @@ public class DataOperation{
         try {
             if (!ifUserExistID(oldowner)) return -1;
             if (!ifUserExistID(newowner)) return -2;
-            if (!daoMapper.ifResourceExsit(resourceid)) return -3;
+            if (!ifResourceExsit(resourceid)) return -3;
             if (point < 0) return -4;
-            if (daoMapper.selectMoney(newowner) < point) return -5;
-            if ((Integer) (daoMapper.selectResourceDetails(resourceid).get(0).get("ownerId")) != oldowner) return -6;
-            if ((Integer) (daoMapper.selectResourceDetails(resourceid).get(0).get("transferPrice")) != point) return -7;
+            if (selectMoney(newowner) < point) return -5;
+            if ((Integer) (selectResourceDetails(resourceid).get(0).get("ownerId")) != oldowner) return -6;
+            if ((Integer) (selectResourceDetails(resourceid).get(0).get("transferPrice")) != point) return -7;
             daoMapper.writeOrder(newowner, resourceid, time, 1);
             daoMapper.updateOwner(resourceid, newowner);
             daoMapper.updateMoney(oldowner, point);
@@ -133,9 +137,15 @@ public class DataOperation{
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int initPaper(int id,String brief,String from, String author, String issuedtime){
-        if(!daoMapper.ifResourceExsit(id)) return -1;
-        daoMapper.insertPaper(id,brief,from,author,issuedtime);
-        return 0;
+        try {
+            if (!ifResourceExsit(id)) return -1;
+            daoMapper.insertPaper(id, brief, from, author, issuedtime);
+            return 0;
+        }catch(IOException e){
+            return -2;
+        }catch(SolrServerException e){
+            return -3;
+        }
     }
     /**
      * 修改密码
@@ -182,15 +192,21 @@ public class DataOperation{
      */
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int newUser(String username, String identification, String cellphone, String passwd, String email){
-        if(daoMapper.ifUserExistName(username)){
-            return -1;
-        }else if(daoMapper.ifPhoneExist(cellphone)){
-            return -3;
-        }else if(daoMapper.ifIdentificationExist(identification)){
-            return -2;
-        }else{
-            daoMapper.insertUser(username,identification,cellphone,passwdSHA(passwd),email);
-            return 0;
+        try {
+            if (ifUserExistName(username)) {
+                return -1;
+            } else if (ifPhoneExist(cellphone)) {
+                return -3;
+            } else if (daoMapper.ifIdentificationExist(identification)) {
+                return -2;
+            } else {
+                daoMapper.insertUser(username, identification, cellphone, passwdSHA(passwd), email);
+                return 0;
+            }
+        }catch(IOException e){
+            return -4;
+        }catch(SolrServerException e){
+            return -5;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
@@ -199,7 +215,7 @@ public class DataOperation{
             if (!ifUserExistID(userid)) {
                 return null;
             } else {
-                return daoMapper.selectUserOrder(userid);
+                return selectUserOrder(userid);
             }
         }catch(IOException e){
             return null;
@@ -245,7 +261,7 @@ public class DataOperation{
             if (!ifUserExistID(userid)) {
                 return -1;
             } else {
-                return daoMapper.selectPoint(userid);
+                return selectMoney(userid);
             }
         }catch(IOException e){
             return -2;
@@ -260,7 +276,7 @@ public class DataOperation{
         int state=-1;
         if(searchtype=="PAPER" || searchtype=="ALL"){
             state=0;
-            temp=daoMapper.selectPaper(searchword);
+            temp=selectPaper(searchword);
             if(temp!=null){
                 for(int i=0;i<temp.size();i++){
                     result.add((Map<String,Object>)temp.get(i));
@@ -269,7 +285,7 @@ public class DataOperation{
         }
         if(searchtype=="PATENT" || searchtype=="ALL"){
             state=0;
-            temp=daoMapper.selectPatent(searchword);
+            temp=selectPatent(searchword);
             if(temp!=null){
                 for(int i=0;i<temp.size();i++){
                     result.add((Map<String,Object>)temp.get(i));
@@ -278,7 +294,7 @@ public class DataOperation{
         }
         if(searchtype=="PROJECT" || searchtype=="ALL"){
             state=0;
-            temp=daoMapper.selectProject(searchword);
+            temp=selectProject(searchword);
             if(temp!=null){
                 for(int i=0;i<temp.size();i++){
                     result.add((Map<String,Object>)temp.get(i));
@@ -293,10 +309,16 @@ public class DataOperation{
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int getUserId(String username){
-        if(!daoMapper.ifUserExistName(username)){
-            return -1;
-        }else{
-            return daoMapper.selectUserId(username);
+        try {
+            if (!ifUserExistName(username)) {
+                return -1;
+            } else {
+                return selectUserId(username);
+            }
+        }catch(IOException e){
+            return -2;
+        }catch(SolrServerException e){
+            return -3;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
@@ -305,7 +327,7 @@ public class DataOperation{
             if (!ifUserExistID(userid)) {
                 return null;
             } else {
-                return daoMapper.selectUserInfo(userid);
+                return selectUserInfo(userid);
             }
         }catch(IOException e){
             return null;
@@ -319,7 +341,7 @@ public class DataOperation{
             if (!ifUserExistID(userid)) {
                 return null;
             } else {
-                return daoMapper.selectUserResource(userid);
+                return selectUserResource(userid);
             }
         }catch(IOException e){
             return null;
@@ -332,7 +354,7 @@ public class DataOperation{
         try {
             if (!ifUserExistID(userid)) return -1;
             else if (!ifUserExistID(followid)) return -2;
-            else if (daoMapper.ifFollow(userid, followid)) return -3;
+            else if (ifFollow(userid, followid)) return -3;
             else {
                 daoMapper.makeFollow(userid, followid);
                 return 0;
@@ -348,7 +370,7 @@ public class DataOperation{
         try {
             if (!ifUserExistID(userid)) return null;
             else {
-                return daoMapper.selectFollowedUser(userid);
+                return selectFollowedUser(userid);
             }
         }catch(IOException e){
             return null;
@@ -361,7 +383,7 @@ public class DataOperation{
         try {
             if (!ifUserExistID(userid)) return -1;
             else if (!ifUserExistID(followid)) return -2;
-            else if (!daoMapper.ifFollow(userid, followid)) return -3;
+            else if (!ifFollow(userid, followid)) return -3;
             else {
                 daoMapper.unmakeFollow(userid, followid);
                 return 0;
@@ -374,78 +396,126 @@ public class DataOperation{
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int sendMessage(int from, int to, String content,String time){
-        if(!ifUserExistID(from)) return -1;
-        else if (!ifUserExistID(to)) return -2;
-        else{
-            daoMapper.insertMessage(from,to,content,time);
-            return 0;
+        try {
+            if (!ifUserExistID(from)) return -1;
+            else if (!ifUserExistID(to)) return -2;
+            else {
+                daoMapper.insertMessage(from, to, content, time);
+                return 0;
+            }
+        }catch(IOException e){
+            return -3;
+        }catch(SolrServerException e){
+            return -4;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getMessage(int receiverid){
-        if(!ifUserExistID(receiverid)) return null;
-        else{
-            return daoMapper.selectMessage(receiverid);
+        try {
+            if (!ifUserExistID(receiverid)) return null;
+            else {
+                return selectMessage(receiverid);
+            }
+        }catch(IOException e){
+            return null;
+        }catch(SolrServerException e){
+            return null;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int followState(int userid,int expertid){
-        if(!ifUserExistID(userid)){
-            return -1;
-        }else if(!ifUserExistID(expertid)){
-            return -2;
-        }else if(daoMapper.ifFollow(userid,expertid)){
-            return 1;
-        }else {
-            return 0;
+        try {
+            if (!ifUserExistID(userid)) {
+                return -1;
+            } else if (!ifUserExistID(expertid)) {
+                return -2;
+            } else if (ifFollow(userid, expertid)) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }catch(IOException e){
+            return -3;
+        }catch(SolrServerException e){
+            return -4;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int sellPaper(int userid,int resourceid,int points, String boughttime){
-        if(!ifUserExistID(userid)) return -1;
-        else if(!daoMapper.ifResourceExsit(resourceid)) return -2;
-        else if(points<0) return -3;
-        else if(daoMapper.selectMoney(userid)<points) return -4;
-        else{
-            daoMapper.updateMoney(userid,-points);
-            daoMapper.updateMoney(daoMapper.selectOwnerId(resourceid),points);
-            daoMapper.writeOrder(userid,resourceid,boughttime,1);
-            //daoMapper.updateOwner(resourceid,userid);
-            return 0;
+        try {
+            if (!ifUserExistID(userid)) return -1;
+            else if (!ifResourceExsit(resourceid)) return -2;
+            else if (points < 0) return -3;
+            else if (selectMoney(userid) < points) return -4;
+            else {
+                daoMapper.updateMoney(userid, -points);
+                daoMapper.updateMoney(selectOwnerId(resourceid), points);
+                daoMapper.writeOrder(userid, resourceid, boughttime, 1);
+                //daoMapper.updateOwner(resourceid,userid);
+                return 0;
+            }
+        }catch(IOException e){
+            return -5;
+        }catch(SolrServerException e){
+            return -6;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int chargeMoney(int userid,int points){
-        if(!ifUserExistID(userid)) return -1;
-        else if(points<0) return -2;
-        else{
-            daoMapper.updateMoney(userid,points);
-            return 0;
+        try {
+            if (!ifUserExistID(userid)) return -1;
+            else if (points < 0) return -2;
+            else {
+                daoMapper.updateMoney(userid, points);
+                return 0;
+            }
+        }catch(IOException e){
+            return -3;
+        }catch (SolrServerException e){
+            return -4;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> resourceDetail(int resourceid){
-        if(!daoMapper.ifResourceExsit(resourceid)) return null;
-        else{
-            return daoMapper.selectResourceDetails(resourceid);
+        try {
+            if (!ifResourceExsit(resourceid)) return null;
+            else {
+                return selectResourceDetails(resourceid);
+            }
+        }catch(IOException e){
+            return null;
+        }catch(SolrServerException e){
+            return null;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int makeComment(int resourceid,String content,String commenttime){
-        if(!daoMapper.ifResourceExsit(resourceid)) return -1;
-        else {
-            daoMapper.insertComment(resourceid,content,commenttime);
-            return 0;
+        try {
+            if (!ifResourceExsit(resourceid)) return -1;
+            else {
+                daoMapper.insertComment(resourceid, content, commenttime);
+                return 0;
+            }
+        }catch(IOException e){
+            return -2;
+        }catch(SolrServerException e){
+            return -3;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int ifHasBought(int userid, int resourceid){
-        if(!ifUserExistID(userid)) return -1;
-        else if(!daoMapper.ifResourceExsit(resourceid)) return -2;
-        else if(daoMapper.ifHasBought(resourceid,userid))return 1;
-        else if(!daoMapper.ifHasBought(resourceid,userid)) return 0;
-        assert(false);
-        return -3;
+        try {
+            if (!ifUserExistID(userid)) return -1;
+            else if (!ifResourceExsit(resourceid)) return -2;
+            else if (hasBought(resourceid, userid)) return 1;
+            else if (!hasBought(resourceid, userid)) return 0;
+            assert (false);
+            return -3;
+        }catch(IOException e){
+            return -4;
+        }catch(SolrServerException e){
+            return -5;
+        }
     }
     private String passwdSHA(String passwd) {
         try {
@@ -475,15 +545,30 @@ public class DataOperation{
         return matcher.matches();
     }
     private boolean ifUserExistID(int userid)throws IOException,SolrServerException{
+        return ifOnly("selectUserID",userid);
+    }
+    private boolean ifExpertExist(int userid)throws IOException,SolrServerException{
+        return ifOnly("selectExpertUserID",userid);
+    }
+    private boolean ifResourceExsit(int resourceid) throws IOException,SolrServerException{
+        return ifOnly("selectResourceID",resourceid);
+    }
+    private boolean ifUserExistName(String username)throws IOException,SolrServerException{
+        return ifOnly("selectUserName",username);
+    }
+    private boolean ifPhoneExist(String phone) throws IOException,SolrServerException{
+        return ifOnly("selectUserCellphoneNumber",phone);
+    }
+    private long count(String key,Object value)throws IOException,SolrServerException{
         HttpSolrClient solrClient=context.getBean(HttpSolrClient.class);
         SolrQuery sq=new SolrQuery();
-        String querystring="selectUserID:"+((Integer)userid).toString();
+        sq.setStart(0);
+        sq.setRows(onePage);//全局分页大小
+        String querystring=key+":"+value.toString();
         sq.set("q",querystring);
         try {
             QueryResponse qr = solrClient.query(sq);
-            long nums = qr.getResults().getNumFound();
-            if (nums != 0 && nums != 1) throw new RuntimeException();
-            return nums == 1;
+            return qr.getResults().getNumFound();
         }catch(IOException e){
             e.printStackTrace();
             throw e;
@@ -493,5 +578,138 @@ public class DataOperation{
         }finally{
             solrClient.close();
         }
+    }
+    private boolean ifOnly(String key,Object value)throws IOException,SolrServerException{
+        try {
+            long nums=count(key,value);
+            if (nums != 0 && nums != 1) throw new RuntimeException();
+            return nums == 1;
+        }catch(IOException e){
+            throw e;
+        }catch(SolrServerException e){
+            throw e;
+        }
+    }
+    private List<Map<String,Object>> selectComment(int resourceid)throws IOException,SolrServerException{
+        List<Map<String,Object>> result=new ArrayList();
+        HttpSolrClient solrClient=context.getBean(HttpSolrClient.class);
+        SolrQuery sq=new SolrQuery();
+        sq.setStart(0);
+        sq.setRows(onePage);//全局分页大小
+        String querystring="selectCommentResourceID:"+((Integer)resourceid).toString();
+        sq.set("q",querystring);
+        try {
+            QueryResponse qr = solrClient.query(sq);
+            SolrDocumentList resultlist=qr.getResults();
+            for(SolrDocument sd:resultlist){
+                Map<String,Object> map=new HashMap<String, Object>();
+                map.put("content",(String)(sd.getFieldValue("selectCommentContent")));
+                map.put("time",(String)(sd.getFieldValue("selectCommentTime")));
+                result.add(map);
+            }
+            return result;
+        }catch(IOException e){
+            e.printStackTrace();
+            throw e;
+        }catch(SolrServerException e){
+            e.printStackTrace();
+            throw e;
+        }finally{
+            solrClient.close();
+        }
+    }
+    private int selectMoney(int userid)throws IOException,SolrServerException{
+        HttpSolrClient solrClient=context.getBean(HttpSolrClient.class);
+        SolrQuery sq=new SolrQuery();
+        sq.setStart(0);
+        sq.setRows(onePage);//全局分页大小
+        String querystring="selectUserID:"+((Integer)userid).toString();
+        sq.set("q",querystring);
+        try {
+            QueryResponse qr = solrClient.query(sq);
+            SolrDocumentList resultlist=qr.getResults();
+            if(resultlist.getNumFound()!=1) throw new RuntimeException();
+            return (Integer)(resultlist.get(0).getFieldValue("selectUserPoints"));
+        }catch(IOException e){
+            e.printStackTrace();
+            throw e;
+        }catch(SolrServerException e){
+            e.printStackTrace();
+            throw e;
+        }finally{
+            solrClient.close();
+        }
+    }
+    private List<Map<String,Object>> selectResourceDetails(int resourceid) throws IOException,SolrServerException {
+        List<Map<String,Object>> result=new ArrayList();
+        HttpSolrClient solrClient=context.getBean(HttpSolrClient.class);
+        SolrQuery sq=new SolrQuery();
+        sq.setStart(0);
+        sq.setRows(onePage);//全局分页大小
+        String querystring="selectResourceID:"+((Integer)resourceid).toString();
+        sq.set("q",querystring);
+        try {
+            //`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime`
+            QueryResponse qr = solrClient.query(sq);
+            SolrDocumentList resultlist=qr.getResults();
+            for(SolrDocument sd:resultlist){
+                Map<String,Object> map=new HashMap<String, Object>();
+                map.put("downloadPrice",(Integer)(sd.getFieldValue("selectResourceDownloadPrice")));
+                map.put("transferPrice",(Integer)(sd.getFieldValue("selectResourceTransferPrice")));
+                map.put("title",(String)(sd.getFieldValue("selectResourceTitle")));
+                map.put("url",(String)(sd.getFieldValue("selectResourceURL")));
+                map.put("ownerId",(Integer)(sd.getFieldValue("selectResourceOwnerID")));
+                map.put("purchaseQuantity",(Integer)(sd.getFieldValue("selectResourcePurchaseQuantity")));
+                map.put("brief",(String)(sd.getFieldValue("selectResourceBrief")));
+                map.put("author",(String)(sd.getFieldValue("selectResourceAuthor")));
+                map.put("issuedTime",(String)(sd.getFieldValue("selectResourceIssuedTime")));
+                result.add(map);
+            }
+            return result;
+        }catch(IOException e){
+            e.printStackTrace();
+            throw e;
+        }catch(SolrServerException e){
+            e.printStackTrace();
+            throw e;
+        }finally{
+            solrClient.close();
+        }
+    }
+    private List<Map<String,Object>> selectUserOrder(int userid){
+        return null;
+    }
+    private List<Map<String,Object>> selectPaper(String selectword){
+        return null;
+    }
+    private List<Map<String,Object>> selectPatent(String selectword){
+        return null;
+    }
+    private List<Map<String,Object>> selectProject(String selectword){
+        return null;
+    }
+    private int selectUserId(String username){
+        return 0;
+    }
+    private List<Map<String,Object>> selectUserInfo(int userid){
+        return null;
+    }
+    private List<Map<String,Object>> selectUserResource(int userid){
+        return null;
+    }
+    private boolean ifFollow(int userid,int followid){
+        return false;
+    }
+    private List<Map<String,Object>> selectFollowedUser(int userid){
+        return null;
+    }
+    private List<Map<String,Object>> selectMessage(int userid){
+        return null;
+    }
+    private int selectOwnerId(int resourceid){
+        return 0;
+    }
+    private boolean hasBought(int resourceid,int userid){
+        return false;
     }
 }

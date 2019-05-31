@@ -68,7 +68,7 @@ public class DatabaseTest {
     public void getCommentTest(){
         System.out.println(dataoperator.getComment(1));
     }
-    @Test
+    /*@Test
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public void testRead(){
         SqlSessionFactory sessionFactory=(SqlSessionFactory) new ClassPathXmlApplicationContext("spring_config.xml").getBean("sqlsessionFactory");
@@ -84,7 +84,7 @@ public class DatabaseTest {
         List c=mapper2.selectTest();
         System.out.println(a==b);
         session2.close();
-    }
+    }*/
     @Test
     public void uploadResourceTest(){
         System.out.println(dataoperator.uploadResource(12,122,"aaaa","http",1));
