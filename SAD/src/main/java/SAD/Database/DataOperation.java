@@ -1,4 +1,6 @@
 package SAD.Database;
+import org.apache.solr.client.solrj.SolrClient;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -20,12 +22,16 @@ import java.util.regex.Pattern;
 public class DataOperation{
     private SAD.Database.DAO4MyBatis daoMapper;
     private static DataOperation dataOperator;
+    private static ApplicationContext context;
+    private DataOperation(){}
     public void setDaoMapper(SAD.Database.DAO4MyBatis daomapper){
         this.daoMapper=daomapper;
     }
     public static DataOperation getOperator(){
+        if(context==null){
+            context=new ClassPathXmlApplicationContext("spring_config.xml");
+        }
         if(dataOperator==null){
-            ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
             dataOperator=(DataOperation) context.getBean("dataOperator");
         }
         return dataOperator;

@@ -4,42 +4,45 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SAD.Database.DAO4MyBatis">
     <cache type="org.mybatis.caches.ehcache.EhcacheCache" blocking="true"/>
-    <select id="selectMessage" resultType="java.util.HashMap" >
+    <!--select id="selectMessage" resultType="java.util.HashMap" >
         select * from `message` where `message`.`receiverId`=#{receiverid}
-    </select>
+    </select-->
     <insert id="insertMessage">
         insert into `message`(`senderId`,`receiverId`,`content`,`sendTime`) values(#{fromuserid},#{touserid},#{content},#{time})
     </insert>
-    <select id="selectFollowedUser" resultType="java.util.HashMap">
+    <!--select id="selectFollowedUser" resultType="java.util.HashMap">
         select `follow`.`followedId` from `follow` where `follow`.`userid`=#{userid}
-    </select>
-    <select id="ifFollow" resultType="boolean">
+    </select-->
+    <!--select id="ifFollow" resultType="boolean">
         select exists (select * from `follow` where `follow`.`userid`=#{userid} and `follow`.`followedId`=#{followid})
-    </select>
+    </select-->
     <insert id="makeFollow">
         insert into `follow`(`userid`,`followedId`) values(#{userid},#{followid})
     </insert>
     <delete id="unmakeFollow">
         delete from `follow` where userid=#{userid} and followedId=#{followid}
     </delete>
-    <select id="ifUserExistID" resultType="boolean">
+    <!--select id="ifUserExistID" resultType="boolean">
         select exists(select * from `user` where `user`.`id`=#{userid})
-    </select>
-    <select id="ifUserExistName" resultType="boolean">
+    </select-->
+    <!--select id="ifUserExistName" resultType="boolean">
         select exists(select * from `user` where `user`.`name`=#{username})
-    </select>
-    <select id="ifExpertExist" resultType="boolean">
+    </select-->
+    <!--select id="ifExpertExist" resultType="boolean">
         select exists(select * from `expert` where `expert`.`userId`=#{expertid})
-    </select>
+    </select-->
+    <!--此不适用solr-->
     <select id="ifAdminExist" resultType="boolean">
         select exists(select * from `administrator` where `administrator`.`userId`=#{adminid})
     </select>
-    <select id="ifPhoneExist" resultType="boolean">
+    <!--select id="ifPhoneExist" resultType="boolean">
         select exists(select * from `user` where `user`.`cellphoneNumber`=#{phone})
-    </select>
+    </select-->
+    <!--此不适用solr-->
     <select id="ifIdentificationExist" resultType="boolean">
         select exists(select * from `user` where `user`.`identification`=#{identification})
     </select>
+    <!--此不适用solr-->
     <select id="selectUserAuthentication" resultType="boolean">
         select exists(select * from `user` where `user`.`id`=#{userid} and `user`.`password`=#{passwd})
     </select>
@@ -55,33 +58,33 @@
     <update id="updatePhone">
         update `user` set `user`.`cellphoneNumber`=#{phone} where `user`.`id`=#{userid}
     </update>
-    <select id="selectPoint" resultType="int">
+    <!--select id="selectPoint" resultType="int">
         select points from `user` where `user`.`id`=#{userid}
-    </select>
-    <select id="selectUserId" resultType="int">
+    </select-->
+    <!--select id="selectUserId" resultType="int">
         select id from `user` where `user`.`name`=#{username}
-    </select>
-    <select id="selectUserInfo" resultType="java.util.HashMap">
+    </select-->
+    <!--select id="selectUserInfo" resultType="java.util.HashMap">
         select `name`, `cellphoneNumber`, `email` from `user` where `user`.id=#{userid}
-    </select>
-    <select id="selectUserResource" resultType="java.util.HashMap">
+    </select-->
+    <!--select id="selectUserResource" resultType="java.util.HashMap">
         select id as id, title as resourceName, url as resourceUrl from `resource` where `resource`.ownerId=#{userid}
-    </select>
+    </select-->
 
 
-    <select id="selectUserOrder" resultType="java.util.HashMap">
+    <!--select id="selectUserOrder" resultType="java.util.HashMap">
         select customerId as `to`, resourceId as `resourceId`, state as state, title as resourceName, `time` as orderDate from `order` inner join resource on resource.id=`order`.resourceId where `customerId`=#{userid}
-    </select>
+    </select-->
 
 
     <update id="updateMoney">
         update `user` set `user`.`points`=`user`.`points`+#{addpoints} where `user`.`id`=#{userid}
     </update>
-    <select id="selectMoney" resultType="int">
+    <!--select id="selectMoney" resultType="int">
         select `user`.`points` from `user` where `user`.`id`=#{userid}
-    </select>
+    </select-->
 
-    <select id="selectPaper" resultType="java.util.HashMap">
+    <!--select id="selectPaper" resultType="java.util.HashMap">
         select 'PAPER' as `type`,`resource`.id as id, title as resourceName, author as authorName, url as resourceUrl from `resource` inner join `paper` on `paper`.id=`resource`.id where author like concat('%',#{selectword},'%') or title like concat('%',#{selectword},'%')
     </select>
     <select id="selectPatent" resultType="java.util.HashMap">
@@ -89,41 +92,41 @@
     </select>
     <select id="selectProject" resultType="java.util.HashMap">
         select 'PROJECT' as `type`,`resource`.id as id, title as resourceName, NULL as authorName, url as resourceUrl from `resource` inner join `project` on `project`.id=`resource`.id where title like concat('%',#{selectword},'%')
-    </select>
+    </select-->
     <insert id="writeOrder">
         insert into `order`(`customerId`,`resourceId`,`time`,`state`) values(#{customerid},#{resourceid},#{time},#{state})
     </insert>
-    <select id="ifResourceExsit" resultType="boolean">
+    <!--select id="ifResourceExsit" resultType="boolean">
         select exists (select * from `resource` where id=#{resourceid})
-    </select>
-    <select id="selectOwnerId" resultType="int">
+    </select-->
+    <!--select id="selectOwnerId" resultType="int">
         select `ownerId` from `resource` where id=#{resourceid}
-    </select>
+    </select-->
     <update id="updateOwner">
         update `resource` set ownerId=#{newowner} where id=#{resourceid}
     </update>
-    <select id="selectResourceDetails" resultType="java.util.HashMap">
+    <!--select id="selectResourceDetails" resultType="java.util.HashMap">
         select `downloadPrice`, `transferPrice`, `title`, `url`,`ownerId`, `purchaseQuantity`, `brief`, `author`, `issuedTime` from `resource` left join `paper` on `resource`.`id`=`paper`.`id` where `resource`.`id`=#{resourceid}
-    </select>
+    </select-->
     <insert id="insertComment">
         insert into `comment`(`content`,`time`,`resourceid`) values(#{content},#{time},#{resourceid})
     </insert>
-    <select id="ifHasBought" resultType="boolean">
+    <!--select id="ifHasBought" resultType="boolean">
         select exists(select * from `order` where customerId=#{userid} and resourceId=#{resourceid})
-    </select>
-    <select id="getComment" resultType="java.util.HashMap">
+    </select-->
+    <!--select id="getComment" resultType="java.util.HashMap">
         select `content`, `time` from `comment` where `resourceId`=#{resourceid}
-    </select>
+    </select-->
     <insert id="insertResource" useGeneratedKeys="true" keyProperty="id.id">
         insert into `resource`(`downloadPrice`,`transferPrice`,`title`,`url`,`ownerId`,`purchaseQuantity`) values(#{downloadprice},#{transferprice},#{title},#{url},#{ownerid},-1)
     </insert>
     <insert id="insertPaper">
         insert into `paper`(`id`,`brief`,`from`,`author`,`issuedTime`) values(#{id},#{brief},#{from},#{author},#{issuedtime})
     </insert>
-    <select id="selectTest" resultType="java.util.HashMap">
+    <!--select id="selectTest" resultType="java.util.HashMap">
         select * from tryTable
     </select>
     <select id="insertTest" resultType="java.util.HashMap">
         insert into tryTable(id,x) values(#{id},#{x})
-    </select>
+    </select-->
 </mapper>
