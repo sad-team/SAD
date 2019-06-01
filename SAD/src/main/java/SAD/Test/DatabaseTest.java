@@ -33,7 +33,11 @@ public class DatabaseTest {
     }
     @Test
     public void searchResourceTest(){
-        System.out.println(dataoperator.searchResource("人工","ALL"));
+        System.out.println(dataoperator.searchResource("人工智能","PAPER").size());
+    }
+    @Test
+    public void searchResourceSolrTest(){
+        System.out.println(dataoperator.searchResourceSolr("人工智能","ALL").size());
     }
     @Test
     public void getUserOrderTest(){

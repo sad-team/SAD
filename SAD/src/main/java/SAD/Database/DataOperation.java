@@ -1,4 +1,9 @@
 package SAD.Database;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.common.SolrDocument;
+import org.apache.solr.common.SolrDocumentList;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -9,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.naming.Context;
 import javax.swing.text.StringContent;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,13 +25,16 @@ import java.util.regex.Pattern;
 
 public class DataOperation{
     private SAD.Database.DAO4MyBatis daoMapper;
+    private static ApplicationContext context;
     private static DataOperation dataOperator;
     public void setDaoMapper(SAD.Database.DAO4MyBatis daomapper){
         this.daoMapper=daomapper;
     }
     public static DataOperation getOperator(){
+        if(context==null){
+            context=new ClassPathXmlApplicationContext("spring_config.xml");
+        }
         if(dataOperator==null){
-            ApplicationContext context=new ClassPathXmlApplicationContext("spring_config.xml");
             dataOperator=(DataOperation) context.getBean("dataOperator");
         }
         return dataOperator;
@@ -224,6 +233,70 @@ public class DataOperation{
             return null;
         }else{
             return result;
+        }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public List<Map<String,Object>> searchResourceSolr(String searchword, String searchtype){
+        try {
+            HttpSolrClient solrclient = context.getBean(HttpSolrClient.class);
+            List<Map<String, Object>> result = new ArrayList();
+            int state = -1;
+            SolrQuery query = new SolrQuery();
+            query.setRows(1024);
+            query.set("q", "selectResourceBrief:" + searchword + " || selectResourceTitle:" + searchword);
+            SolrDocumentList documents = solrclient.query(query).getResults();
+            if (searchtype == "PAPER" || searchtype == "ALL") {
+                state = 0;
+                for (SolrDocument document:documents) {
+                    if(document.getFieldValue("selectResourceBrief")!=null) {
+                        Map<String,Object> temp=new HashMap<String, Object>();
+                        temp.put("type", "PAPER");
+                        temp.put("id", Integer.parseInt((String) document.getFieldValue("selectResourceID")));
+                        temp.put("resourceName", (String) document.getFieldValue("selectResourceTitle"));
+                        temp.put("authorName", (String) document.getFieldValue("selectResourceAuthor"));
+                        temp.put("resourceUrl", (String) document.getFieldValue("selectResourceURL"));
+                        result.add(temp);
+                    }
+                }
+            }
+            if (searchtype == "PATENT" || searchtype == "ALL") {
+                state = 0;
+                for (SolrDocument document:documents) {
+                    if(document.getFieldValue("selectResourceType")!=null) {
+                        Map<String, Object> temp = new HashMap<String, Object>();
+                        temp.put("type", "PATENT");
+                        temp.put("id", Integer.parseInt((String) document.getFieldValue("selectResourceID")));
+                        temp.put("resourceName", (String) document.getFieldValue("selectResourceTitle"));
+                        temp.put("resourceUrl", (String) document.getFieldValue("selectResourceURL"));
+                        result.add(temp);
+                    }
+                }
+            }
+            if (searchtype == "PROJECT" || searchtype == "ALL") {
+                state = 0;
+                for (SolrDocument document:documents) {
+                    if(document.getFieldValue("selectResourceFunds")!=null) {
+                        Map<String, Object> temp = new HashMap<String, Object>();
+                        temp.put("type", "PATENT");
+                        temp.put("id", Integer.parseInt((String) document.getFieldValue("selectResourceID")));
+                        temp.put("resourceName", (String) document.getFieldValue("selectResourceTitle"));
+                        temp.put("resourceUrl", (String) document.getFieldValue("selectResourceURL"));
+                        result.add(temp);
+                    }
+                }
+            }
+            solrclient.close();
+            if (state == -1) {
+                return null;
+            } else {
+                return result;
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+            return null;
+        }catch (SolrServerException e){
+            e.printStackTrace();
+            return null;
         }
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)

@@ -33,5 +33,12 @@
         <property name="mapperInterface" value="SAD.Database.DAO4MyBatis"/>
         <property name="sqlSessionFactory" ref="sqlsessionFactory"/>
     </bean>
+    <bean id="solrClientBuilder"
+          class="org.apache.solr.client.solrj.impl.HttpSolrClient.Builder">
+        <constructor-arg name="baseSolrUrl"
+                         value="http://hondoueisuke:ThisIsAPasswd@120.78.83.103:8983/solr/sad" />
+    </bean>
+    <bean factory-bean="solrClientBuilder" factory-method="build" id="httpSolrClient" scope="prototype">
+    </bean>
     <tx:annotation-driven transaction-manager="transactionmanager"/>
 </beans>
