@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class DatabaseTest {
@@ -96,6 +97,22 @@ public class DatabaseTest {
     @Test
     public void transferResourceTest(){
         System.out.println(dataoperator.transferResource(1,6,1091,122,"1111-11-11 11:11:11"));
+    }
+    @Test
+    public void insertSolrTest(){
+        HashMap<String,Object> map=new HashMap<String, Object>();
+        map.put("selectResourceApprovingDepartment",1);
+        map.put("selectResourceEndDate","2015-12-08");
+        map.put("selectResourceTitle","人工try");
+        map.put("selectResourceOwnerID",1);
+        map.put("selectResourceURL","test.pdf");
+        map.put("selectResourceDownloadPrice",1);
+        map.put("selectResourcePurchaseQuantity",1);
+        map.put("selectResourceFunds",1);
+        map.put("selectResourceID",1);
+        map.put("selectResourceStartDate","2015-12-08");
+        map.put("selectResourceTransferPrice",1);
+        dataoperator.insertSolr(map);
     }
     @Test
     public void initPaperTest(){

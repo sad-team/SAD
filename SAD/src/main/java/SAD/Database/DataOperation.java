@@ -1,5 +1,6 @@
 package SAD.Database;
 import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.SolrRequest;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrDocument;
@@ -16,11 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.naming.Context;
 import javax.swing.text.StringContent;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -309,6 +308,7 @@ public class DataOperation{
                 document.addField(entry.getKey(), entry.getValue());
             }
             solrclient.add(document);
+            solrclient.commit();
             solrclient.close();
         }catch(IOException e){
             e.printStackTrace();
