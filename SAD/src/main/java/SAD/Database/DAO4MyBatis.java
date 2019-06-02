@@ -48,4 +48,5 @@ public interface DAO4MyBatis {
     void insertPaper(@Param("id") int id, @Param("brief") String brief, @Param("from") String from, @Param("author") String author, @Param("issuedtime") String issuedtime);
     List<Map<String,Object>> selectTest();
     void insertTest(@Param("id") int id,@Param("x") int x);
+    List<Map<String,Object>> selectFollowerId(@Param("userid") int userid);
 }

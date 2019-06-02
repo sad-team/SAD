@@ -126,4 +126,7 @@
     <select id="insertTest" resultType="java.util.HashMap">
         insert into tryTable(id,x) values(#{id},#{x})
     </select>
+    <select id="selectFollowerId" resultType="java.util.HashMap">
+        select userid from `follow` where followedId=userid
+    </select>
 </mapper>

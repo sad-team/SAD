@@ -4,6 +4,7 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
+import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -298,6 +299,26 @@ public class DataOperation{
             e.printStackTrace();
             return null;
         }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public void insertSolr(HashMap<String,Object> doc){
+        try {
+            HttpSolrClient solrclient = context.getBean(HttpSolrClient.class);
+            SolrInputDocument document = new SolrInputDocument();
+            for (Map.Entry<String, Object> entry : doc.entrySet()) {
+                document.addField(entry.getKey(), entry.getValue());
+            }
+            solrclient.add(document);
+        }catch(IOException e){
+            e.printStackTrace();
+        }catch(SolrServerException e){
+            e.printStackTrace();
+        }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public List<Map<String,Object>> getFollower(int userid){
+        if(!daoMapper.ifUserExistID(userid)) return null;
+        return daoMapper.selectFollowerId(userid);
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int getUserId(String username){
