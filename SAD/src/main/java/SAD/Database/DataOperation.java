@@ -309,6 +309,7 @@ public class DataOperation{
                 document.addField(entry.getKey(), entry.getValue());
             }
             solrclient.add(document);
+            solrclient.close();
         }catch(IOException e){
             e.printStackTrace();
         }catch(SolrServerException e){
