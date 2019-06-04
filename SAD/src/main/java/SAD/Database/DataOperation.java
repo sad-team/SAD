@@ -1,6 +1,5 @@
 package SAD.Database;
 import org.apache.solr.client.solrj.SolrQuery;
-import org.apache.solr.client.solrj.SolrRequest;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrDocument;
@@ -17,9 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.naming.Context;
 import javax.swing.text.StringContent;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.security.MessageDigest;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -65,6 +66,13 @@ public class DataOperation{
             return -1;
         }
     }
+    @Transactional(
+            isolation = Isolation.REPEATABLE_READ,
+            propagation = Propagation.REQUIRED
+    )
+    public void deleteMessage(int messageId) {
+        this.daoMapper.deleteMessage(messageId);
+    }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public List<Map<String,Object>> getComment(int resourceid){
         if(!daoMapper.ifResourceExsit(resourceid)) return null;
@@ -98,7 +106,7 @@ public class DataOperation{
         if(point<0) return -4;
         if(daoMapper.selectMoney(newowner)<point) return -5;
         if((Integer) (daoMapper.selectResourceDetails(resourceid).get(0).get("ownerId"))!=oldowner) return -6;
-        if((Integer)(daoMapper.selectResourceDetails(resourceid).get(0).get("transferPrice"))!=point) return -7;
+       // if((Integer)(daoMapper.selectResourceDetails(resourceid).get(0).get("transferPrice"))!=point) return -7;
         daoMapper.writeOrder(newowner,resourceid,time,1);
         daoMapper.updateOwner(resourceid,newowner);
         daoMapper.updateMoney(oldowner,point);
@@ -322,6 +330,13 @@ public class DataOperation{
         return daoMapper.selectFollowerId(userid);
     }
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
+    public List<Map<String,Object>> getFollowedUser(int userid){
+        if(!daoMapper.ifUserExistID(userid)) return null;
+        else{
+            return daoMapper.selectFollowedUser(userid);
+        }
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int getUserId(String username){
         if(!daoMapper.ifUserExistName(username)){
             return -1;
@@ -355,13 +370,7 @@ public class DataOperation{
             return 0;
         }
     }
-    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
-    public List<Map<String,Object>> getFollowedUser(int userid){
-        if(!daoMapper.ifUserExistID(userid)) return null;
-        else{
-            return daoMapper.selectFollowedUser(userid);
-        }
-    }
+
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public int unFollowUser(int userid, int followid){
         if(!daoMapper.ifUserExistID(userid)) return -1;
@@ -449,6 +458,7 @@ public class DataOperation{
     }
     private String passwdSHA(String passwd) {
         try {
+
             byte[] result;
             MessageDigest digest = MessageDigest.getInstance("SHA-512");
             digest.reset();
@@ -464,6 +474,8 @@ public class DataOperation{
                     hs = hs + stmp;
             }
             return hs.toLowerCase();
+
+           // return "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413";
         } catch (Exception e) {
             e.printStackTrace();
             return null;
