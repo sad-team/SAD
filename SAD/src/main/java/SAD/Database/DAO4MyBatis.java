@@ -1,3 +1,8 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
 package SAD.Database;
 
 import org.apache.ibatis.annotations.Param;
@@ -49,4 +54,8 @@ public interface DAO4MyBatis {
     List<Map<String,Object>> selectTest();
     void insertTest(@Param("id") int id,@Param("x") int x);
     List<Map<String,Object>> selectFollowerId(@Param("userid") int userid);
+
+    void deleteMessage(@Param("messageId") int var1);
+
+
 }

@@ -13,14 +13,21 @@
     <select id="selectFollowedUser" resultType="java.util.HashMap">
         select `follow`.`followedId` from `follow` where `follow`.`userid`=#{userid}
     </select>
+    <select id="selectFollowerId" resultType="java.util.HashMap">
+        select userid from `follow` where `follow`.`followedId`=#{userid}
+    </select>
     <select id="ifFollow" resultType="boolean">
         select exists (select * from `follow` where `follow`.`userid`=#{userid} and `follow`.`followedId`=#{followid})
     </select>
+
     <insert id="makeFollow">
         insert into `follow`(`userid`,`followedId`) values(#{userid},#{followid})
     </insert>
     <delete id="unmakeFollow">
         delete from `follow` where userid=#{userid} and followedId=#{followid}
+    </delete>
+    <delete id="deleteMessage">
+        delete from `message` where `message`.`id`=#{messageId}
     </delete>
     <select id="ifUserExistID" resultType="boolean">
         select exists(select * from `user` where `user`.`id`=#{userid})
@@ -126,7 +133,5 @@
     <select id="insertTest" resultType="java.util.HashMap">
         insert into tryTable(id,x) values(#{id},#{x})
     </select>
-    <select id="selectFollowerId" resultType="java.util.HashMap">
-        select userid from `follow` where followedId=userid
-    </select>
+
 </mapper>
