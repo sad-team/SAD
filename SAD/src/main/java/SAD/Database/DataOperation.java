@@ -243,7 +243,7 @@ public class DataOperation{
             int state = -1;
             SolrQuery query = new SolrQuery();
             query.setRows(1024);
-            query.set("q", "selectResourceBrief:" + searchword + " || selectResourceTitle:" + searchword);
+            query.set("q", "selectResourceBrief:" + searchword + " || selectResourceTitle:" + searchword + " || selectResourceIntroduction:"+searchword);
             SolrDocumentList documents = solrclient.query(query).getResults();
             if (searchtype == "PAPER" || searchtype == "ALL") {
                 state = 0;
