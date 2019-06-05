@@ -262,7 +262,7 @@ public class DataOperation{
             if (searchtype == "PATENT" || searchtype == "ALL") {
                 state = 0;
                 for (SolrDocument document:documents) {
-                    if(document.getFieldValue("selectResourceType")!=null) {
+                    if(document.getFieldValue("selectResourceIntroduction")!=null) {
                         Map<String, Object> temp = new HashMap<String, Object>();
                         temp.put("type", "PATENT");
                         temp.put("id", Integer.parseInt((String) document.getFieldValue("selectResourceID")));
