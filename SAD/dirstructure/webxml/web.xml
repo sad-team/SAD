@@ -4,6 +4,9 @@
         <session-timeout>30</session-timeout>
     </session-config>
 
+    <listener>
+        <listener-class>org.apache.solr.handler.dataimport.scheduler.ApplicationListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>tryServlet</servlet-name>
         <servlet-class>SAD.Try.tryServlet</servlet-class>
